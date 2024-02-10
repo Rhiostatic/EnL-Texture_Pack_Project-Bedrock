@@ -1,0 +1,52 @@
+{
+  "format_version": "1.10.0",
+  "minecraft:client_entity": {
+    "description": {
+      "identifier": "minecraft:polar_bear",
+      "materials": {
+        "default": "polar_bear"
+      },
+      "textures": {
+        "default": "textures/entity/polarbear"
+      },
+      "geometry": {
+        "default": "geometry.polarbear"
+      },
+      "scripts": {
+        "pre_animation": [
+          "variable.eye_target_x = query.target_y_rotation - this;",
+          "variable.eye_target_y = query.target_x_rotation - this;"
+        ],
+        "animate": [
+          "general",
+          "facial",
+          "look_target",
+          "baby_polarbear",
+          "damage"
+        ]
+      },
+      "animations": {
+        "base": "animation.polarbear.base",
+        "mouth": "animation.polarbear.mouth",
+        "ears": "animation.polarbear.ears",
+        "walking": "animation.polarbear.walking",
+        "running": "animation.polarbear.running",
+        "base_face": "animation.polarbear.base_face",
+        "death_face": "animation.polarbear.death_face",
+        "looking": "animation.polarbear.looking",
+        "baby": "animation.polarbear.baby",
+        "swimming": "animation.polarbear.swimming",
+        "attack": "animation.polarbear.attack",
+        "hurt": "animation.polarbear.hurt",
+        "general": "controller.animation.polarbear.general",
+        "facial": "controller.animation.polarbear.facial",
+        "look_target": "controller.animation.polarbear.look_target",
+        "baby_polarbear": "controller.animation.polarbear.baby_polarbear",
+        "damage": "controller.animation.polarbear.damage"
+      },
+      "render_controllers": [
+        "controller.render.polarbear"
+      ]
+    }
+  }
+}

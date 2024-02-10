@@ -1,0 +1,51 @@
+{
+  "format_version": "1.8.0",
+  "minecraft:client_entity": {
+    "description": {
+      "identifier": "minecraft:witch",
+      "min_engine_version": "1.8.0",
+      "materials": {
+        "default": "witch"
+      },
+      "textures": {
+        "default": "textures/entity/witch"
+      },
+      "geometry": {
+        "default": "geometry.witch"
+      },
+      "scripts": {
+        "scale": "0.9375",
+        "pre_animation": [
+          "variable.eye_target_x = query.target_y_rotation - this;",
+          "variable.eye_target_y = query.target_x_rotation - this;"
+        ]
+      },
+      "animations": {
+        "base": "animation.witch.base",
+        "walking": "animation.witch.walking",
+        "base_face": "animation.witch.base_face",
+        "base_face2": "animation.witch.base_face2",
+        "base_face3": "animation.witch.base_face3",
+        "sleep_face": "animation.witch.sleep_face",
+        "sleep_bed": "animation.witch.sleep_bed",
+        "riding": "animation.witch.riding",
+        "death_face": "animation.witch.death_face",
+        "swimming": "animation.witch.swimming",
+        "hurt": "animation.witch.hurt",
+        "hurt2": "animation.witch.hurt2",
+        "looking": "animation.witch.looking"
+      },
+      "animation_controllers": [
+        { "common": "controller.animation.witch.common" },
+        { "facial": "controller.animation.witch.facial" },
+        { "look_target": "controller.animation.witch.look_target" },
+        { "damage": "controller.animation.witch.damage" }
+      ],
+      "render_controllers": [ "controller.render.witch" ],
+      "spawn_egg": {
+        "texture": "spawn_egg",
+        "texture_index": 17
+      }
+    }
+  }
+}

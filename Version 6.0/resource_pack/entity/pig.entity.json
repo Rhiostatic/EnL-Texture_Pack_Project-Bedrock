@@ -1,0 +1,51 @@
+{
+  "format_version": "1.10.0",
+  "minecraft:client_entity": {
+    "description": {
+      "identifier": "minecraft:pig",
+      "min_engine_version": "1.8.0",
+      "materials": { "default": "pig" },
+      "textures": {
+        "default": "textures/entity/pig/pig",
+        "saddled": "textures/entity/pig/pig_saddle"
+      },
+      "geometry": {
+        "default": "geometry.pig"
+      },
+      "animations": {
+        "base": "animation.pig.v1.8.base",
+        "base_face": "animation.pig.v1.8.base_face",
+        "death_face": "animation.pig.v1.8.death_face",
+        "walking": "animation.pig.v1.8.walking",
+        "running": "animation.pig.v1.8.running",
+        "swimming": "animation.pig.v1.8.swimming",
+        "looking": "animation.pig.v1.8.looking",
+        "hurt": "animation.pig.v1.8.hurt",
+        "baby": "animation.pig.v1.8.baby",
+        "general": "controller.animation.pig.v1.8.general",
+        "facial": "controller.animation.pig.v1.8.facial",
+        "look_target": "controller.animation.pig.v1.8.look_target",
+        "baby_pig": "controller.animation.pig.v1.8.baby_pig",
+        "damage": "controller.animation.pig.v1.8.damage"
+      },
+      "scripts": {
+        "pre_animation": [
+                  "variable.eye_target_x = query.target_y_rotation - this;",
+                  "variable.eye_target_y = query.target_x_rotation - this;"
+        ],
+        "animate": [
+          "general",
+          "facial",
+          "look_target",
+          "baby_pig",
+          "damage"
+        ]
+      },
+      "render_controllers": [ "controller.render.pig" ],
+      "spawn_egg": {
+        "texture": "spawn_egg",
+        "texture_index": 2
+      }
+    }
+  }
+}
