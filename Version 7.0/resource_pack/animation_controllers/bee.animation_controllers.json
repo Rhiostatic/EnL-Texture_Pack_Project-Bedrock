@@ -1,0 +1,168 @@
+{
+	"format_version": "1.19.0",
+	"animation_controllers": {
+		"controller.animation.bee.general": {
+			"states": {
+				"default": {
+					"animations": ["base", "base_flying"],
+					"transitions": [
+						{"fly": "query.is_alive"}
+					],
+					"blend_transition": 0.2
+				},
+				"fly": {
+					"animations": ["base", "base_flying"],
+					"transitions": [
+						{"swim": "query.is_in_water"},
+						{"drip": "query.property('minecraft:has_nectar')\n"},
+						{"move": "query.ground_speed > 0.3"}
+					],
+					"blend_transition": 0.2
+				},
+				"move": {
+					"animations": ["move", "base_flying"],
+					"transitions": [
+						{"fly": "query.ground_speed == 0"},
+						{"swim": "query.is_in_water"},
+						{"drip": "query.property('minecraft:has_nectar')"}
+					],
+					"blend_transition": 0.2
+				},
+				"swim": {
+					"animations": ["base", "swimming"],
+					"transitions": [
+						{"fly": "!query.is_in_water"}
+					],
+					"blend_transition": 0.2
+				},
+				"drip": {
+					"animations": ["driping", "base_flying"],
+					"particle_effects": [
+						{
+							"effect": "nectar_drip",
+							"locator": "lead"
+						}
+					],
+					"transitions": [
+						{"fly": "!query.property('minecraft:has_nectar')"},
+						{"swim": "query.is_in_water"}
+					],
+					"blend_transition": 0.2
+				}
+			}
+		},
+		"controller.animation.bee.facial": {
+			"states": {
+				"default": {
+					"animations": ["base_face"],
+					"transitions": [
+						{"death_face": "!query.is_alive"},
+						{"angry_face": "query.is_angry"}
+					],
+					"blend_transition": 0.15
+				},
+				"death_face": {
+					"animations": ["death_face"],
+					"transitions": [
+						{"default": "query.is_alive"}
+					],
+					"blend_transition": 0.15
+				},
+				"angry_face": {
+					"animations": ["angry_face"],
+					"transitions": [
+						{"default": "!query.is_angry"},
+						{"death_face": "!query.is_alive"}
+					],
+					"blend_transition": 0.15
+				}
+			}
+		},
+		"controller.animation.bee.look_target": {
+			"states": {
+				"default": {
+					"transitions": [
+						{"look": "query.is_alive"}
+					]
+				},
+				"look": {
+					"animations": ["looking"],
+					"transitions": [
+						{"default": "!query.is_alive"}
+					]
+				}
+			}
+		},
+		"controller.animation.bee.damage": {
+			"states": {
+				"default": {
+					"transitions": [
+						{"dmg1": "query.health == 9"},
+						{"dmg2": "query.health == 8"},
+						{"dmg3": "query.health == 7"},
+						{"dmg4": "query.health == 6"},
+						{"dmg5": "query.health == 5"},
+						{"dmg6": "query.health == 4"},
+						{"dmg7": "query.health == 3"},
+						{"dmg8": "query.health == 2"},
+						{"dmg9": "query.health == 1"}
+					]
+				},
+				"dmg1": {
+					"animations": ["hurt"],
+					"transitions": [
+						{"default": "query.health != 9"}
+					]
+				},
+				"dmg2": {
+					"animations": ["hurt"],
+					"transitions": [
+						{"default": "query.health != 8"}
+					]
+				},
+				"dmg3": {
+					"animations": ["hurt"],
+					"transitions": [
+						{"default": "query.health != 7"}
+					]
+				},
+				"dmg4": {
+					"animations": ["hurt"],
+					"transitions": [
+						{"default": "query.health != 6"}
+					]
+				},
+				"dmg5": {
+					"animations": ["hurt"],
+					"transitions": [
+						{"default": "query.health != 5"}
+					]
+				},
+				"dmg6": {
+					"animations": ["hurt"],
+					"transitions": [
+						{"default": "query.health != 4"}
+					]
+				},
+				"dmg7": {
+					"animations": ["hurt"],
+					"transitions": [
+						{"default": "query.health != 3"}
+					]
+				},
+				"dmg8": {
+					"animations": ["hurt"],
+					"transitions": [
+						{"default": "query.health != 2"}
+					]
+				},
+				"dmg9": {
+					"animations": ["hurt"],
+					"transitions": [
+						{"default": "query.health != 1"}
+					]
+				}
+			}
+		}
+	}
+}

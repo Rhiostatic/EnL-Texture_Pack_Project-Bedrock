@@ -1,0 +1,55 @@
+{
+  "format_version": "1.10.0",
+  "minecraft:client_entity": {
+    "description": {
+      "identifier": "minecraft:sheep",
+      "min_engine_version": "1.8.0",
+      "materials": { "default": "sheep" },
+      "textures": {
+        "default": "textures/entity/sheep/sheep"
+      },
+      "geometry": {
+        "default": "geometry.sheep",
+        "sheared": "geometry.sheep.sheared"
+      },
+      "animations": {
+        "base": "animation.sheep.base",
+        "base_face": "animation.sheep.base_face",
+        "death_face": "animation.sheep.death_face",
+        "walking": "animation.sheep.walking",
+        "running": "animation.sheep.running",
+        "looking": "animation.sheep.looking",
+        "baby": "animation.sheep.baby",
+        "swimming": "animation.sheep.swimming",
+        "hurt": "animation.sheep.hurt",
+        "grazing_grass": "animation.sheep.grazing_grass",
+        "sheared": "animation.sheep.sheared",
+        "general": "controller.animation.sheep.general",
+        "facial": "controller.animation.sheep.facial",
+        "look_target": "controller.animation.sheep.look_target",
+        "baby_sheep": "controller.animation.sheep.baby_sheep",
+        "damage": "controller.animation.sheep.damage",
+        "shearing": "controller.animation.sheep.shearing"
+      },
+      "scripts": {
+        "pre_animation": [
+                  "variable.eye_target_x = query.target_y_rotation - this;",
+                  "variable.eye_target_y = query.target_x_rotation - this;"
+        ],
+        "animate": [
+          "general",
+          "facial",
+          "look_target",
+          "baby_sheep",
+          "damage",
+          "shearing"
+        ]
+      },
+      "render_controllers": [ "controller.render.sheep" ],
+      "spawn_egg": {
+        "texture": "spawn_egg",
+        "texture_index": 3
+      }
+    }
+  }
+}

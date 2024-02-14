@@ -1,0 +1,62 @@
+{
+  "format_version": "1.10.0",
+  "minecraft:client_entity": {
+    "description": {
+      "identifier": "minecraft:ravager",
+      "textures": {
+        "default": "textures/entity/illager/ravager"
+      },
+      "materials": {
+        "default": "ravager"
+      },
+      "geometry": {
+        "default": "geometry.ravager"
+      },
+      "render_controllers": [
+        "controller.render.ravager"
+      ],
+      "spawn_egg": {
+        "texture": "spawn_egg",
+        "texture_index": 57
+      },
+      "animations": {
+        "base": "animation.ravager.base",
+        "looking": "animation.ravager.looking",
+        "base_face": "animation.ravager.base_face",
+        "stun_face": "animation.ravager.stun_face",
+        "death_face": "animation.ravager.death_face",
+        "walking": "animation.ravager.walking",
+        "running": "animation.ravager.running",
+        "walking_has_target": "animation.ravager.walking_has_target",
+        "swimming": "animation.ravager.swimming",
+        "stunning": "animation.ravager.stunning",
+        "roar": "animation.ravager.roar",
+        "attack": "animation.ravager.attack",
+        "attack_walk": "animation.ravager.attack_walk",
+        "hurt": "animation.ravager.hurt",
+        "general": "controller.animation.ravager.general",
+        "facial": "controller.animation.ravager.facial",
+        "look_target": "controller.animation.ravager.look_target",
+        "damage": "controller.animation.ravager.damage"
+      },
+      "scripts": {
+        "pre_animation": [
+          "variable.roar_length = 1.0;", // in seconds
+          "variable.bite_anim_duration = 0.75f;", // in seconds
+          "variable.bite_neck_length = 10;",
+          "variable.eye_target_x = query.target_y_rotation - this;",
+          "variable.eye_target_y = query.target_x_rotation - this;"
+        ],
+        "animate": [
+          "general",
+          "facial",
+          "look_target",
+          "damage"
+        ]
+      },
+      "particle_effects": {
+        "stunned": "minecraft:stunned_emitter"
+      }
+    }
+  }
+}

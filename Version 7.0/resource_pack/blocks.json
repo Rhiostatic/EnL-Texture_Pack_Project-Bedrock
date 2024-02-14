@@ -1,0 +1,30 @@
+{
+	"sandstone" : { 
+		"isotropic" : {"up" : false, "down" : true},
+		"textures" : { "up" : "sandstone_top", "down" : "sandstone_bottom", "side" : "sandstone_side"}, 
+		"brightness_gamma" : 0.70,
+		"sound": "stone"
+	},
+	"sandstone_stairs" : { 
+		"isotropic" : {"up" : false, "down" : true},
+		"blockshape" : "stairs", 
+		"textures" : { "up" : "sandstone_top", "down" : "sandstone_bottom", "side" : "sandstone_side"}
+	},
+	"red_sandstone" : { 
+		"isotropic" : {"up" : false, "down" : true},
+		"textures" : { "up" : "redsandstone_top", "down" : "redsandstone_bottom", "side" : "redsandstone_side"},
+		"brightness_gamma" : 0.70,
+		"sound": "stone"
+	},
+	"red_sandstone_stairs" : { 
+		"isotropic" : {"up" : false, "down" : true},
+		"blockshape" : "stairs",
+		"textures" : "redsandstone_side"	
+	},
+	"snow": {
+		"isotropic": false
+	},
+	"powder_snow": {
+		"isotropic": false
+	}  
+}
