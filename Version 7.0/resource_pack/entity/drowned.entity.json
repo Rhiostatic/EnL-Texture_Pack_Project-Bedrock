@@ -1,0 +1,62 @@
+{
+  "format_version": "1.10.0",
+  "minecraft:client_entity": {
+    "description": {
+      "identifier": "minecraft:drowned",
+      "min_engine_version": "1.16.0",
+      "materials": {
+        "default": "drowned"
+      },
+      "textures": {
+        "default": "textures/entity/zombie/drowned"
+      },
+      "geometry": {
+        "default": "geometry.zombie.drowned.v1.16"
+      },
+      "scripts": {
+        "pre_animation": [
+          "variable.tcos0 = (Math.cos(query.modified_distance_moved * 38.17) * query.modified_move_speed / variable.gliding_speed_value) * 57.3;"
+        ],
+        "animate": [
+          "general",
+          "look_target",
+          "baby_zombie",
+          "damage"
+        ]
+      },
+      "animations": {
+        "base": "animation.zombie.drowned.v1.16.base",
+        "base2": "animation.zombie.drowned.v1.16.base2",
+        "walking": "animation.zombie.drowned.v1.16.walking",
+        "walking2": "animation.zombie.drowned.v1.16.walking2",
+        "swimming": "animation.zombie.drowned.v1.16.swimming",
+        "attack": "animation.zombie.drowned.v1.16.attack",
+        "attack_walk": "animation.zombie.drowned.v1.16.attack_walk",
+        "attack_swim": "animation.zombie.drowned.v1.16.attack_swim",
+        "charge_attack": "animation.zombie.drowned.v1.16.charge_attack",
+        "charge_move": "animation.zombie.drowned.v1.16.charge_move",
+        "attack2": "animation.zombie.drowned.v1.16.attack2",
+        "attack2_move": "animation.zombie.drowned.v1.16.attack2_move",
+        "arm_move": "animation.zombie.drowned.v1.16.arm_move",
+        "looking": "animation.zombie.drowned.v1.16.looking",
+        "riding_arms": "animation.zombie.drowned.v1.16.riding_arms",
+        "riding_arms2": "animation.zombie.drowned.v1.16.riding_arms2",
+        "riding_legs": "animation.zombie.drowned.v1.16.riding_legs",
+        "riding_attack": "animation.zombie.drowned.v1.16.riding_attack",
+        "hurt": "animation.zombie.drowned.v1.16.hurt",
+        "hurt2": "animation.zombie.drowned.v1.16.hurt2",
+        "baby": "animation.zombie.drowned.v1.16.baby",
+        "general": "controller.animation.zombie.drowned.v1.16.general",
+        "look_target": "controller.animation.zombie.drowned.v1.16.look_target",
+        "baby_zombie": "controller.animation.zombie.drowned.v1.16.baby_zombie",
+        "damage": "controller.animation.zombie.drowned.v1.16.damage"
+      },
+      "render_controllers": [ "controller.render.drowned" ],
+      "enable_attachables": true,
+      "spawn_egg": {
+        "texture": "spawn_egg",
+        "texture_index": 48
+      }
+    }
+  }
+}

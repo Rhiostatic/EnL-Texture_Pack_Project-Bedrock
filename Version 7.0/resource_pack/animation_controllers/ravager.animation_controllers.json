@@ -1,0 +1,587 @@
+{
+	"format_version": "1.19.0",
+	"animation_controllers": {
+		"controller.animation.ravager.general": {
+			"states": {
+				"default": {
+					"animations": ["base"],
+					"transitions": [
+						{"base": "query.ground_speed < 0.3"},
+						{"walk": "query.ground_speed > 0.3 && !query.has_target\n"},
+						{"swim": "query.is_in_water"},
+						{"stun": "query.is_stunned"},
+						{"roaring": "query.is_roaring == 1"},
+						{"pre_attack": "query.is_delayed_attacking == 1"}
+					],
+					"blend_transition": 0.2
+				},
+				"base": {
+					"animations": ["base"],
+					"transitions": [
+						{"walk": "query.ground_speed > 0.3 && !query.has_target"},
+						{"swim": "query.is_in_water"},
+						{"stun": "query.is_stunned"},
+						{"roaring": "query.is_roaring == 1\n"},
+						{"pre_attack": "query.is_delayed_attacking == 1"},
+						{"walk_has_target": "query.ground_speed > 0.3 && query.has_target"}
+					],
+					"blend_transition": 0.2
+				},
+				"walk": {
+					"animations": ["walking"],
+					"transitions": [
+						{"base": "query.ground_speed < 0.3"},
+						{"swim": "query.is_in_water"},
+						{"stun": "query.is_stunned"},
+						{"roaring": "query.is_roaring == 1\n"},
+						{"pre_attack": "query.is_delayed_attacking == 1"},
+						{"walk_has_target": "query.ground_speed > 0.3 && query.has_target"}
+					],
+					"blend_transition": 0.2
+				},
+				"walk_has_target": {
+					"animations": ["walking_has_target"],
+					"transitions": [
+						{"walk": "!query.has_target"},
+						{"base": "query.ground_speed < 0.3"},
+						{"stun": "query.is_stunned"},
+						{"roaring": "query.is_roaring == 1"},
+						{"pre_attack": "query.is_delayed_attacking == 1"},
+						{"run": "query.ground_speed > 3 && query.has_target"},
+						{"swim": "query.is_in_water"}
+					],
+					"blend_transition": 0.2
+				},
+				"run": {
+					"animations": ["running"],
+					"transitions": [
+						{"walk": "!query.has_target"},
+						{"stun": "query.is_stunned"},
+						{"roaring": "query.is_roaring == 1"},
+						{"pre_attack": "query.is_delayed_attacking == 1"},
+						{"walk_has_target": "query.ground_speed < 0.5 && query.has_target"},
+						{"swim": "query.is_in_water"}
+					],
+					"blend_transition": 0.2
+				},
+				"swim": {
+					"animations": ["swimming"],
+					"transitions": [
+						{"default": "!query.is_in_water && query.is_on_ground"},
+						{"pre_attack": "query.is_delayed_attacking == 1"}
+					],
+					"blend_transition": 0.2
+				},
+				"pre_attack_swim": {
+					"transitions": [
+						{"swim_attack": "query.is_alive"}
+					],
+					"blend_via_shortest_path": true
+				},
+				"swim_attack": {
+					"animations": ["swimming_attack"],
+					"transitions": [
+						{"swim": "query.is_delayed_attacking == 0 && query.is_in_water"},
+						{"default": "query.is_delayed_attacking == 0 && !query.is_in_water"}
+					],
+					"blend_transition": 0.2
+				},
+				"stun": {
+					"animations": ["stunning"],
+					"particle_effects": [
+						{
+							"effect": "stunned",
+							"locator": "stun"
+						}
+					],
+					"transitions": [
+						{"default": "!query.is_stunned"},
+						{"roaring": "query.is_roaring == 1\n"},
+						{"pre_attack": "query.is_delayed_attacking == 1"}
+					],
+					"blend_transition": 0.2
+				},
+				"roaring": {
+					"animations": ["roar"],
+					"transitions": [
+						{"default": "query.is_roaring == 0\n"},
+						{"pre_attack": "query.is_delayed_attacking == 1"}
+					],
+					"blend_transition": 0.2
+				},
+				"pre_attack": {
+					"transitions": [
+						{"attack": "query.is_alive"}
+					],
+					"blend_via_shortest_path": true
+				},
+				"attack": {
+					"animations": ["attack", "attack_walk"],
+					"transitions": [
+						{"walk_has_target": "query.is_delayed_attacking == 0\n"}
+					],
+					"blend_transition": 0.2
+				}
+			}
+		},
+		"controller.animation.ravager.facial": {
+			"initial_state": "base",
+			"states": {
+				"base": {
+					"animations": ["base_face"],
+					"transitions": [
+						{"stun_face": "query.is_stunned"},
+						{"death_face": "!query.is_alive"},
+						{"attack_face": "query.is_delayed_attacking == 1"}
+					],
+					"blend_transition": 0.25
+				},
+				"stun_face": {
+					"animations": ["stun_face"],
+					"transitions": [
+						{"death_face": "!query.is_alive"},
+						{"base": "!query.is_stunned"},
+						{"attack_face": "query.is_delayed_attacking == 1"}
+					],
+					"blend_transition": 0.25
+				},
+				"death_face": {
+					"animations": ["death_face"],
+					"blend_transition": 0.25
+				},
+				"attack_face": {
+					"animations": ["attack_face"],
+					"transitions": [
+						{"base": "query.is_delayed_attacking == 0\n"},
+						{"stun_face": "query.is_stunned"},
+						{"death_face": "!query.is_alive"}
+					],
+					"blend_transition": 0.25
+				}
+			}
+		},
+		"controller.animation.ravager.look_target": {
+			"states": {
+				"default": {
+					"transitions": [
+						{"look": "query.is_alive\n"}
+					]
+				},
+				"look": {
+					"animations": ["looking"],
+					"transitions": [
+						{"default": "!query.is_alive"}
+					]
+				}
+			}
+		},
+		"controller.animation.ravager.damage": {
+			"states": {
+				"default": {
+					"transitions": [
+						{"dmg1": "query.health == 1 || query.health == 51"},
+						{"dmg2": "query.health == 2 || query.health == 52"},
+						{"dmg3": "query.health == 3 || query.health == 53"},
+						{"dmg4": "query.health == 4 || query.health == 54"},
+						{"dmg5": "query.health == 5 || query.health == 55"},
+						{"dmg6": "query.health == 6 || query.health == 56"},
+						{"dmg7": "query.health == 7 || query.health == 57"},
+						{"dmg8": "query.health == 8 || query.health == 58"},
+						{"dmg9": "query.health == 9 || query.health == 59"},
+						{"dmg10": "query.health == 10 || query.health == 60"},
+						{"dmg11": "query.health == 11 || query.health == 61"},
+						{"dmg12": "query.health == 12 || query.health == 62"},
+						{"dmg13": "query.health == 13 || query.health == 63"},
+						{"dmg14": "query.health == 14 || query.health == 64"},
+						{"dmg15": "query.health == 15 || query.health == 65"},
+						{"dmg16": "query.health == 16 || query.health == 66"},
+						{"dmg17": "query.health == 17 || query.health == 67"},
+						{"dmg18": "query.health == 18 || query.health == 68"},
+						{"dmg19": "query.health == 19 || query.health == 69"},
+						{"dmg20": "query.health == 20 || query.health == 70"},
+						{"dmg21": "query.health == 21 || query.health == 71"},
+						{"dmg22": "query.health == 22 || query.health == 72"},
+						{"dmg23": "query.health == 23 || query.health == 73"},
+						{"dmg24": "query.health == 24 || query.health == 74"},
+						{"dmg25": "query.health == 25 || query.health == 75"},
+						{"dmg26": "query.health == 26 || query.health == 76"},
+						{"dmg27": "query.health == 27 || query.health == 77"},
+						{"dmg28": "query.health == 28 || query.health == 78"},
+						{"dmg29": "query.health == 29 || query.health == 79"},
+						{"dmg30": "query.health == 30 || query.health == 80"},
+						{"dmg31": "query.health == 31 || query.health == 81"},
+						{"dmg32": "query.health == 32 || query.health == 82"},
+						{"dmg33": "query.health == 33 || query.health == 83"},
+						{"dmg34": "query.health == 34 || query.health == 84"},
+						{"dmg35": "query.health == 35 || query.health == 85"},
+						{"dmg36": "query.health == 36 || query.health == 86"},
+						{"dmg37": "query.health == 37 || query.health == 87"},
+						{"dmg38": "query.health == 38 || query.health == 88"},
+						{"dmg39": "query.health == 39 || query.health == 89"},
+						{"dmg40": "query.health == 40 || query.health == 90"},
+						{"dmg41": "query.health == 41 || query.health == 91"},
+						{"dmg42": "query.health == 42 || query.health == 92"},
+						{"dmg43": "query.health == 43 || query.health == 93"},
+						{"dmg44": "query.health == 44 || query.health == 94"},
+						{"dmg45": "query.health == 45 || query.health == 95"},
+						{"dmg46": "query.health == 46 || query.health == 96"},
+						{"dmg47": "query.health == 47 || query.health == 97"},
+						{"dmg48": "query.health == 48 || query.health == 98"},
+						{"dmg49": "query.health == 49 || query.health == 99"},
+						{"dmg50": "query.health == 50"}
+					]
+				},
+				"dmg1": {
+					"animations": ["hurt"],
+					"on_entry": [],
+					"transitions": [
+						{"default": "query.health != 1 && query.health != 51"}
+					]
+				},
+				"dmg2": {
+					"animations": ["hurt"],
+					"on_entry": [],
+					"transitions": [
+						{"default": "query.health != 2 && query.health != 52"}
+					]
+				},
+				"dmg3": {
+					"animations": ["hurt"],
+					"on_entry": [],
+					"transitions": [
+						{"default": "query.health != 3 && query.health != 53"}
+					]
+				},
+				"dmg4": {
+					"animations": ["hurt"],
+					"on_entry": [],
+					"transitions": [
+						{"default": "query.health != 4 && query.health != 54"}
+					]
+				},
+				"dmg5": {
+					"animations": ["hurt"],
+					"on_entry": [],
+					"transitions": [
+						{"default": "query.health != 5 && query.health != 55"}
+					]
+				},
+				"dmg6": {
+					"animations": ["hurt"],
+					"on_entry": [],
+					"transitions": [
+						{"default": "query.health != 6 && query.health != 56"}
+					]
+				},
+				"dmg7": {
+					"animations": ["hurt"],
+					"on_entry": [],
+					"transitions": [
+						{"default": "query.health != 7 && query.health != 57"}
+					]
+				},
+				"dmg8": {
+					"animations": ["hurt"],
+					"on_entry": [],
+					"transitions": [
+						{"default": "query.health != 8 && query.health != 58"}
+					]
+				},
+				"dmg9": {
+					"animations": ["hurt"],
+					"on_entry": [],
+					"transitions": [
+						{"default": "query.health != 9 && query.health != 59"}
+					]
+				},
+				"dmg10": {
+					"animations": ["hurt"],
+					"on_entry": [],
+					"transitions": [
+						{"default": "query.health != 10 && query.health != 60"}
+					]
+				},
+				"dmg11": {
+					"animations": ["hurt"],
+					"on_entry": [],
+					"transitions": [
+						{"default": "query.health != 11 && query.health != 61"}
+					]
+				},
+				"dmg12": {
+					"animations": ["hurt"],
+					"on_entry": [],
+					"transitions": [
+						{"default": "query.health != 12 && query.health != 62"}
+					]
+				},
+				"dmg13": {
+					"animations": ["hurt"],
+					"on_entry": [],
+					"transitions": [
+						{"default": "query.health != 13 && query.health != 63"}
+					]
+				},
+				"dmg14": {
+					"animations": ["hurt"],
+					"on_entry": [],
+					"transitions": [
+						{"default": "query.health != 14 && query.health != 64"}
+					]
+				},
+				"dmg15": {
+					"animations": ["hurt"],
+					"on_entry": [],
+					"transitions": [
+						{"default": "query.health != 15 && query.health != 65"}
+					]
+				},
+				"dmg16": {
+					"animations": ["hurt"],
+					"on_entry": [],
+					"transitions": [
+						{"default": "query.health != 16 && query.health != 66"}
+					]
+				},
+				"dmg17": {
+					"animations": ["hurt"],
+					"on_entry": [],
+					"transitions": [
+						{"default": "query.health != 17 && query.health != 67"}
+					]
+				},
+				"dmg18": {
+					"animations": ["hurt"],
+					"on_entry": [],
+					"transitions": [
+						{"default": "query.health != 18 && query.health != 68"}
+					]
+				},
+				"dmg19": {
+					"animations": ["hurt"],
+					"on_entry": [],
+					"transitions": [
+						{"default": "query.health != 19 && query.health != 69"}
+					]
+				},
+				"dmg20": {
+					"animations": ["hurt"],
+					"on_entry": [],
+					"transitions": [
+						{"default": "query.health != 20 && query.health != 70"}
+					]
+				},
+				"dmg21": {
+					"animations": ["hurt"],
+					"on_entry": [],
+					"transitions": [
+						{"default": "query.health != 21 && query.health != 71"}
+					]
+				},
+				"dmg22": {
+					"animations": ["hurt"],
+					"on_entry": [],
+					"transitions": [
+						{"default": "query.health != 22 && query.health != 72"}
+					]
+				},
+				"dmg23": {
+					"animations": ["hurt"],
+					"on_entry": [],
+					"transitions": [
+						{"default": "query.health != 23 && query.health != 73"}
+					]
+				},
+				"dmg24": {
+					"animations": ["hurt"],
+					"on_entry": [],
+					"transitions": [
+						{"default": "query.health != 24 && query.health != 74"}
+					]
+				},
+				"dmg25": {
+					"animations": ["hurt"],
+					"on_entry": [],
+					"transitions": [
+						{"default": "query.health != 25 && query.health != 75"}
+					]
+				},
+				"dmg26": {
+					"animations": ["hurt"],
+					"on_entry": [],
+					"transitions": [
+						{"default": "query.health != 26 && query.health != 76"}
+					]
+				},
+				"dmg27": {
+					"animations": ["hurt"],
+					"on_entry": [],
+					"transitions": [
+						{"default": "query.health != 27 && query.health != 77"}
+					]
+				},
+				"dmg28": {
+					"animations": ["hurt"],
+					"on_entry": [],
+					"transitions": [
+						{"default": "query.health != 28 && query.health != 78"}
+					]
+				},
+				"dmg29": {
+					"animations": ["hurt"],
+					"on_entry": [],
+					"transitions": [
+						{"default": "query.health != 29 && query.health != 79"}
+					]
+				},
+				"dmg30": {
+					"animations": ["hurt"],
+					"on_entry": [],
+					"transitions": [
+						{"default": "query.health != 30 && query.health != 80"}
+					]
+				},
+				"dmg31": {
+					"animations": ["hurt"],
+					"on_entry": [],
+					"transitions": [
+						{"default": "query.health != 31 && query.health != 81"}
+					]
+				},
+				"dmg32": {
+					"animations": ["hurt"],
+					"on_entry": [],
+					"transitions": [
+						{"default": "query.health != 32 && query.health != 82"}
+					]
+				},
+				"dmg33": {
+					"animations": ["hurt"],
+					"on_entry": [],
+					"transitions": [
+						{"default": "query.health != 33 && query.health != 83"}
+					]
+				},
+				"dmg34": {
+					"animations": ["hurt"],
+					"on_entry": [],
+					"transitions": [
+						{"default": "query.health != 34 && query.health != 84"}
+					]
+				},
+				"dmg35": {
+					"animations": ["hurt"],
+					"on_entry": [],
+					"transitions": [
+						{"default": "query.health != 35 && query.health != 85"}
+					]
+				},
+				"dmg36": {
+					"animations": ["hurt"],
+					"on_entry": [],
+					"transitions": [
+						{"default": "query.health != 36 && query.health != 86"}
+					]
+				},
+				"dmg37": {
+					"animations": ["hurt"],
+					"on_entry": [],
+					"transitions": [
+						{"default": "query.health != 37 && query.health != 87"}
+					]
+				},
+				"dmg38": {
+					"animations": ["hurt"],
+					"on_entry": [],
+					"transitions": [
+						{"default": "query.health != 38 && query.health != 88"}
+					]
+				},
+				"dmg39": {
+					"animations": ["hurt"],
+					"on_entry": [],
+					"transitions": [
+						{"default": "query.health != 39 && query.health != 89"}
+					]
+				},
+				"dmg40": {
+					"animations": ["hurt"],
+					"on_entry": [],
+					"transitions": [
+						{"default": "query.health != 40 && query.health != 90"}
+					]
+				},
+				"dmg41": {
+					"animations": ["hurt"],
+					"on_entry": [],
+					"transitions": [
+						{"default": "query.health != 41 && query.health != 91"}
+					]
+				},
+				"dmg42": {
+					"animations": ["hurt"],
+					"on_entry": [],
+					"transitions": [
+						{"default": "query.health != 42 && query.health != 92"}
+					]
+				},
+				"dmg43": {
+					"animations": ["hurt"],
+					"on_entry": [],
+					"transitions": [
+						{"default": "query.health != 43 && query.health != 93"}
+					]
+				},
+				"dmg44": {
+					"animations": ["hurt"],
+					"on_entry": [],
+					"transitions": [
+						{"default": "query.health != 44 && query.health != 94"}
+					]
+				},
+				"dmg45": {
+					"animations": ["hurt"],
+					"on_entry": [],
+					"transitions": [
+						{"default": "query.health != 45 && query.health != 95"}
+					]
+				},
+				"dmg46": {
+					"animations": ["hurt"],
+					"on_entry": [],
+					"transitions": [
+						{"default": "query.health != 46 && query.health != 96"}
+					]
+				},
+				"dmg47": {
+					"animations": ["hurt"],
+					"on_entry": [],
+					"transitions": [
+						{"default": "query.health != 47 && query.health != 97"}
+					]
+				},
+				"dmg48": {
+					"animations": ["hurt"],
+					"on_entry": [],
+					"transitions": [
+						{"default": "query.health != 48 && query.health != 98"}
+					]
+				},
+				"dmg49": {
+					"animations": ["hurt"],
+					"on_entry": [],
+					"transitions": [
+						{"default": "query.health != 49 && query.health != 99"}
+					]
+				},
+				"dmg50": {
+					"animations": ["hurt"],
+					"on_entry": [],
+					"transitions": [
+						{"default": "query.health != 50"}
+					]
+				}
+			}
+		}
+	}
+}
