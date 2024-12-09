@@ -1,0 +1,51 @@
+{
+  "format_version": "1.8.0",
+  "minecraft:client_entity": {
+    "description": {
+      "identifier": "minecraft:zombie_pigman",
+      "min_engine_version": "1.8.0",
+      "materials": { "default": "phantom" },
+      "textures": {
+        "default": "textures/entity/piglin/zombie_piglin"
+      },
+      "geometry": {
+        "default": "geometry.zombified_piglin"
+      },
+      "spawn_egg": {
+        "texture": "spawn_egg",
+        "texture_index": 13
+      },
+      "scripts": {
+        "pre_animation": [
+          "variable.tcos0 = (Math.cos(query.modified_distance_moved * 38.17) * query.modified_move_speed / variable.gliding_speed_value) * 57.3;",
+          "variable.eye_target_x = query.target_y_rotation - this;",
+          "variable.eye_target_y = query.target_x_rotation - this;"
+        ]
+      },
+      "animations": {
+        "base": "animation.zombie_piglin.base",
+        "walking": "animation.zombie_piglin.walking",
+        "running": "animation.zombie_piglin.running",
+        "base_face": "animation.zombie_piglin.base_face",
+        "death_face": "animation.zombie_piglin.death_face",
+        "attack_time": "animation.zombie_piglin.attack_time",
+        "attack_walk": "animation.zombie_piglin.attack_walk",
+        "riding": "animation.zombie_piglin.riding",
+        "riding_legs": "animation.zombie_piglin.riding_legs",
+        "baby": "animation.zombie_piglin.baby",
+        "looking": "animation.zombie_piglin.looking",
+        "arm_control": "animation.zombie_piglin.arm_control",
+        "hurt": "animation.zombie_piglin.hurt"
+      },
+      "animation_controllers": [
+        { "general": "controller.animation.zombie_piglin.general" },
+        { "facial": "controller.animation.zombie_piglin.facial" },
+        { "baby_piglin": "controller.animation.zombie_piglin.baby_piglin" },
+        { "look_target": "controller.animation.zombie_piglin.look_target" },
+        { "damage": "controller.animation.zombie_piglin.damage" }
+      ],
+      "render_controllers": [ "controller.render.zombie_pigman" ],
+      "enable_attachables": true
+    }
+  }
+}

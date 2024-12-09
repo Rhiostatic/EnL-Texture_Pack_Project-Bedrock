@@ -1,0 +1,54 @@
+{
+  "format_version": "1.10.0",
+  "minecraft:client_entity": {
+    "description": {
+      "identifier": "minecraft:bee",
+      "materials": { "default": "bee" },
+      "textures": {
+        "default": "textures/entity/bee/bee",
+        "angry": "textures/entity/bee/bee_angry",
+        "nectar": "textures/entity/bee/bee_nectar",
+        "angry_nectar": "textures/entity/bee/bee_angry_nectar"
+      },
+      "geometry": {
+        "default": "geometry.bee"
+      },
+      "animations": {
+        "base": "animation.bee.base",
+        "move": "animation.bee.move",
+        "base_flying": "animation.bee.base_flying",
+        "swimming": "animation.bee.swimming",
+        "driping": "animation.bee.driping",
+        "base_face": "animation.bee.base_face",
+        "angry_face": "animation.bee.angry_face",
+        "death_face": "animation.bee.death_face",
+        "looking": "animation.bee.looking",
+        "hurt": "animation.bee.hurt",
+        "general": "controller.animation.bee.general",
+        "facial": "controller.animation.bee.facial",
+        "look_target": "controller.animation.bee.look_target",
+        "damage": "controller.animation.bee.damage"
+      },      
+      "particle_effects": {
+        "nectar_dripping": "minecraft:nectar_drip_particle"
+      },
+      "scripts": {
+        "pre_animation": [
+          "variable.eye_target_x = query.target_y_rotation - this;",
+          "variable.eye_target_y = query.target_x_rotation - this;"
+        ],
+        "animate": [
+          "general",
+          "facial",
+          "look_target",
+          "damage"
+        ]
+      },
+      "render_controllers": [ "controller.render.bee" ],
+      "spawn_egg": {
+        "texture": "egg_bee",
+        "texture_index": 0
+      }
+    }
+  }
+}

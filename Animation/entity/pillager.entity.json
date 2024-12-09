@@ -1,0 +1,66 @@
+{
+  "format_version": "1.10.0",
+  "minecraft:client_entity": {
+    "description": {
+      "identifier": "minecraft:pillager",
+      "materials": {
+        "default": "pillager"
+      },
+      "textures": {
+        "default": "textures/entity/pillager"
+      },
+      "geometry": {
+        "default": "geometry.pillager"
+      },
+      "spawn_egg": {
+        "texture": "spawn_egg",
+        "texture_index": 56
+      },
+      "scripts": {
+        "pre_animation": [
+          "variable.tcos0 = (Math.cos(query.modified_distance_moved * 38.17) * query.modified_move_speed / variable.gliding_speed_value) * 57.3;",
+          "variable.eye_target_x = query.target_y_rotation - this;",
+          "variable.eye_target_y = query.target_x_rotation - this;"
+        ],
+        "animate": [
+          "general",
+          "facial",
+          "look_target",
+          "damage",
+          "attack"
+        ]
+      },
+      "animations": {
+        "base": "animation.pillager.base",
+        "base_face": "animation.pillager.base_face",
+        "base_face2": "animation.pillager.base_face2",
+        "has_target_face": "animation.pillager.has_target_face",
+        "walking": "animation.pillager.walking",
+        "hold_crossbow": "animation.pillager.hold_crossbow",
+        "hold_stand": "animation.pillager.hold_stand",
+        "hold_walk": "animation.pillager.hold_walk",
+        "charge_crossbow": "animation.pillager.charge_crossbow",
+        "charge_stand": "animation.pillager.charge_stand",
+        "charge_walk": "animation.pillager.charge_walk",
+        "swimming": "animation.pillager.swimming",
+        "swimming_hold": "animation.pillager.swimming_hold",
+        "swimming_charge": "animation.pillager.swimming_charge",
+        "riding_base": "animation.pillager.riding_base",
+        "riding_charge": "animation.pillager.riding_charge",
+        "death_face": "animation.pillager.death_face",
+        "hurt": "animation.pillager.hurt",
+        "hurt2": "animation.pillager.hurt2",
+        "celebrating": "animation.humanoid.celebrating",
+        "looking": "animation.pillager.looking",
+        "general": "controller.animation.pillager.general",
+        "facial": "controller.animation.pillager.facial",
+        "look_target": "controller.animation.pillager.look_target",
+        "damage": "controller.animation.pillager.damage",
+        "attack": "controller.animation.pillager.attack"
+      },
+      "render_controllers": [ "controller.render.pillager" ],
+      "enable_attachables": true,
+      "hide_armor": true
+    }
+  }
+}
