@@ -1,0 +1,234 @@
+{
+	"format_version": "1.19.0",
+	"animation_controllers": {
+		"controller.animation.polarbear.general": {
+			"states": {
+				"default": {
+					"animations": ["base", "mouth", "ears"],
+					"transitions": [
+						{"base": "query.ground_speed < 0.4"},
+						{"walk": "query.ground_speed > 0.4"},
+						{"ride": "query.is_riding"},
+						{"swim": "query.is_in_water"}
+					],
+					"blend_transition": 0.2
+				},
+				"base": {
+					"animations": ["base", "mouth", "ears"],
+					"transitions": [
+						{"walk": "query.ground_speed > 0.4"},
+						{"ride": "query.is_riding"},
+						{"swim": "query.is_in_water"},
+						{"pre_attack": "query.standing_scale > 0"}
+					],
+					"blend_transition": 0.2
+				},
+				"walk": {
+					"animations": ["walking"],
+					"transitions": [
+						{"base": "query.ground_speed < 0.4"},
+						{"run": "query.ground_speed > 4.85 && query.is_on_ground"},
+						{"ride": "query.is_riding"},
+						{"swim": "query.is_in_water"},
+						{"pre_attack": "query.standing_scale > 0"}
+					],
+					"blend_transition": 0.2
+				},
+				"run": {
+					"animations": ["running"],
+					"transitions": [
+						{"walk": "query.ground_speed < 2.1 || !query.is_on_ground"},
+						{"ride": "query.is_riding"},
+						{"swim": "query.is_in_water"},
+						{"pre_attack": "query.standing_scale > 0"}
+					],
+					"blend_transition": 0.2
+				},
+				"ride": {
+					"animations": ["base", "mouth", "ears"],
+					"transitions": [
+						{"default": "!query.is_riding"}
+					],
+					"blend_transition": 0.2
+				},
+				"swim": {
+					"animations": ["swimming"],
+					"transitions": [
+						{"ride": "query.is_riding"},
+						{"default": "!query.is_in_water && query.is_on_ground"}
+					],
+					"blend_transition": 0.2
+				},
+				"pre_attack": {
+					"transitions": [
+						{"attack": "query.is_alive"}
+					],
+					"blend_transition": 0.015
+				},
+				"attack": {
+					"animations": ["attack"],
+					"transitions": [
+						{"walk": "query.any_animation_finished"}
+					],
+					"blend_transition": 0.2
+				}
+			}
+		},
+		"controller.animation.polarbear.facial": {
+			"states": {
+				"default": {
+					"animations": ["base_face"],
+					"transitions": [
+						{"death": "!query.is_alive"}
+					],
+					"blend_transition": 0.15
+				},
+				"death": {
+					"animations": ["death_face"],
+					"transitions": [
+						{"default": "query.is_alive"}
+					],
+					"blend_transition": 0.15
+				}
+			}
+		},
+		"controller.animation.polarbear.look_target": {
+			"states": {
+				"default": {
+					"transitions": [
+						{"look": "query.is_alive"}
+					],
+					"blend_transition": 0.15
+				},
+				"look": {
+					"animations": ["looking"],
+					"transitions": [
+						{"default": "!query.is_alive"}
+					]
+				}
+			}
+		},
+		"controller.animation.polarbear.baby_polarbear": {
+			"states": {
+				"default": {
+					"animations": [
+						{"baby": "query.is_baby"}
+					]
+				}
+			}
+		},
+		"controller.animation.polarbear.damage": {
+			"states": {
+				"default": {
+					"transitions": [
+						{"dmg1": "query.health == 29 || query.health == 14"},
+						{"dmg2": "query.health == 28 || query.health == 13"},
+						{"dmg3": "query.health == 27 || query.health == 12"},
+						{"dmg4": "query.health == 26 || query.health == 11"},
+						{"dmg5": "query.health == 25 || query.health == 10"},
+						{"dmg6": "query.health == 24 || query.health == 9"},
+						{"dmg7": "query.health == 23 || query.health == 8"},
+						{"dmg8": "query.health == 22 || query.health == 7"},
+						{"dmg9": "query.health == 21 || query.health == 6"},
+						{"dmg10": "query.health == 20 || query.health == 5"},
+						{"dmg11": "query.health == 19 || query.health == 4"},
+						{"dmg12": "query.health == 18 || query.health == 3"},
+						{"dmg13": "query.health == 17 || query.health == 2"},
+						{"dmg14": "query.health == 16 || query.health == 1"},
+						{"dmg15": "query.health == 15"}
+					]
+				},
+				"dmg1": {
+					"animations": ["hurt"],
+					"transitions": [
+						{"default": "query.health != 29 && query.health != 14"}
+					]
+				},
+				"dmg2": {
+					"animations": ["hurt"],
+					"transitions": [
+						{"default": "query.health != 28 && query.health != 13"}
+					]
+				},
+				"dmg3": {
+					"animations": ["hurt"],
+					"transitions": [
+						{"default": "query.health != 27 && query.health != 12"}
+					]
+				},
+				"dmg4": {
+					"animations": ["hurt"],
+					"transitions": [
+						{"default": "query.health != 26 && query.health != 11"}
+					]
+				},
+				"dmg5": {
+					"animations": ["hurt"],
+					"transitions": [
+						{"default": "query.health != 25 && query.health != 10"}
+					]
+				},
+				"dmg6": {
+					"animations": ["hurt"],
+					"transitions": [
+						{"default": "query.health != 24 && query.health != 9"}
+					]
+				},
+				"dmg7": {
+					"animations": ["hurt"],
+					"transitions": [
+						{"default": "query.health != 23 && query.health != 8"}
+					]
+				},
+				"dmg8": {
+					"animations": ["hurt"],
+					"transitions": [
+						{"default": "query.health != 22 && query.health != 7"}
+					]
+				},
+				"dmg9": {
+					"animations": ["hurt"],
+					"transitions": [
+						{"default": "query.health != 21 && query.health != 6"}
+					]
+				},
+				"dmg10": {
+					"animations": ["hurt"],
+					"transitions": [
+						{"default": "query.health != 20 && query.health != 5"}
+					]
+				},
+				"dmg11": {
+					"animations": ["hurt"],
+					"transitions": [
+						{"default": "query.health != 19 && query.health != 4"}
+					]
+				},
+				"dmg12": {
+					"animations": ["hurt"],
+					"transitions": [
+						{"default": "query.health != 18 && query.health != 3"}
+					]
+				},
+				"dmg13": {
+					"animations": ["hurt"],
+					"transitions": [
+						{"default": "query.health != 17 && query.health != 2"}
+					]
+				},
+				"dmg14": {
+					"animations": ["hurt"],
+					"transitions": [
+						{"default": "query.health != 16 && query.health != 1"}
+					]
+				},
+				"dmg15": {
+					"animations": ["hurt"],
+					"transitions": [
+						{"default": "query.health != 15"}
+					]
+				}
+			}
+		}
+	}
+}

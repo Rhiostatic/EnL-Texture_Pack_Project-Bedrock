@@ -1,0 +1,62 @@
+{
+  "format_version": "1.10.0",
+  "minecraft:client_entity": {
+    "description": {
+      "identifier": "minecraft:chicken",
+      "min_engine_version": "1.12.0",
+      "materials": {
+        "default": "chicken_legs",
+        "legs": "chicken_legs"
+      },
+      "textures": {
+        "default": "textures/entity/chicken",
+        "default2": "textures/entity/chicken2",
+        "default3": "textures/entity/chicken3",
+        "default4": "textures/entity/chicken4"
+      },
+      "geometry": {
+        "default": "geometry.chicken"
+      },
+      "animations": {
+        "base": "animation.chicken.base",
+        "base2": "animation.chicken.base2",
+        "base_face": "animation.chicken.base_face",
+        "death_face": "animation.chicken.death_face",
+        "walking": "animation.chicken.walking",
+        "running": "animation.chicken.running",
+        "flapping_wing": "animation.chicken.flapping_wing",
+        "swimming": "animation.chicken.swimming",
+        "swimming_wing": "animation.chicken.swimming_wing",
+        "hurt": "animation.chicken.hurt",
+        "looking": "animation.chicken.looking",
+        "baby": "animation.chicken.baby",
+        "common": "controller.animation.chicken.common",
+        "facial": "controller.animation.chicken.facial",
+        "look_target": "controller.animation.chicken.look_target",
+        "damage": "controller.animation.chicken.damage",
+        "baby_chicken": "controller.animation.chicken.baby_chicken"
+      },
+      "scripts": {
+        "pre_animation": [
+                  "variable.eye_target_x = query.target_y_rotation - this;",
+                  "variable.eye_target_y = query.target_x_rotation - this;"
+        ],
+        "animate": [
+          "common",
+          "facial",
+          "look_target",
+          "damage",
+          "baby_chicken"
+        ],
+        "initialize": [
+          "variable.Xvar = Math.random(0,999);"
+        ]
+      },
+      "render_controllers": [ "controller.render.chicken" ],
+      "spawn_egg": {
+        "texture": "spawn_egg",
+        "texture_index": 0
+      }
+    }
+  }
+}

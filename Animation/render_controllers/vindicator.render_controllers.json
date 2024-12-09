@@ -1,0 +1,14 @@
+{
+  "format_version": "1.8.0",
+  "render_controllers": {
+    "controller.render.vindicator": {
+      "geometry": "Geometry.default",
+      "part_visibility": [
+        { "arms": "!query.is_celebrating" },
+        { "rightItem": "!query.is_celebrating" }
+      ],
+      "materials": [ { "*": "Material.default" } ],
+      "textures": [ "Texture.default" ]
+    }
+  }
+}
