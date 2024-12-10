@@ -2,17 +2,17 @@
     "format_version": 2,
     "header": {
         "description": "A blend of Animation Packs.",
-        "name": "v1.1.4 EnL Studios Animations Pack",
-        "uuid": "cc97c486-0f0f-46b6-9046-dde01dd44eff",
-        "version": [1, 1, 4],
+        "name": "v1.1.5 EnL Studios Animations Pack",
+        "uuid": "fc8ac089-8bf7-48a5-96dd-39ff21d88aaa",
+        "version": [1, 1, 5],
         "min_engine_version": [ 1, 20, 60 ]
     },
     "modules": [
         {
             "description": "A blend of Animation Packs.",
             "type": "resources",
-            "uuid": "f5062840-ca5a-4de4-8b23-137f758ffdda",
-            "version": [1, 1, 4]
+            "uuid": "8441f6ef-ebd2-423b-91e9-d680dc137d02",
+            "version": [1, 1, 5]
         }
     ]
 }
