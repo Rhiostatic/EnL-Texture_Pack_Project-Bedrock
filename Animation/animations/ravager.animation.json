@@ -302,7 +302,7 @@
 		},
 		"animation.ravager.death_face": {
 			"loop": "hold_on_last_frame",
-			"animation_length": 0.16667,
+			"animation_length": 0.1668,
 			"bones": {
 				"eyebrown": {
 					"rotation": [0, 0, 0],
@@ -1347,7 +1347,7 @@
 		},
 		"animation.ravager.roar": {
 			"loop": "hold_on_last_frame",
-			"animation_length": 3.04167,
+			"animation_length": 3.0418,
 			"bones": {
 				"upper_body": {
 					"rotation": {

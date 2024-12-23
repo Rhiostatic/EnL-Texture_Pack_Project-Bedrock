@@ -54,7 +54,7 @@
 		},
 		"animation.chicken.base2": {
 			"loop": "hold_on_last_frame",
-			"animation_length": 8.91667,
+			"animation_length": 8.9168,
 			"bones": {
 				"upper_body": {
 					"rotation": {
@@ -262,7 +262,7 @@
 		},
 		"animation.chicken.death_face": {
 			"loop": "hold_on_last_frame",
-			"animation_length": 0.16667,
+			"animation_length": 0.1668,
 			"bones": {
 				"eyelid_right": {
 					"position": {
@@ -839,7 +839,7 @@
 		},
 		"animation.chicken.swimming_wing": {
 			"loop": true,
-			"animation_length": 1.29167,
+			"animation_length": 1.2918,
 			"bones": {
 				"wing0": {
 					"rotation": {

@@ -608,7 +608,7 @@
 		},
 		"animation.polarbear.death_face": {
 			"loop": "hold_on_last_frame",
-			"animation_length": 0.16667,
+			"animation_length": 0.1668,
 			"bones": {
 				"eyelid_right": {
 					"position": {

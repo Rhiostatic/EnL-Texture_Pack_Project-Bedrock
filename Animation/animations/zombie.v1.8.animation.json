@@ -700,7 +700,7 @@
 			}
 		},
 		"animation.zombie.v1.8.hurt": {
-			"animation_length": 0.41667,
+			"animation_length": 0.4168,
 			"bones": {
 				"upper_body": {
 					"rotation": {
@@ -804,7 +804,7 @@
 			}
 		},
 		"animation.zombie.v1.8.hurt2": {
-			"animation_length": 0.41667,
+			"animation_length": 0.4168,
 			"bones": {
 				"upper_body": {
 					"rotation": {

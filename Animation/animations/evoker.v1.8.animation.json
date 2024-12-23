@@ -1221,7 +1221,7 @@
 			}
 		},
 		"animation.evoker.hurt2": {
-			"animation_length": 0.41667,
+			"animation_length": 0.4168,
 			"bones": {
 				"upper_body": {
 					"rotation": {

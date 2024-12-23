@@ -1426,7 +1426,7 @@
 			}
 		},
 		"animation.zombie.drowned.v1.16.hurt": {
-			"animation_length": 0.41667,
+			"animation_length": 0.4168,
 			"bones": {
 				"upper_body": {
 					"rotation": {
@@ -1472,7 +1472,7 @@
 			}
 		},
 		"animation.zombie.drowned.v1.16.hurt2": {
-			"animation_length": 0.41667,
+			"animation_length": 0.4168,
 			"bones": {
 				"upper_body": {
 					"rotation": {

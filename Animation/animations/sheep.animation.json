@@ -730,7 +730,7 @@
 		},
 		"animation.sheep.grazing_grass": {
 			"loop": "hold_on_last_frame",
-			"animation_length": 2.66667,
+			"animation_length": 2.6668,
 			"bones": {
 				"head": {
 					"rotation": {
