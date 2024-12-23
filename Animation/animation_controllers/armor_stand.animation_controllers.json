@@ -171,6 +171,14 @@
                             "pose_12":"v.armor_stand.pose_index!=11"
                         }
                     ]
+                },
+                "pose_12":{
+                    "animations":["pose_12"],
+                    "transitions":[
+                        {
+                            "pose_0":"v.armor_stand.pose_index!=12"
+                        }
+                    ]
                 }
             
             }

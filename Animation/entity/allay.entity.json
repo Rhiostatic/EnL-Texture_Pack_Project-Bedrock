@@ -50,7 +50,6 @@
                 "controller_idle": "controller.animation.allay.idle",
                 "controller_general": "controller.animation.allay.base",
                 "controller_dancing": "controller.animation.allay.tanz",
-                "controller_holding": "controller.animation.allay.holding",
                 "controller_hurt": "controller.animation.entity.hurt"
             },
             "particle_effects": {

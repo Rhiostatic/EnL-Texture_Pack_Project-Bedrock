@@ -305,7 +305,7 @@
 		},
 		"animation.parrot.death_face": {
 			"loop": "hold_on_last_frame",
-			"animation_length": 0.16667,
+			"animation_length": 0.1668,
 			"bones": {
 				"eyelid_right": {
 					"position": {
@@ -1136,7 +1136,7 @@
 		},
 		"animation.parrot.dancing": {
 			"loop": true,
-			"animation_length": 0.66667,
+			"animation_length": 0.6668,
 			"bones": {
 				"upper_body": {
 					"rotation": {

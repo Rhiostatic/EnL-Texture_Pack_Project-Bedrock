@@ -1625,7 +1625,7 @@
 			}
 		},
 		"animation.vindicator.hurt": {
-			"animation_length": 0.41667,
+			"animation_length": 0.4168,
 			"bones": {
 				"upper_body": {
 					"rotation": {
@@ -1808,7 +1808,7 @@
 			}
 		},
 		"animation.vindicator.hurt2": {
-			"animation_length": 0.41667,
+			"animation_length": 0.4168,
 			"bones": {
 				"upper_body": {
 					"rotation": {
@@ -1991,7 +1991,7 @@
 		},
 		"animation.vindicator.death_face": {
 			"loop": "hold_on_last_frame",
-			"animation_length": 0.16667,
+			"animation_length": 0.1668,
 			"bones": {
 				"eyebrown_right": {
 					"position": {

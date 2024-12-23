@@ -133,7 +133,7 @@
 		},
 		"animation.bee.base_flying": {
 			"loop": true,
-			"animation_length": 0.16667,
+			"animation_length": 0.1668,
 			"bones": {
 				"rightwing_bone": {
 					"rotation": {
@@ -167,7 +167,7 @@
 		},
 		"animation.bee.swimming": {
 			"loop": true,
-			"animation_length": 0.66667,
+			"animation_length": 0.6668,
 			"bones": {
 				"rightwing_bone": {
 					"rotation": {
@@ -355,7 +355,7 @@
 		},
 		"animation.bee.death_face": {
 			"loop": "hold_on_last_frame",
-			"animation_length": 0.16667,
+			"animation_length": 0.1668,
 			"bones": {
 				"eyelid_left": {
 					"position": {
@@ -392,7 +392,7 @@
 			}
 		},
 		"animation.bee.hurt": {
-			"animation_length": 0.41667,
+			"animation_length": 0.4168,
 			"bones": {
 				"body1": {
 					"position": {

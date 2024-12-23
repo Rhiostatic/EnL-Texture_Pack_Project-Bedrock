@@ -953,7 +953,7 @@
 		},
 		"animation.wandering_trader.death_face": {
 			"loop": "hold_on_last_frame",
-			"animation_length": 0.16667,
+			"animation_length": 0.1668,
 			"bones": {
 				"right": {
 					"scale": [1, 2.03, 1]
@@ -1122,7 +1122,7 @@
 			}
 		},
 		"animation.wandering_trader.hurt": {
-			"animation_length": 0.41667,
+			"animation_length": 0.4168,
 			"bones": {
 				"upper_body": {
 					"rotation": {
@@ -1258,7 +1258,7 @@
 			}
 		},
 		"animation.wandering_trader.hurt2": {
-			"animation_length": 0.41667,
+			"animation_length": 0.4168,
 			"bones": {
 				"upper_body": {
 					"rotation": {
