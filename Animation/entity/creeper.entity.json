@@ -74,10 +74,7 @@
                 "explosion_0": "act:creeper_explosion_core",
                 "explosion_2": "act:creeper_explosion_rays",
                 "explosion_3": "act:creeper_explosion_dust",
-                "explosion_4": "act:creeper_explosion_roks",
-                "impact": "act:water_impact_mid",
-                "splash": "act:water_splash_mid",
-                "ripples": "act:water_ripples"
+                "explosion_4": "act:creeper_explosion_roks"
             },
             "render_controllers": [
                 "controller.render.creeper_anim",
