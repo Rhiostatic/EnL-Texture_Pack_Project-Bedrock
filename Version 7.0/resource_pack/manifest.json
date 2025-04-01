@@ -2,17 +2,17 @@
     "format_version": 2,
     "header": {
         "description": "A blend of Texture Packs.",
-        "name": "v9.1.2 EnL Studios Texture Pack",
-        "uuid": "0d46a610-c2b1-474b-a009-8619383174d1",
-        "version": [9, 1, 2],
+        "name": "v25.03.31 EnL Studios Texture Pack",
+        "uuid": "067eba77-257b-4b33-b47f-506e6299ec87",
+        "version": [25,3,31],
         "min_engine_version": [ 1, 20, 60 ]
     },
     "modules": [
         {
             "description": "A blend of Texture Packs.",
             "type": "resources",
-            "uuid": "a53ab425-e7b9-4992-8eba-a847015a7758",
-            "version": [9, 1, 2]
+            "uuid": "21133f98-7847-4b88-82b3-a1cec10f3dc3",
+            "version": [25,3,31]
         }
     ]
 }

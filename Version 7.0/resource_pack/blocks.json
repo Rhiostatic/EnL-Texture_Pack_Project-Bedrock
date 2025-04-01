@@ -1,4 +1,9 @@
 {
+	"format_version": [
+		1,
+		1,
+		0
+	],
 	"sandstone" : { 
 		"isotropic" : {"up" : false, "down" : true},
 		"textures" : { "up" : "sandstone_top", "down" : "sandstone_bottom", "side" : "sandstone_side"}, 
