@@ -1,0 +1,188 @@
+{
+	"format_version": "1.19.0",
+	"animation_controllers": {
+		"controller.animation.sheep.general": {
+			"states": {
+				"default": {
+					"animations": ["base"],
+					"transitions": [
+						{"base": "query.ground_speed < 0.3"},
+						{"walk": "query.ground_speed > 0.3"},
+						{"swim": "query.is_in_water"},
+						{"ride": "query.is_riding"},
+						{"graze": "query.is_grazing"}
+					],
+					"blend_transition": 0.2
+				},
+				"base": {
+					"animations": ["base"],
+					"transitions": [
+						{"walk": "query.ground_speed > 0.3"},
+						{"swim": "query.is_in_water"},
+						{"ride": "query.is_riding"},
+						{"graze": "query.is_grazing"}
+					],
+					"blend_transition": 0.2
+				},
+				"walk": {
+					"animations": ["walking"],
+					"transitions": [
+						{"base": "query.ground_speed < 0.3"},
+						{"swim": "query.is_in_water"},
+						{"ride": "query.is_riding"},
+						{"graze": "query.is_grazing"},
+						{"run": "query.ground_speed > 4.1 && query.is_on_ground"}
+					],
+					"blend_transition": 0.2
+				},
+				"run": {
+					"animations": ["running"],
+					"transitions": [
+						{"walk": "query.ground_speed < 1.8 || !query.is_on_ground"},
+						{"swim": "query.is_in_water"},
+						{"ride": "query.is_riding"}
+					],
+					"blend_transition": 0.2
+				},
+				"swim": {
+					"animations": ["swimming"],
+					"transitions": [
+						{"default": "!query.is_in_water && query.is_on_ground"},
+						{"ride": "query.is_riding"}
+					],
+					"blend_transition": 0.2
+				},
+				"ride": {
+					"animations": ["base"],
+					"transitions": [
+						{"default": "!query.is_riding"},
+						{"swim": "query.is_in_water && !query.is_riding"}
+					],
+					"blend_transition": 0.2
+				},
+				"graze": {
+					"animations": ["grazing_grass"],
+					"transitions": [
+						{"default": "!query.is_grazing"},
+						{"swim": "query.is_in_water"},
+						{"ride": "query.is_riding"}
+					],
+					"blend_transition": 0.2
+				}
+			}
+		},
+		"controller.animation.sheep.facial": {
+			"states": {
+				"default": {
+					"animations": ["base_face"],
+					"transitions": [
+						{"death_face": "!query.is_alive"}
+					],
+					"blend_transition": 0.25
+				},
+				"death_face": {
+					"animations": ["death_face"],
+					"blend_transition": 0.25
+				}
+			}
+		},
+		"controller.animation.sheep.baby_sheep": {
+			"states": {
+				"default": {
+					"animations": [
+						{"baby": "query.is_baby"}
+					]
+				}
+			}
+		},
+		"controller.animation.sheep.damage": {
+			"states": {
+				"default": {
+					"transitions": [
+						{"dmg1": "query.health == 7"},
+						{"dmg2": "query.health == 6"},
+						{"dmg3": "query.health == 5"},
+						{"dmg4": "query.health == 4"},
+						{"dmg5": "query.health == 3"},
+						{"dmg6": "query.health == 2"},
+						{"dmg7": "query.health == 1"}
+					]
+				},
+				"dmg1": {
+					"animations": ["hurt"],
+					"transitions": [
+						{"default": "query.health != 7"}
+					]
+				},
+				"dmg2": {
+					"animations": ["hurt"],
+					"transitions": [
+						{"default": "query.health != 6"}
+					]
+				},
+				"dmg3": {
+					"animations": ["hurt"],
+					"transitions": [
+						{"default": "query.health != 5"}
+					]
+				},
+				"dmg4": {
+					"animations": ["hurt"],
+					"transitions": [
+						{"default": "query.health != 4"}
+					]
+				},
+				"dmg5": {
+					"animations": ["hurt"],
+					"transitions": [
+						{"default": "query.health != 3"}
+					]
+				},
+				"dmg6": {
+					"animations": ["hurt"],
+					"transitions": [
+						{"default": "query.health != 2"}
+					]
+				},
+				"dmg7": {
+					"animations": ["hurt"],
+					"transitions": [
+						{"default": "query.health != 1"}
+					]
+				}
+			}
+		},
+		"controller.animation.sheep.shearing": {
+			"states": {
+				"default": {
+					"transitions": [
+						{"sheared": "query.is_sheared"}
+					],
+					"blend_transition": 0.1
+				},
+				"sheared": {
+					"animations": ["sheared"],
+					"transitions": [
+						{"default": "!query.is_sheared && query.any_animation_finished"}
+					],
+					"blend_transition": 0.2
+				}
+			}
+		},
+		"controller.animation.sheep.look_target": {
+			"states": {
+				"default": {
+					"transitions": [
+						{"look": "query.is_alive && !query.is_sleeping"}
+					]
+				},
+				"look": {
+					"animations": ["looking"],
+					"transitions": [
+						{"default": "!query.is_alive || query.is_sleeping"}
+					]
+				}
+			}
+		}
+	}
+}

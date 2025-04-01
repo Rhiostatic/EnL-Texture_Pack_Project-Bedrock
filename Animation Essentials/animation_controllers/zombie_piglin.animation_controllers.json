@@ -1,0 +1,208 @@
+{
+	"format_version": "1.19.0",
+	"animation_controllers": {
+		"controller.animation.zombie_piglin.general": {
+			"states": {
+				"default": {
+					"animations": ["base"],
+					"transitions": [
+						{"base": "query.ground_speed < 0.3"},
+						{"walk": "query.ground_speed > 0.3"},
+						{"ride": "query.is_riding"}
+					],
+					"blend_transition": 0.2
+				},
+				"base": {
+					"animations": ["base"],
+					"transitions": [
+						{"walk": "query.ground_speed > 0.3"},
+						{"pre_attack": "variable.attack_time"},
+						{"ride": "query.is_riding"},
+						{"walk_in_water": "query.is_in_water && query.ground_speed > 0.45"}
+					],
+					"blend_transition": 0.2
+				},
+				"walk": {
+					"animations": ["walking"],
+					"transitions": [
+						{"base": "query.ground_speed < 0.3"},
+						{"run": "query.ground_speed > 4.2 && query.is_on_ground"},
+						{"pre_attack": "variable.attack_time"},
+						{"ride": "query.is_riding"},
+						{"walk_in_water": "query.is_in_water && query.ground_speed > 0.45"}
+					],
+					"blend_transition": 0.2
+				},
+				"run": {
+					"animations": ["running"],
+					"transitions": [
+						{"walk": "query.ground_speed < 2.1 || !query.is_on_ground"},
+						{"pre_attack": "variable.attack_time"},
+						{"ride": "query.is_riding"},
+						{"walk_in_water": "query.is_in_water && query.ground_speed > 0.45"}
+					],
+					"blend_transition": 0.2
+				},
+				"pre_attack": {
+					"transitions": [
+						{"attack": "query.is_alive"}
+					],
+					"blend_transition": 0.012
+				},
+				"attack": {
+					"animations": [
+						"attack_time",
+						{"attack_walk": "!query.is_riding"},
+						{"riding_legs": "query.is_riding"}
+					],
+					"transitions": [
+						{"walk": "variable.attack_time == 0 && !query.is_riding"},
+						{"ride": "variable.attack_time == 0 && query.is_riding"}
+					],
+					"blend_transition": 0.2
+				},
+				"ride": {
+					"animations": ["riding", "riding_legs"],
+					"transitions": [
+						{"default": "!query.is_riding"},
+						{"pre_attack": "variable.attack_time"}
+					],
+					"blend_transition": 0.2
+				},
+				"walk_in_water": {
+					"animations": ["walking"],
+					"transitions": [
+						{"base": "query.ground_speed == 0"},
+						{"walk": "!query.is_in_water && query.is_on_ground"},
+						{"ride": "query.is_riding"},
+						{"pre_attack": "variable.attack_time"}
+					],
+					"blend_transition": 0.5
+				}
+			}
+		},
+		"controller.animation.zombie_piglin.facial": {
+			"states": {
+				"default": {
+					"animations": ["base_face"],
+					"transitions": [
+						{"death_face": "!query.is_alive"}
+					],
+					"blend_transition": 0.15
+				},
+				"death_face": {
+					"animations": ["death_face"],
+					"transitions": [
+						{"default": "query.is_alive"}
+					],
+					"blend_transition": 0.15
+				}
+			}
+		},
+		"controller.animation.zombie_piglin.baby_piglin": {
+			"states": {
+				"default": {
+					"animations": [
+						{"baby": "query.is_baby"}
+					]
+				}
+			}
+		},
+		"controller.animation.zombie_piglin.look_target": {
+			"states": {
+				"default": {
+					"transitions": [
+						{"look": "query.is_alive"}
+					]
+				},
+				"look": {
+					"animations": [
+						"looking",
+						{"arm_control": "query.ground_speed > 0.4"}
+					],
+					"transitions": [
+						{"default": "!query.is_alive"}
+					]
+				}
+			}
+		},
+		"controller.animation.zombie_piglin.damage": {
+			"states": {
+				"default": {
+					"transitions": [
+						{"dmg1": "query.health == 19 || query.health == 9"},
+						{"dmg2": "query.health == 18 || query.health == 8"},
+						{"dmg3": "query.health == 17 || query.health == 7"},
+						{"dmg4": "query.health == 16 || query.health == 6"},
+						{"dmg5": "query.health == 15 || query.health == 5"},
+						{"dmg6": "query.health == 14 || query.health == 4"},
+						{"dmg7": "query.health == 13 || query.health == 3"},
+						{"dmg8": "query.health == 12 || query.health == 2"},
+						{"dmg9": "query.health == 11 || query.health == 1"},
+						{"dmg10": "query.health == 10"}
+					]
+				},
+				"dmg1": {
+					"animations": ["hurt"],
+					"transitions": [
+						{"default": "query.health != 19 && query.health != 9"}
+					]
+				},
+				"dmg2": {
+					"animations": ["hurt"],
+					"transitions": [
+						{"default": "query.health != 18 && query.health != 8"}
+					]
+				},
+				"dmg3": {
+					"animations": ["hurt"],
+					"transitions": [
+						{"default": "query.health != 17 && query.health != 7"}
+					]
+				},
+				"dmg4": {
+					"animations": ["hurt"],
+					"transitions": [
+						{"default": "query.health != 16 && query.health != 6"}
+					]
+				},
+				"dmg5": {
+					"animations": ["hurt"],
+					"transitions": [
+						{"default": "query.health != 15 && query.health != 5"}
+					]
+				},
+				"dmg6": {
+					"animations": ["hurt"],
+					"transitions": [
+						{"default": "query.health != 14 && query.health != 4"}
+					]
+				},
+				"dmg7": {
+					"animations": ["hurt"],
+					"transitions": [
+						{"default": "query.health != 13 && query.health != 3"}
+					]
+				},
+				"dmg8": {
+					"animations": ["hurt"],
+					"transitions": [
+						{"default": "query.health != 12 && query.health != 2"}
+					]
+				},
+				"dmg9": {
+					"animations": ["hurt"],
+					"transitions": [
+						{"default": "query.health != 11 && query.health != 1"}
+					]
+				},
+				"dmg10": {
+					"animations": ["hurt"],
+					"transitions": [
+						{"default": "query.health != 10"}
+					]
+				}
+			}
+		}
+	}
+}

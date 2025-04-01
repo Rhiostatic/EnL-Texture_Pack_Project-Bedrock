@@ -1,0 +1,68 @@
+{
+  "format_version": "1.10.0",
+  "minecraft:client_entity": {
+    "description": {
+      "identifier": "minecraft:vindicator",
+      "min_engine_version": "1.8.0",
+      "materials": { "default": "vindicator" },
+      "textures": { "default": "textures/entity/vindicator" },
+      "geometry": { "default": "geometry.vindicator.v1.8" },
+      "spawn_egg": {
+        "texture": "spawn_egg",
+        "texture_index": 39
+      },
+      "scripts": {
+        "pre_animation": [
+                  "variable.eye_target_x = query.target_y_rotation - this;",
+                  "variable.eye_target_y = query.target_x_rotation - this;"
+        ],
+        "scale": "0.9375",
+        "animate": [
+          "general",
+          "facial",
+          "look_target",
+          "damage",
+          "facial_plus"
+        ]
+      },
+      "animations": {
+        "eye_target": "animation.vindicator.eye_target",
+        "base_face": "animation.vindicator.base_face",
+        "base_face2": "animation.vindicator.base_face2",
+        "base": "animation.vindicator.base",
+        "angry_run": "animation.vindicator.angry_run",
+        "angry_face": "animation.vindicator.angry_face",
+        "angry_face2": "animation.vindicator.angry_face2",
+        "walking": "animation.vindicator.walking",
+        "running": "animation.vindicator.running",
+        "attack_time": "animation.vindicator.attack_time",
+        "attack_time_legs": "animation.vindicator.attack_time_legs",
+        "attack_face": "animation.vindicator.attack_face",
+        "swimming": "animation.vindicator.swimming",
+        "swimming_angry": "animation.vindicator.swimming_angry",
+        "swimming_attack": "animation.vindicator.swimming_attack",
+        "ride_leg": "animation.vindicator.ride_leg",
+        "ride_arms": "animation.vindicator.ride_arms",
+        "ride_arms_angry": "animation.vindicator.ride_arms_angry",
+        "ride_arms_attack": "animation.vindicator.ride_arms_attack",
+        "celebrating": "animation.humanoid.celebrating",
+        "hurt": "animation.vindicator.hurt",
+        "hurt2": "animation.vindicator.hurt2",
+        "death_face": "animation.vindicator.death_face",
+        "looking": "animation.vindicator.looking",
+        "arm_control": "animation.vindicator.arm_control",
+        "facial1": "animation.vindicator.facial1",
+        "facial2": "animation.vindicator.facial2",
+        "facial3": "animation.vindicator.facial3",
+        "general": "controller.animation.vindicator.general",
+        "facial": "controller.animation.vindicator.facial",
+        "look_target": "controller.animation.vindicator.look_target",
+        "damage": "controller.animation.vindicator.damage",
+        "facial_plus": "controller.animation.vindicator.facial_plus"
+      },
+      "render_controllers": [ "controller.render.vindicator" ],
+      "enable_attachables": true,
+      "hide_armor": true
+    }
+  }
+}
