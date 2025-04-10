@@ -1,0 +1,24 @@
+{
+ "format_version": 2,
+ "header": {
+   "description": "Patterned Glass Blocks Extending the Glass Options!",
+   "name": "Patterened Glass Pack. Credit to John Smith",
+   "uuid":"e41d4ab1-a4d5-48bd-8fc1-011c5d4b8fc7",
+   "version": [3, 0, 0],
+   "min_engine_version": [1, 20, 1]
+  },
+ "modules": [
+   {
+     "description": "Patterened Glass Pack. Credit to John Smith",
+     "type": "resources",
+     "uuid": "15aab8c2-8086-4609-a886-a281bd74f693",
+     "version": [3, 0, 0]
+   }
+  ],
+"dependencies": [
+  {
+   "uuid":"44d10d3d-c1f3-4c99-9243-1c5a2bf56bbf",
+    "version":[3,0,0]
+  }
+ ]
+}

@@ -1,0 +1,60 @@
+{ 
+  "resource_pack_name": "patterned_glass_resource_pack", 
+  "texture_name": "atlas.terrain", 
+  "padding": 8, 
+  "num_mip_levels": 4, 
+  "texture_data": { 
+    "patterned_glass": { 
+      "textures": "textures/blocks/patterned_glass" 
+    },
+    "patterned_glass_black": { 
+      "textures": "textures/blocks/patterned_glass_black" 
+    },
+    "patterned_glass_blue": { 
+      "textures": "textures/blocks/patterned_glass_blue" 
+    },
+    "patterned_glass_brown": { 
+      "textures": "textures/blocks/patterned_glass_brown" 
+    },
+    "patterned_glass_cyan": { 
+      "textures": "textures/blocks/patterned_glass_cyan" 
+    },
+    "patterned_glass_gray": { 
+      "textures": "textures/blocks/patterned_glass_gray" 
+    },
+    "patterned_glass_green": { 
+      "textures": "textures/blocks/patterned_glass_green" 
+    },
+    "patterned_glass_light_blue": { 
+      "textures": "textures/blocks/patterned_glass_light_blue" 
+    },
+    "patterned_glass_lime": { 
+      "textures": "textures/blocks/patterned_glass_lime" 
+    },
+    "patterned_glass_magenta": { 
+      "textures": "textures/blocks/patterned_glass_magenta" 
+    },
+    "patterned_glass_orange": { 
+      "textures": "textures/blocks/patterned_glass_orange" 
+    },
+    "patterned_glass_pink": { 
+      "textures": "textures/blocks/patterned_glass_pink" 
+    },
+    "patterned_glass_purple": { 
+      "textures": "textures/blocks/patterned_glass_purple" 
+    },
+    "patterned_glass_red": { 
+      "textures": "textures/blocks/patterned_glass_red" 
+    },
+    "patterned_glass_light_grey": { 
+      "textures": "textures/blocks/patterned_glass_light_grey" 
+    },
+    "patterned_glass_white": { 
+      "textures": "textures/blocks/patterned_glass_white" 
+    },
+    "patterned_glass_yellow": { 
+      "textures": "textures/blocks/patterned_glass_yellow" 
+    }    
+    } 
+  } 
+}

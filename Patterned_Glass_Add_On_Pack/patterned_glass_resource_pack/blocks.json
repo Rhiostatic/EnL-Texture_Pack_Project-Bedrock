@@ -1,0 +1,88 @@
+{ 
+  "format_version": "1.20.10", 
+  "patterned:patterned_glass": { 
+    "sound":"glass",
+    "textures": "patterned_glass",
+    "brightness_gamma": 1
+    },
+  "patterned:patterned_glass_black": {
+    "sound":"glass",
+    "textures": "patterned_glass_black",
+    "brightness_gamma": 1
+  },
+  "patterned:patterned_glass_blue": {
+    "sound":"glass",
+    "textures": "patterned_glass_blue",
+    "brightness_gamma": 1
+  },
+  "patterned:patterned_glass_brown": {
+    "sound":"glass",
+    "textures": "patterned_glass_brown",
+    "brightness_gamma": 1
+  },
+  "patterned:patterned_glass_cyan": {
+    "sound":"glass",
+    "textures": "patterned_glass_cyan",
+    "brightness_gamma": 1
+  },
+  "patterned:patterned_glass_gray": {
+    "sound":"glass",
+    "textures": "patterned_glass_gray",
+    "brightness_gamma": 1
+  },
+  "patterned:patterned_glass_green": {
+    "sound":"glass",
+    "textures": "patterned_glass_green",
+    "brightness_gamma": 1
+  },
+  "patterned:patterned_glass_light_blue": {
+    "sound":"glass",
+    "textures": "patterned_glass_light_blue",
+    "brightness_gamma": 1
+  },
+  "patterned:patterned_glass_lime": {
+    "sound":"glass",
+    "textures": "patterned_glass_lime",
+    "brightness_gamma": 1
+  },
+  "patterned:patterned_glass_magenta": {
+    "sound":"glass",
+    "textures": "patterned_glass_magenta",
+    "brightness_gamma": 1
+  },
+  "patterned:patterned_glass_orange": {
+    "sound":"glass",
+    "textures": "patterned_glass_orange",
+    "brightness_gamma": 1
+  },
+  "patterned:patterned_glass_pink": {
+    "sound":"glass",
+    "textures": "patterned_glass_pink",
+    "brightness_gamma": 1
+  },
+  "patterned:patterned_glass_purple": {
+    "sound":"glass",
+    "textures": "patterned_glass_purple",
+    "brightness_gamma": 1
+  },
+  "patterned:patterned_glass_red": {
+    "sound":"glass",
+    "textures": "patterned_glass_red",
+    "brightness_gamma": 1
+  },
+  "patterned:patterned_glass_light_grey": {
+    "sound":"glass",
+    "textures": "patterned_glass_light_grey",
+    "brightness_gamma": 1
+  },
+  "patterned:patterned_glass_white": {
+    "sound":"glass",
+    "textures": "patterned_glass_white",
+    "brightness_gamma": 1
+  },
+  "patterned:patterned_glass_yellow": {
+    "sound":"glass",
+    "textures": "patterned_glass_yellow",
+    "brightness_gamma": 1
+  }
+}
