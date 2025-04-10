@@ -1,0 +1,30 @@
+{
+  "format_version": "1.20.10",
+  "minecraft:recipe_shaped": {
+    "description": {
+      "identifier": "patterned:patterned_glass_magenta"
+    },
+    "tags": [ "crafting_table" ],
+    "pattern": [
+      "   ",
+      " #X"
+    ],
+    "key": {
+      "#": {
+        "item": "minecraft:stained_glass:2"
+      },
+      "X": {
+        "item": "minecraft:iron_nugget"
+      }
+    },
+	"unlock": [
+      {
+        "item": "patterned:patterned_glass_magenta"
+      }
+    ],
+    "result": {
+      "item": "patterned:patterned_glass_magenta",
+      "count": 1
+    }
+  }
+}

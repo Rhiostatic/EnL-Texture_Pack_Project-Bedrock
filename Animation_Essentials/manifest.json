@@ -1,0 +1,18 @@
+{
+    "format_version": 2,
+    "header": {
+        "description": "Animation Essentials",
+        "name": "v1.0.0 EnL Studios Essentials Animation Pack",
+        "uuid": "eff28c6e-f881-4a73-81c1-e152da91a258",
+        "version": [25, 4, 9],
+        "min_engine_version": [ 1, 20, 60 ]
+    },
+    "modules": [
+        {
+            "description": "Animation Essentials",
+            "type": "resources",
+            "uuid": "48d0d7b0-2351-48da-81f9-505f273a4e31",
+            "version": [25, 4, 9]
+        }
+    ]
+}
