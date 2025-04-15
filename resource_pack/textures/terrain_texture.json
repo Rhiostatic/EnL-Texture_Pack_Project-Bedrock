@@ -5,64 +5,58 @@
    "num_mip_levels": 4,
    "texture_data": {
       "cobblestone": {
-         "textures": [
-            {
-               "variations": [
-                  {
-                     "path": "textures/blocks/cobblestone",
-                     "weight": 50
-                  },
-                  {
-                     "path": "textures/blocks/cobblestone1",
-                     "weight": 25
-                  },
-                  {
-                     "path": "textures/blocks/cobblestone2",
-                     "weight": 25
-                  }
-               ]
-            }
-         ]
+         "textures": {
+            "variations": [
+               {
+                  "path": "textures/blocks/cobblestone",
+                  "weight": 50
+               },
+               {
+                  "path": "textures/blocks/cobblestone1",
+                  "weight": 25
+               },
+               {
+                  "path": "textures/blocks/cobblestone2",
+                  "weight": 25
+               }
+            ]
+         }
       },
       "cobblestone_top": {
-         "textures": [
-            {
-               "variations": [
-                  {
-                     "path": "textures/blocks/cobblestone_top",
-                     "weight": 50
-                  },
-                  {
-                     "path": "textures/blocks/cobblestone_top1",
-                     "weight": 25
-                  },
-                  {
-                     "path": "textures/blocks/cobblestone_top2",
-                     "weight": 25
-                  }
-               ]
-            }
-         ]
+         "textures": {
+            "variations": [
+               {
+                  "path": "textures/blocks/cobblestone_top",
+                  "weight": 50
+               },
+               {
+                  "path": "textures/blocks/cobblestone_top1",
+                  "weight": 25
+               },
+               {
+                  "path": "textures/blocks/cobblestone_top2",
+                  "weight": 25
+               }
+            ]
+         }
       },
       "cobblestone_bottom": {
-         "textures": [
-            {
-               "variations": [
-                  {
-                     "path": "textures/blocks/cobblestone_bottom",
-                     "weight": 50
-                  },
-                  {
-                     "path": "textures/blocks/cobblestone_bottom1",
-                     "weight": 25
-                  },
-                  {
-                     "path": "textures/blocks/cobblestone_bottom2",
-                     "weight": 25
-                  }
-               ]
-            }
-         ]
+         "textures": {
+            "variations": [
+               {
+                  "path": "textures/blocks/cobblestone_bottom",
+                  "weight": 50
+               },
+               {
+                  "path": "textures/blocks/cobblestone_bottom1",
+                  "weight": 25
+               },
+               {
+                  "path": "textures/blocks/cobblestone_bottom2",
+                  "weight": 25
+               }
+            ]
+         }
       },
       "cobblestone_stairs_side": {
          "textures": "textures/blocks/cobblestone_stairs_side"
@@ -77,28 +71,26 @@
          "textures": "textures/blocks/cobblestone_mossy"
       },
       "cobblestone_mossy_top": {
-         "textures": [
-            {
-               "variations": [
-                  {
-                     "path": "textures/blocks/cobblestone_mossy_top",
-                     "weight": 40
-                  },
-                  {
-                     "path": "textures/blocks/cobblestone_mossy_top1",
-                     "weight": 20
-                  },
-                  {
-                     "path": "textures/blocks/cobblestone_mossy_top2",
-                     "weight": 20
-                  },
-                  {
-                     "path": "textures/blocks/cobblestone_mossy_top3",
-                     "weight": 20
-                  }
-               ]
-            }
-         ]
+         "textures": {
+            "variations": [
+               {
+                  "path": "textures/blocks/cobblestone_mossy_top",
+                  "weight": 40
+               },
+               {
+                  "path": "textures/blocks/cobblestone_mossy_top1",
+                  "weight": 20
+               },
+               {
+                  "path": "textures/blocks/cobblestone_mossy_top2",
+                  "weight": 20
+               },
+               {
+                  "path": "textures/blocks/cobblestone_mossy_top3",
+                  "weight": 20
+               }
+            ]
+         }
       },
       "cobblestone_wall": {
          "textures": [
@@ -119,36 +111,91 @@
          ]
       },
       "mossy_stone_brick": {
-         "textures": [
-            {
-               "variations": [
-                  {
-                     "path": "textures/blocks/stonebrick_mossy"
-                  },
-                  {
-                     "path": "textures/blocks/stonebrick_mossy1"
-                  },
-                  {
-                     "path": "textures/blocks/stonebrick_mossy2"
-                  },
-                  {
-                     "path": "textures/blocks/stonebrick_mossy3"
-                  },
-                  {
-                     "path": "textures/blocks/stonebrick_mossy4"
-                  },
-                  {
-                     "path": "textures/blocks/stonebrick_mossy5"
-                  },
-                  {
-                     "path": "textures/blocks/stonebrick_mossy6"
-                  },
-                  {
-                     "path": "textures/blocks/stonebrick_mossy7"
-                  }
-               ]
-            }
-         ]
+         "textures": {
+            "variations": [
+               {
+                  "path": "textures/blocks/stonebrick_mossy"
+               },
+               {
+                  "path": "textures/blocks/stonebrick_mossy1"
+               },
+               {
+                  "path": "textures/blocks/stonebrick_mossy2"
+               },
+               {
+                  "path": "textures/blocks/stonebrick_mossy3"
+               },
+               {
+                  "path": "textures/blocks/stonebrick_mossy4"
+               },
+               {
+                  "path": "textures/blocks/stonebrick_mossy5"
+               },
+               {
+                  "path": "textures/blocks/stonebrick_mossy6"
+               },
+               {
+                  "path": "textures/blocks/stonebrick_mossy7"
+               }
+            ]
+         }
+      },
+      "poppy": {
+         "textures": {
+            "variations": [
+               {
+                  "path": "textures/blocks/flower_rose"
+               },
+               {
+                  "path": "textures/blocks/flower_rose1"
+               },
+               {
+                  "path": "textures/blocks/flower_rose2"
+               },
+               {
+                  "path": "textures/blocks/flower_rose3"
+               },
+               {
+                  "path": "textures/blocks/flower_rose4"
+               }
+            ]
+         }
+      },
+      "allium": {
+         "textures": {
+            "variations": [
+               {
+                  "path": "textures/blocks/flower_allium"
+               },
+               {
+                  "path": "textures/blocks/flower_allium1"
+               },
+               {
+                  "path": "textures/blocks/flower_allium2"
+               },
+               {
+                  "path": "textures/blocks/flower_allium3"
+               }
+            ]
+         }
+      },
+      "blue_orchid": {
+         "textures": {
+            "variations": [
+               {
+                  "path": "textures/blocks/flower_blue_orchid"
+               },
+               {
+                  "path": "textures/blocks/flower_blue_orchid1"
+               },
+               {
+                  "path": "textures/blocks/flower_blue_orchid2"
+               },
+               {
+                  "path": "textures/blocks/flower_blue_orchid3"
+               }
+            ]
+         }
       },
       "red_flower": {
          "textures": [
@@ -206,15 +253,7 @@
                      "weight": 25
                   }
                ]
-            },
-            "textures/blocks/flower_houstonia",
-            "textures/blocks/flower_tulip_red",
-            "textures/blocks/flower_tulip_orange",
-            "textures/blocks/flower_tulip_white",
-            "textures/blocks/flower_tulip_pink",
-            "textures/blocks/flower_oxeye_daisy",
-            "textures/blocks/flower_cornflower",
-            "textures/blocks/flower_lily_of_the_valley"
+            }
          ]
       },
       "stone": {
@@ -1088,53 +1127,49 @@
          ]
       },
       "waterlily": {
-         "textures": [
-            {
-               "variations": [
-                  {
-                     "path": "textures/blocks/waterlily_1"
-                  },
-                  {
-                     "path": "textures/blocks/waterlily_2"
-                  },
-                  {
-                     "path": "textures/blocks/waterlily_3"
-                  },
-                  {
-                     "path": "textures/blocks/waterlily_4"
-                  },
-                  {
-                     "path": "textures/blocks/waterlily_5"
-                  }
-               ]
-            }
-         ]
+         "textures": {
+            "variations": [
+               {
+                  "path": "textures/blocks/waterlily_1"
+               },
+               {
+                  "path": "textures/blocks/waterlily_2"
+               },
+               {
+                  "path": "textures/blocks/waterlily_3"
+               },
+               {
+                  "path": "textures/blocks/waterlily_4"
+               },
+               {
+                  "path": "textures/blocks/waterlily_5"
+               }
+            ]
+         }
       },
-      "yellow_flower": {
-         "textures": [
-            {
-               "variations": [
-                  {
-                     "path": "textures/blocks/flower_dandelion1"
-                  },
-                  {
-                     "path": "textures/blocks/flower_dandelion"
-                  },
-                  {
-                     "path": "textures/blocks/flower_dandelion2"
-                  },
-                  {
-                     "path": "textures/blocks/flower_dandelion3"
-                  },
-                  {
-                     "path": "textures/blocks/flower_dandelion4"
-                  },
-                  {
-                     "path": "textures/blocks/flower_dandelion5"
-                  }
-               ]
-            }
-         ]
+      "dandelion": {
+         "textures": {
+            "variations": [
+               {
+                  "path": "textures/blocks/flower_dandelion"
+               },
+               {
+                  "path": "textures/blocks/flower_dandelion_1"
+               },
+               {
+                  "path": "textures/blocks/flower_dandelion_2"
+               },
+               {
+                  "path": "textures/blocks/flower_dandelion_3"
+               },
+               {
+                  "path": "textures/blocks/flower_dandelion_4"
+               },
+               {
+                  "path": "textures/blocks/flower_dandelion_5"
+               }
+            ]
+         }
       }
    }
 }
