@@ -1,0 +1,22 @@
+{
+  "format_version": "1.8.0",
+  "render_controllers": {
+    "controller.render.pig": {
+      "arrays": {
+        "textures": {
+          "Array.Xskins": [
+            "Texture.default",
+            "Texture.default2",
+            "Texture.default3",
+            "Texture.default4",
+            "Texture.default5",
+            "Texture.default6"
+          ]
+        }
+      },
+      "geometry": "Geometry.default",
+      "materials": [ { "*": "Material.default" } ],
+      "textures": [ "query.is_saddled ? Texture.saddled : Array.Xskins[variable.Xvar]" ]
+    }
+  }
+}

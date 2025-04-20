@@ -1,0 +1,17 @@
+{
+    "materials": {
+        "version": "1.0.0",
+        "loveyou:entity_static": {
+            "+defines": [ "USE_UV_ANIM", "ALPHA_TEST" ],
+            "+states": [ "DisableCulling" ],
+            "msaaSupport": "Both",
+            "+samplerStates": [
+                {
+                "samplerIndex": 0,
+                "textureFilter": "Point",
+                "textureWrap": "Repeat"
+                }
+            ]
+        }
+    }
+}

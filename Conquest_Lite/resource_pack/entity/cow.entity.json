@@ -1,0 +1,49 @@
+{
+  "format_version": "1.10.0",
+  "minecraft:client_entity": {
+    "description": {
+      "identifier": "minecraft:cow",
+      "min_engine_version": "1.8.0",
+      "materials": { "default": "entity_alphatest" },
+      "textures": {
+        "default": "textures/entity/cow/cow",
+        "default2": "textures/entity/cow/cow2",
+        "default3": "textures/entity/cow/cow3",
+        "default4": "textures/entity/cow/cow4",
+        "default5": "textures/entity/cow/cow5",
+        "default6": "textures/entity/cow/cow6",
+        "default7": "textures/entity/cow/cow7",
+        "default8": "textures/entity/cow/cow8",
+        "default9": "textures/entity/cow/cow9",
+        "default10": "textures/entity/cow/cow10",
+        "default11": "textures/entity/cow/cow11",
+        "default12": "textures/entity/cow/cow12",
+        "default13": "textures/entity/cow/cow13",
+        "default14": "textures/entity/cow/cow14"
+      },
+      "geometry": {
+        "default": "geometry.cow.v1.8"
+      },
+      "animations": {
+        "setup": "animation.cow.setup",
+        "walk": "animation.cow.walk",
+        "look_at_target": "animation.common.look_at_target",
+        "baby_transform": "animation.cow.baby_transform"
+      },
+      "scripts": {
+        "animate": [
+          "setup",
+          { "walk": "query.modified_move_speed" },
+          "look_at_target",
+          { "baby_transform": "query.is_baby" }
+        ],
+        "initialize": ["variable.Xvar = Math.random(0,999);"]
+      },
+      "render_controllers": ["controller.render.cow"],
+      "spawn_egg": {
+        "texture": "spawn_egg",
+        "texture_index": 1
+      }
+    }
+  }
+}

@@ -1,0 +1,23 @@
+{
+  "format_version": "1.8.0",
+  "minecraft:client_entity": {
+    "description": {
+      "identifier": "minecraft:polar_bear",
+      "textures": {
+        "default": "textures/entity/polarbear",
+        "default2": "textures/entity/polarbear2",
+        "default3": "textures/entity/polarbear3"
+      },
+      "scripts": {
+        "pre_animation": [
+          "variable.Xvar = (variable.Xvar ?? Math.random(0,999));"
+        ]
+      },
+      "render_controllers": ["controller.render.polarbear"],
+      "spawn_egg": {
+        "base_color": "#eeeede",
+        "overlay_color": "#d5d6cd"
+      }
+    }
+  }
+}
