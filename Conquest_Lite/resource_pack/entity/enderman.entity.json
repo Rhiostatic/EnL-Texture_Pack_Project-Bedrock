@@ -1,0 +1,51 @@
+{
+  "format_version": "1.10.0",
+  "minecraft:client_entity": {
+    "description": {
+      "identifier": "minecraft:enderman",
+      "min_engine_version": "1.8.0",
+      "materials": {
+        "default": "enderman",
+        "invisible": "enderman_invisible"
+      },
+      "textures": {
+        "default": "textures/entity/enderman/enderman"
+      },
+      "geometry": {
+        "default": "geometry.enderman.v1.8"
+      },
+      "scripts": {
+        "pre_animation": [
+          "variable.tcos0 = (Math.cos(query.modified_distance_moved * 38.17) * query.modified_move_speed / variable.gliding_speed_value) * 28.65;"
+        ],
+        "animate": [
+          "root",
+          "look_at_target_controller",
+          "scary_face_controller",
+          "carrying_controller",
+          "attack_controller"
+        ]
+      },
+      "animations": {
+        "attack": "animation.enderman.attack",
+        "walking": "animation.enderman.walking",
+        "idle": "animation.enderman.idle",
+        "root": "controller.animation.enderman.root",
+        "attack_controller": "controller.animation.enderman.attack",
+        "look_at_target_default": "animation.humanoid.look_at_target.default",
+        "look_at_target_gliding": "animation.humanoid.look_at_target.gliding",
+        "look_at_target_swimming": "animation.humanoid.look_at_target.swimming",
+        "carrying": "animation.enderman.carrying",
+        "scary_face": "animation.enderman.scary_face",
+        "scary_face_controller": "controller.animation.enderman.scary_face",
+        "carrying_controller": "controller.animation.enderman.carrying",
+        "look_at_target_controller": "controller.animation.humanoid.look_at_target"
+      },
+      "render_controllers": [ "controller.render.enderman" ],
+      "spawn_egg": {
+        "texture": "spawn_egg",
+        "texture_index": 7
+      }
+    }
+  }
+}

@@ -1,0 +1,39 @@
+{
+  "format_version": "1.10.0",
+  "minecraft:client_entity": {
+    "description": {
+      "identifier": "minecraft:squid",
+      "materials": { "default": "entity_alphatest" },
+      "textures": {
+        "default": "textures/entity/squid",
+        "default2": "textures/entity/squid2",
+        "default3": "textures/entity/squid3",
+        "default4": "textures/entity/squid4",
+        "default5": "textures/entity/squid5",
+        "default6": "textures/entity/squid6",
+        "default7": "textures/entity/squid7",
+        "default8": "textures/entity/squid8",
+        "default9": "textures/entity/squid9"
+      },
+      "geometry": {
+        "default": "geometry.squid"
+      },
+      "animations": {
+        "move": "animation.squid.move",
+        "squid_rotate": "animation.squid.rotate"
+      },
+      "scripts": {
+        "animate": [
+          "move",
+          "squid_rotate"
+        ],
+        "initialize": ["variable.Xvar = Math.random(0,999);"]
+      },
+      "render_controllers": [ "controller.render.squid" ],
+      "spawn_egg": {
+        "texture": "spawn_egg",
+        "texture_index": 15
+      }
+    }
+  }
+}

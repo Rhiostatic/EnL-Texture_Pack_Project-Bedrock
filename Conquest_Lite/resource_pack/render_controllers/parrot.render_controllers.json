@@ -1,0 +1,42 @@
+{
+  "format_version": "1.8.0",
+  "render_controllers": {
+    "controller.render.parrot": {
+      "arrays": {
+        "textures": {
+          "Array.Red": [
+            "Texture.red_blue",
+            "Texture.red_blue2",
+            "Texture.red_blue3"
+          ],
+          "Array.Blue": [
+            "Texture.blue",
+            "Texture.blue2",
+            "Texture.blue3",
+            "Texture.blue4"
+          ],
+          "Array.Green": [
+            "Texture.green",
+            "Texture.green2"
+          ],
+          "Array.Yellow": [
+            "Texture.yellow_blue2",
+            "Texture.yellow_blue"
+          ],
+          "Array.Grey": [
+            "Texture.grey",
+            "Texture.grey2",
+            "Texture.grey3",
+            "Texture.grey4",
+            "Texture.grey5"
+          ]
+        }
+      },
+      "geometry": "Geometry.default",
+      "materials": [{ "*": "Material.default" }],
+      "textures": [
+        "query.variant == 0 ? Array.Red[variable.Xvar] : query.variant == 1 ? Array.Blue[variable.Xvar] : query.variant == 2 ? Array.Green[variable.Xvar] : query.variant == 3 ? Array.Yellow[variable.Xvar] : Array.Grey[variable.Xvar]"
+      ]
+    }
+  }
+}

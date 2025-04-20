@@ -1,0 +1,57 @@
+{
+  "format_version": "1.8.0",
+  "minecraft:client_entity": {
+    "description": {
+      "identifier": "minecraft:parrot",
+      "materials": { "default": "parrot"},
+      "textures": {
+        "blue": "textures/entity/parrot/parrot_blue",
+        "blue2": "textures/entity/parrot/parrot_blue2",
+        "blue3": "textures/entity/parrot/parrot_blue3",
+        "blue4": "textures/entity/parrot/parrot_blue4",
+        "green": "textures/entity/parrot/parrot_green",
+        "green2": "textures/entity/parrot/parrot_green2",
+        "red_blue": "textures/entity/parrot/parrot_red_blue",
+        "red_blue2": "textures/entity/parrot/parrot_red_blue2",
+        "red_blue3": "textures/entity/parrot/parrot_red_blue3",
+        "yellow_blue": "textures/entity/parrot/parrot_yellow_blue",
+        "yellow_blue2": "textures/entity/parrot/parrot_yellow_blue2",
+        "grey": "textures/entity/parrot/parrot_grey",
+        "grey2": "textures/entity/parrot/parrot_grey2",
+        "grey3": "textures/entity/parrot/parrot_grey3",
+        "grey4": "textures/entity/parrot/parrot_grey4",
+        "grey5": "textures/entity/parrot/parrot_grey5"
+      },
+      "geometry": {
+        "default": "geometry.parrot"
+      },
+      "scripts": {
+        "pre_animation": [
+          "variable.state = query.is_dancing ? 3 : (query.is_sitting ? 2 : (!query.is_on_ground && !query.is_jumping && !query.is_riding ? 0 : 1));",
+          "variable.dance.x = Math.cos(query.life_time * 57.3 * 20.0);",
+          "variable.dance.y = -Math.sin(query.life_time * 57.3 * 20.0);",
+          "variable.wing_flap = ((math.sin(query.wing_flap_position * 57.3) + 1) * query.wing_flap_speed);",
+          "variable.Xvar = (variable.Xvar ?? Math.random(0,999));"
+        ]
+      },
+      "animations": {
+        "moving": "animation.parrot.moving",
+        "base": "animation.parrot.base",
+        "dance": "animation.parrot.dance",
+        "sitting": "animation.parrot.sitting",
+        "flying": "animation.parrot.flying",
+        "standing": "animation.parrot.standing",
+        "look_at_target": "animation.common.look_at_target"
+      },
+      "animation_controllers": [
+        { "setup": "controller.animation.parrot.setup" },
+        { "move": "controller.animation.parrot.move" }
+      ],
+      "render_controllers": [ "controller.render.parrot" ],
+      "spawn_egg": {
+        "texture": "spawn_egg",
+        "texture_index": 43
+      }
+    }
+  }
+}

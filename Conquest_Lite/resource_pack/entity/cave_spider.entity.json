@@ -1,0 +1,42 @@
+{
+  "format_version": "1.8.0",
+  "minecraft:client_entity": {
+    "description": {
+      "identifier": "minecraft:cave_spider",
+      "min_engine_version": "1.8.0",
+      "materials": {
+        "default": "entity_alphatest",
+        "invisible": "spider_invisible"
+      },
+      "textures": {
+        "default": "textures/entity/spider/cave_spider",
+        "default2": "textures/entity/spider/cave_spider2",
+        "default3": "textures/entity/spider/cave_spider3",
+        "default4": "textures/entity/spider/cave_spider4",
+        "default5": "textures/entity/spider/cave_spider5"
+      },
+      "geometry": {
+        "default": "geometry.spider.v1.8"
+      },
+      "scripts": {
+        "scale": "0.7",
+        "pre_animation": [
+          "variable.Xvar = (variable.Xvar ?? Math.random(0,999));"
+        ]
+      },
+      "animations": {
+        "default_leg_pose": "animation.spider.default_leg_pose",
+        "look_at_target": "animation.spider.look_at_target",
+        "walk": "animation.spider.walk"
+      },
+      "animation_controllers": [
+        { "move": "controller.animation.spider.move" }
+      ],
+      "render_controllers": [ "controller.render.cave_spider" ],
+      "spawn_egg": {
+        "texture": "spawn_egg",
+        "texture_index": 22
+      }
+    }
+  }
+}
