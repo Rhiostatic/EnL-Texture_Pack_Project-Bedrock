@@ -1,0 +1,32 @@
+{
+    "format_version": 2,
+    "header": {
+        "description": "pack.description",
+        "name": "Conquest Lite",
+        "uuid": "5f4c23b3-f1fc-4261-a1d2-1f355906ed57",
+        "version": [
+            1,
+            0,
+            1
+        ],
+        "min_engine_version": [
+            1,
+            21,
+            0
+        ]
+    },
+    "modules": [
+        {
+            "type": "resources",
+            "uuid": "a258f9e8-0f6b-4775-ade8-c19129ced9b6",
+            "version": [
+                1,
+                0,
+                1
+            ]
+        }
+    ],
+    "metadata": {
+        "product_type": "addon"
+    }
+}

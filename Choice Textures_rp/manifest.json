@@ -1,0 +1,20 @@
+{
+    "format_version": 2,
+    "header": {
+        "description": "pack.descriptionpack.name",
+        "name": "v25.04.20 Choice Textures",
+        "uuid": "c7eb999a-07ec-4fc9-b41a-4bc952734511",
+        "version": [1,0,1],
+        "min_engine_version": [ 1, 21, 30 ]
+    },
+    "modules": [
+        {
+            "type": "resources",
+            "uuid": "64319acf-204b-4f5c-89ef-38f8d23f2598",
+            "version": [1,0,1]
+        }
+    ],
+    "metadata": {
+        "product_type": "addon"
+    }
+}
