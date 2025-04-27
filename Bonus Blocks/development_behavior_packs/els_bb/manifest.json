@@ -25,18 +25,6 @@
       ],
       "uuid": "69e9b1af-ac83-4900-955b-2113eb6c08e4",
       "type": "data"
-    },
-    {
-      "description": "Script resources",
-      "language": "javascript",
-      "type": "script",
-      "uuid": "c95e36f3-cec7-4c18-a9fc-08e8b57fb982",
-      "version": [
-        0,
-        0,
-        1
-      ],
-      "entry": "scripts/main.js"
     }
   ],
   "dependencies": [
@@ -47,29 +35,6 @@
         0,
         0
       ]
-    },
-    {
-      "module_name": "@minecraft/server",
-      "version": [
-        1,
-        18,
-        0
-      ]
-    },
-    {
-      "module_name": "@minecraft/server-ui",
-      "version": [
-        1,
-        3,
-        0
-      ]
     }
-  ],
-  "metadata": {
-    "generated_with": {
-      "mctoolsweb": [
-        "0.10.1"
-      ]
-    }
-  }
+  ]
 }
