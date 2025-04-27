@@ -1,0 +1,47 @@
+{
+  "format_version": 2,
+  "header": {
+    "name": "Bonus Blocks",
+    "description": "Bonus Blocks with mctools.dev",
+    "uuid": "b9cb282d-e476-41de-aa52-ce4e967abce3",
+    "version": [
+      1,
+      0,
+      0
+    ],
+    "min_engine_version": [
+      1,
+      21,
+      70
+    ]
+  },
+  "modules": [
+    {
+      "description": "Add-on Pack Resources",
+      "type": "resources",
+      "uuid": "88b2fa16-9298-4494-90d6-cac9d2e4ec4a",
+      "version": [
+        1,
+        0,
+        0
+      ]
+    }
+  ],
+  "dependencies": [
+    {
+      "uuid": "6f1f87bd-7627-41c8-a971-78dbc8ff9c1b",
+      "version": [
+        1,
+        0,
+        0
+      ]
+    }
+  ],
+  "metadata": {
+    "generated_with": {
+      "mctoolsweb": [
+        "0.10.1"
+      ]
+    }
+  }
+}

@@ -1,0 +1,75 @@
+{
+  "format_version": 2,
+  "header": {
+    "name": "Bonus Blocks",
+    "description": "Bonus Blocks with mctools.dev",
+    "uuid": "6f1f87bd-7627-41c8-a971-78dbc8ff9c1b",
+    "version": [
+      1,
+      0,
+      0
+    ],
+    "min_engine_version": [
+      1,
+      21,
+      70
+    ]
+  },
+  "modules": [
+    {
+      "description": "Behavior",
+      "version": [
+        1,
+        0,
+        0
+      ],
+      "uuid": "69e9b1af-ac83-4900-955b-2113eb6c08e4",
+      "type": "data"
+    },
+    {
+      "description": "Script resources",
+      "language": "javascript",
+      "type": "script",
+      "uuid": "c95e36f3-cec7-4c18-a9fc-08e8b57fb982",
+      "version": [
+        0,
+        0,
+        1
+      ],
+      "entry": "scripts/main.js"
+    }
+  ],
+  "dependencies": [
+    {
+      "uuid": "b9cb282d-e476-41de-aa52-ce4e967abce3",
+      "version": [
+        1,
+        0,
+        0
+      ]
+    },
+    {
+      "module_name": "@minecraft/server",
+      "version": [
+        1,
+        18,
+        0
+      ]
+    },
+    {
+      "module_name": "@minecraft/server-ui",
+      "version": [
+        1,
+        3,
+        0
+      ]
+    }
+  ],
+  "metadata": {
+    "generated_with": {
+      "mctoolsweb": [
+        "0.10.1"
+      ]
+    }
+  }
+}
