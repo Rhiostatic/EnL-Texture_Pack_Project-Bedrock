@@ -5,7 +5,7 @@
 			"entries": [
 				{
 					"type": "item",
-					"name": "minecraft:prismarine_shard",
+					"name": "prismarine_shard",
 					"weight": 5,
 					"functions": [
 						{

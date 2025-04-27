@@ -1,17 +1,15 @@
 {
   "format_version": "1.21.40",
   "els_bb:weathered_sea_lantern": {
-    "textures": {
-      "up": "weathered_sea_lantern",
-      "down": "weathered_sea_lantern",
-      "north": "weathered_sea_lantern",
-      "south": "weathered_sea_lantern",
-      "east": "weathered_sea_lantern",
-      "west": "weathered_sea_lantern"
-    },
-    "carried_textures": "weathered_sea_lantern",
-    "isotropic": true,
-    "ambient_occlusion_exponent": 1,
+    "textures": "weathered_sea_lantern",
     "sound": "glass"
+  },
+  "els_bb:tied_hay_bale": {
+    "textures":{
+      "up": "tied_hay_bale_top",
+      "side": "tied_hay_bale_side",
+      "down": "tied_hay_bale_top"
+    },
+    "sound": "grass"
   }
 }

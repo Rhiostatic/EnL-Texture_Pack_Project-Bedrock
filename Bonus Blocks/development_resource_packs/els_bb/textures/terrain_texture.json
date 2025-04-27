@@ -6,6 +6,12 @@
   "texture_data": {
     "weathered_sea_lantern": {
       "textures": "textures/blocks/weathered_sea_lantern"
+    },
+    "tied_hay_bale_top": {
+      "textures": "textures/blocks/tied_hay_bale_top"
+    },
+    "tied_hay_bale_side": {
+      "textures": "textures/blocks/tied_hay_bale_side"
     }
   }
 }

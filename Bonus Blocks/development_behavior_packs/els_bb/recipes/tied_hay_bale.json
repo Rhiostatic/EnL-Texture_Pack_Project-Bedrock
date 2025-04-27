@@ -2,29 +2,28 @@
   "format_version": "1.20.10",
   "minecraft:recipe_shaped": {
     "description": {
-      "identifier": "els_bb:weathered_sea_lantern"
+      "identifier": "els_bb:tied_hay_bale"
     },
     "tags": [ "crafting_table" ],
     "pattern": [
-      " X ",
-      "X#X",
-      " X "
+      "   ",
+      "X#X"
     ],
     "key": {
       "#": {
-        "item": "minecraft:sea_lantern"
+        "item": "minecraft:hay_block"
       },
       "X": {
-        "item": "minecraft:kelp"
+        "item": "minecraft:string"
       }
     },
-	"unlock": [
+    "unlock": [
       {
-        "item": "els_bb:weathered_sea_lantern"
+        "item": "els_bb:tied_hay_bale"
       }
     ],
     "result": {
-      "item": "els_bb:weathered_sea_lantern",
+      "item": "els_bb:tied_hay_bale",
       "count": 1
     }
   }
