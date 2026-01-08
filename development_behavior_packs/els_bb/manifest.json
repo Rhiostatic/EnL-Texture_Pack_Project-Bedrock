@@ -1,0 +1,29 @@
+{
+	"format_version": 2,
+	"header": {
+		"name": "Bonus Blocks",
+		"description": "Bonus Blocks with mctools.dev",
+		"uuid": "6f1f87bd-7627-41c8-a971-78dbc8ff9c1b",
+		"version": [1, 0, 0],
+		"min_engine_version": [1, 21, 70]
+	},
+	"modules": [
+		{
+			"description": "Behavior",
+			"version": [1, 0, 0],
+			"uuid": "69e9b1af-ac83-4900-955b-2113eb6c08e4",
+			"type": "data"
+		}
+	],
+	"dependencies": [
+		{
+			"uuid": "b9cb282d-e476-41de-aa52-ce4e967abce3",
+			"version": [1, 0, 0]
+		}
+	],
+	"metadata": {
+		"generated_with": {
+			"blockbench_block_wizard": ["1.4.1"]
+		}
+	}
+}

@@ -1,0 +1,30 @@
+{
+  "format_version": "1.20.10",
+  "minecraft:recipe_shaped": {
+    "description": {
+      "identifier": "patterned:patterned_glass_black"
+    },
+    "tags": [ "crafting_table" ],
+    "pattern": [
+      "   ",
+      " #X"
+    ],
+    "key": {
+      "#": {
+        "item": "minecraft:stained_glass:15"
+      },
+      "X": {
+        "item": "minecraft:iron_nugget"
+      }
+    },
+	"unlock": [
+      {
+        "item": "patterned:patterned_glass_black"
+      }
+    ],
+    "result": {
+      "item": "patterned:patterned_glass_black",
+      "count": 1
+    }
+  }
+}

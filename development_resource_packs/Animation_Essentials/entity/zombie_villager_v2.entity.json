@@ -1,0 +1,85 @@
+{
+  "format_version": "1.8.0",
+  "minecraft:client_entity": {
+    "description": {
+      "identifier": "minecraft:zombie_villager_v2",
+      "materials": {
+        "default": "zombie_villager_v2",
+        "masked": "zombie_villager_v2_masked"
+      },
+      "textures": {
+        "default": "textures/entity/zombie_villager2/zombie-villager",
+
+        // Biome Layer
+        "desert": "textures/entity/zombie_villager2/biomes/biome-desert-zombie",
+        "jungle": "textures/entity/zombie_villager2/biomes/biome-jungle-zombie",
+        "plains": "textures/entity/zombie_villager2/biomes/biome-plains-zombie",
+        "savanna": "textures/entity/zombie_villager2/biomes/biome-savanna-zombie",
+        "snow": "textures/entity/zombie_villager2/biomes/biome-snow-zombie",
+        "swamp": "textures/entity/zombie_villager2/biomes/biome-swamp-zombie",
+        "taiga": "textures/entity/zombie_villager2/biomes/biome-taiga-zombie",
+
+        // Profession Layer
+        "armorer": "textures/entity/zombie_villager2/professions/armorer",
+        "butcher": "textures/entity/zombie_villager2/professions/butcher",
+        "cartographer": "textures/entity/zombie_villager2/professions/cartographer",
+        "cleric": "textures/entity/zombie_villager2/professions/cleric",
+        "farmer": "textures/entity/zombie_villager2/professions/farmer",
+        "fisherman": "textures/entity/zombie_villager2/professions/fisherman",
+        "fletcher": "textures/entity/zombie_villager2/professions/fletcher",
+        "leatherworker": "textures/entity/zombie_villager2/professions/leatherworker",
+        "librarian": "textures/entity/zombie_villager2/professions/librarian",
+        "shepherd": "textures/entity/zombie_villager2/professions/shepherd",
+        "tool_smith": "textures/entity/zombie_villager2/professions/toolsmith",
+        "weapon_smith": "textures/entity/zombie_villager2/professions/weaponsmith",
+        "stonemason": "textures/entity/zombie_villager2/professions/stonemason",
+        "nitwit": "textures/entity/zombie_villager2/professions/nitwit"
+      },
+      "geometry": {
+        "default": "geometry.zombie.villager_v2"
+      },
+      "scripts": {
+        "pre_animation": [
+          "variable.num_professions = 14;",
+          "variable.profession_index = ((query.variant < variable.num_professions) ? query.variant : 0);",
+          "variable.tcos0 = (Math.cos(query.modified_distance_moved * 38.17) * query.modified_move_speed / variable.gliding_speed_value) * 57.3;",
+          "variable.eye_target_x = query.target_y_rotation - this;",
+          "variable.eye_target_y = query.target_x_rotation - this;"
+        ]
+      },
+      "animations": {
+        "base": "animation.zombie.villager_v2.base",
+        "base_face": "animation.zombie.villager_v2.base_face",
+        "death_face": "animation.zombie.villager_v2.death_face",
+        "walking": "animation.zombie.villager_v2.walking",
+        "running": "animation.zombie.villager_v2.running",
+        "attack_time": "animation.zombie.villager_v2.attack_time",
+        "attack_walk": "animation.zombie.villager_v2.attack_walk",
+        "riding_leg": "animation.zombie.villager_v2.riding_leg",
+        "riding_arms": "animation.zombie.villager_v2.riding_arms",
+        "riding_arms_attack": "animation.zombie.villager_v2.riding_arms_attack",
+        "baby": "animation.zombie.villager_v2.baby",
+        "hurt": "animation.zombie.villager_v2.hurt",
+        "hurt2": "animation.zombie.villager_v2.hurt2",
+        "looking": "animation.zombie.villager_v2.looking",
+        "arm_control": "animation.zombie.villager_v2.arm_control"
+      },
+      "animation_controllers": [
+        { "general": "controller.animation.zombie.villager_v2.general" },
+        { "facial": "controller.animation.zombie.villager_v2.facial" },
+        { "baby_zombie": "controller.animation.zombie.villager_v2.baby_zombie" },
+        { "damage": "controller.animation.zombie.villager_v2.damage" },
+        { "look_target": "controller.animation.zombie.villager_v2.look_target" }
+      ],
+      "render_controllers": [
+        "controller.render.zombie_villager_v2_base",
+        "controller.render.zombie_villager_v2_masked"
+      ],
+      "enable_attachables": true,
+      "spawn_egg": {
+        "texture": "spawn_egg",
+        "texture_index": 42
+      }
+    }
+  }
+}

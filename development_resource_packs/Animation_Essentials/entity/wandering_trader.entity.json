@@ -1,0 +1,54 @@
+{
+  "format_version": "1.8.0",
+  "minecraft:client_entity": {
+    "description": {
+      "identifier": "minecraft:wandering_trader",
+      "materials": {
+        "default": "wandering_trader"
+      },
+      "textures": {
+        "default": "textures/entity/wandering_trader"
+      },
+      "geometry": {
+        "default": "geometry.wandering_trader"
+      },
+      "scripts": {
+        "scale": "0.9375",
+        "pre_animation": [
+          "variable.eye_target_x = query.target_y_rotation - this;",
+          "variable.eye_target_y = query.target_x_rotation - this;"
+        ]
+      },
+      "animations": {
+        "base": "animation.wandering_trader.base",
+        "walking": "animation.wandering_trader.walking",
+        "running": "animation.wandering_trader.running",
+        "base_face": "animation.wandering_trader.base_face",
+        "base_face2": "animation.wandering_trader.base_face2",
+        "avoid": "animation.wandering_trader.avoid",
+        "avoid_face": "animation.wandering_trader.avoid_face",
+        "sleep_face": "animation.wandering_trader.sleep_face",
+        "sleep_bed": "animation.wandering_trader.sleep_bed",
+        "riding": "animation.wandering_trader.riding",
+        "death_face": "animation.wandering_trader.death_face",
+        "swimming": "animation.wandering_trader.swimming",
+        "hurt": "animation.wandering_trader.hurt",
+        "hurt2": "animation.wandering_trader.hurt2",
+        "looking": "animation.wandering_trader.looking",
+        "facial": "animation.wandering_trader.facial",
+        "facial2": "animation.wandering_trader.facial2"
+      },
+      "animation_controllers": [
+        { "common": "controller.animation.wandering_trader.common" },
+        { "facial": "controller.animation.wandering_trader.facial" },
+        { "look_target": "controller.animation.wandering_trader.look_target" },
+        { "damage": "controller.animation.wandering_trader.damage" },
+        { "facial_plus": "controller.animation.wandering_trader.facial_plus" }
+      ],
+      "render_controllers": [ "controller.render.wandering_trader" ],
+      "spawn_egg": {
+        "texture": "spawn_egg_wandering_trader"
+      }
+    }
+  }
+}

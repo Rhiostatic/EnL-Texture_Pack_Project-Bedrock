@@ -1,0 +1,13 @@
+{
+  "format_version": "1.21.40",
+  "stone": {
+    "textures": {
+      "down": "flattened_stone",
+      "east": "flattened_stone",
+      "north": "flattened_stone",
+      "south": "flattened_stone",
+      "up": "stone_top",
+      "west": "flattened_stone"
+    }
+  }
+}

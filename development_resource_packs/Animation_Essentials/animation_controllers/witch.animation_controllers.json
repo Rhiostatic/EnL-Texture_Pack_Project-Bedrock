@@ -1,0 +1,400 @@
+{
+	"format_version": "1.19.0",
+	"animation_controllers": {
+		"controller.animation.witch.common": {
+			"states": {
+				"default": {
+					"animations": ["base"],
+					"transitions": [
+						{"base": "query.ground_speed < 0.3"},
+						{"walk": "query.ground_speed > 0.3\n"},
+						{"swim": "query.is_in_water"},
+						{"ride": "query.is_riding\n"},
+						{"sleep": "query.is_sleeping"}
+					],
+					"blend_transition": 0.2
+				},
+				"base": {
+					"animations": ["base"],
+					"transitions": [
+						{"walk": "query.ground_speed > 0.3"},
+						{"default": "query.any_animation_finished"},
+						{"swim": "query.is_in_water"},
+						{"ride": "query.is_riding"},
+						{"sleep": "query.is_sleeping"}
+					],
+					"blend_transition": 0.2
+				},
+				"walk": {
+					"animations": ["walking"],
+					"transitions": [
+						{"base": "query.ground_speed < 0.3"},
+						{"swim": "query.is_in_water"},
+						{"ride": "query.is_riding"},
+						{"sleep": "query.is_sleeping"}
+					],
+					"blend_transition": 0.2
+				},
+				"swim": {
+					"animations": ["swimming"],
+					"transitions": [
+						{"default": "!query.is_in_water && query.is_on_ground"},
+						{"ride": "query.is_riding"},
+						{"sleep": "query.is_sleeping"}
+					],
+					"blend_transition": 0.2
+				},
+				"ride": {
+					"animations": ["riding"],
+					"transitions": [
+						{"default": "!query.is_riding"},
+						{"sleep": "query.is_sleeping"}
+					],
+					"blend_transition": 0.2
+				},
+				"sleep": {
+					"animations": ["sleep_bed"],
+					"transitions": [
+						{"default": "!query.is_sleeping && query.is_alive"}
+					],
+					"blend_transition": 0.065
+				}
+			}
+		},
+		"controller.animation.witch.facial": {
+			"states": {
+				"default": {
+					"animations": ["base_face"],
+					"transitions": [
+						{"base_face": "query.ground_speed < 0.3 && query.any_animation_finished"},
+						{"sleep_face": "query.is_sleeping"},
+						{"death_face": "!query.is_alive"}
+					],
+					"blend_transition": 0.25
+				},
+				"base_face": {
+					"animations": [
+						{"base_face": "v.base_face_anim == 1"},
+						{"base_face2": "v.base_face_anim == 2"},
+						{"base_face3": "v.base_face_anim == 3"}
+					],
+					"on_entry": ["v.base_face_anim = math.random_integer(1, 3);"],
+					"transitions": [
+						{"default": "query.any_animation_finished"},
+						{"sleep_face": "query.is_sleeping"},
+						{"death_face": "!query.is_alive"}
+					],
+					"blend_transition": 0.25
+				},
+				"sleep_face": {
+					"animations": ["sleep_face"],
+					"transitions": [
+						{"default": "!query.is_sleeping && query.is_alive"}
+					],
+					"blend_transition": 0.15
+				},
+				"death_face": {
+					"animations": ["death_face"]
+				}
+			}
+		},
+		"controller.animation.witch.damage": {
+			"states": {
+				"default": {
+					"transitions": [
+						{"dmg1": "query.health == 25 && query.is_alive"},
+						{"dmg2": "query.health == 24 && query.is_alive"},
+						{"dmg3": "query.health == 23 && query.is_alive"},
+						{"dmg4": "query.health == 22 && query.is_alive"},
+						{"dmg5": "query.health == 21 && query.is_alive"},
+						{"dmg6": "query.health == 20 && query.is_alive"},
+						{"dmg7": "query.health == 19 && query.is_alive"},
+						{"dmg8": "query.health == 18 && query.is_alive"},
+						{"dmg9": "query.health == 17 && query.is_alive"},
+						{"dmg10": "query.health == 16 && query.is_alive"},
+						{"dmg11": "query.health == 15 && query.is_alive"},
+						{"dmg12": "query.health == 14 && query.is_alive"},
+						{"dmg13": "query.health == 13 && query.is_alive"},
+						{"dmg14": "query.health == 12 && query.is_alive"},
+						{"dmg15": "query.health == 11 && query.is_alive"},
+						{"dmg16": "query.health == 10 && query.is_alive"},
+						{"dmg17": "query.health == 9 && query.is_alive"},
+						{"dmg18": "query.health == 8 && query.is_alive"},
+						{"dmg19": "query.health == 7 && query.is_alive"},
+						{"dmg20": "query.health == 6 && query.is_alive"},
+						{"dmg21": "query.health == 5 && query.is_alive"},
+						{"dmg22": "query.health == 4 && query.is_alive"},
+						{"dmg23": "query.health == 3 && query.is_alive"},
+						{"dmg24": "query.health == 2 && query.is_alive"},
+						{"dmg25": "query.health == 1 && query.is_alive"}
+					]
+				},
+				"dmg1": {
+					"animations": [
+						{"hurt": "v.hurt_anim == 1"},
+						{"hurt2": "v.hurt_anim == 2"}
+					],
+					"on_entry": ["v.hurt_anim = math.random_integer(1, 2);"],
+					"transitions": [
+						{"default": "query.health != 25"}
+					]
+				},
+				"dmg2": {
+					"animations": [
+						{"hurt": "v.hurt_anim == 1"},
+						{"hurt2": "v.hurt_anim == 2"}
+					],
+					"on_entry": ["v.hurt_anim = math.random_integer(1, 2);"],
+					"transitions": [
+						{"default": "query.health != 24"}
+					]
+				},
+				"dmg3": {
+					"animations": [
+						{"hurt": "v.hurt_anim == 1"},
+						{"hurt2": "v.hurt_anim == 2"}
+					],
+					"on_entry": ["v.hurt_anim = math.random_integer(1, 2);"],
+					"transitions": [
+						{"default": "query.health != 23"}
+					]
+				},
+				"dmg4": {
+					"animations": [
+						{"hurt": "v.hurt_anim == 1"},
+						{"hurt2": "v.hurt_anim == 2"}
+					],
+					"on_entry": ["v.hurt_anim = math.random_integer(1, 2);"],
+					"transitions": [
+						{"default": "query.health != 22"}
+					]
+				},
+				"dmg5": {
+					"animations": [
+						{"hurt": "v.hurt_anim == 1"},
+						{"hurt2": "v.hurt_anim == 2"}
+					],
+					"on_entry": ["v.hurt_anim = math.random_integer(1, 2);"],
+					"transitions": [
+						{"default": "query.health != 21"}
+					]
+				},
+				"dmg6": {
+					"animations": [
+						{"hurt": "v.hurt_anim == 1"},
+						{"hurt2": "v.hurt_anim == 2"}
+					],
+					"on_entry": ["v.hurt_anim = math.random_integer(1, 2);"],
+					"transitions": [
+						{"default": "query.health != 20"}
+					]
+				},
+				"dmg7": {
+					"animations": [
+						{"hurt": "v.hurt_anim == 1"},
+						{"hurt2": "v.hurt_anim == 2"}
+					],
+					"on_entry": ["v.hurt_anim = math.random_integer(1, 2);"],
+					"transitions": [
+						{"default": "query.health != 19"}
+					]
+				},
+				"dmg8": {
+					"animations": [
+						{"hurt": "v.hurt_anim == 1"},
+						{"hurt2": "v.hurt_anim == 2"}
+					],
+					"on_entry": ["v.hurt_anim = math.random_integer(1, 2);"],
+					"transitions": [
+						{"default": "query.health != 18"}
+					]
+				},
+				"dmg9": {
+					"animations": [
+						{"hurt": "v.hurt_anim == 1"},
+						{"hurt2": "v.hurt_anim == 2"}
+					],
+					"on_entry": ["v.hurt_anim = math.random_integer(1, 2);"],
+					"transitions": [
+						{"default": "query.health != 17"}
+					]
+				},
+				"dmg10": {
+					"animations": [
+						{"hurt": "v.hurt_anim == 1"},
+						{"hurt2": "v.hurt_anim == 2"}
+					],
+					"on_entry": ["v.hurt_anim = math.random_integer(1, 2);"],
+					"transitions": [
+						{"default": "query.health != 16"}
+					]
+				},
+				"dmg11": {
+					"animations": [
+						{"hurt": "v.hurt_anim == 1"},
+						{"hurt2": "v.hurt_anim == 2"}
+					],
+					"on_entry": ["v.hurt_anim = math.random_integer(1, 2);"],
+					"transitions": [
+						{"default": "query.health != 15"}
+					]
+				},
+				"dmg12": {
+					"animations": [
+						{"hurt": "v.hurt_anim == 1"},
+						{"hurt2": "v.hurt_anim == 2"}
+					],
+					"on_entry": ["v.hurt_anim = math.random_integer(1, 2);"],
+					"transitions": [
+						{"default": "query.health != 14"}
+					]
+				},
+				"dmg13": {
+					"animations": [
+						{"hurt": "v.hurt_anim == 1"},
+						{"hurt2": "v.hurt_anim == 2"}
+					],
+					"on_entry": ["v.hurt_anim = math.random_integer(1, 2);"],
+					"transitions": [
+						{"default": "query.health != 13"}
+					]
+				},
+				"dmg14": {
+					"animations": [
+						{"hurt": "v.hurt_anim == 1"},
+						{"hurt2": "v.hurt_anim == 2"}
+					],
+					"on_entry": ["v.hurt_anim = math.random_integer(1, 2);"],
+					"transitions": [
+						{"default": "query.health != 12"}
+					]
+				},
+				"dmg15": {
+					"animations": [
+						{"hurt": "v.hurt_anim == 1"},
+						{"hurt2": "v.hurt_anim == 2"}
+					],
+					"on_entry": ["v.hurt_anim = math.random_integer(1, 2);"],
+					"transitions": [
+						{"default": "query.health != 11"}
+					]
+				},
+				"dmg16": {
+					"animations": [
+						{"hurt": "v.hurt_anim == 1"},
+						{"hurt2": "v.hurt_anim == 2"}
+					],
+					"on_entry": ["v.hurt_anim = math.random_integer(1, 2);"],
+					"transitions": [
+						{"default": "query.health != 10"}
+					]
+				},
+				"dmg17": {
+					"animations": [
+						{"hurt": "v.hurt_anim == 1"},
+						{"hurt2": "v.hurt_anim == 2"}
+					],
+					"on_entry": ["v.hurt_anim = math.random_integer(1, 2);"],
+					"transitions": [
+						{"default": "query.health != 9"}
+					]
+				},
+				"dmg18": {
+					"animations": [
+						{"hurt": "v.hurt_anim == 1"},
+						{"hurt2": "v.hurt_anim == 2"}
+					],
+					"on_entry": ["v.hurt_anim = math.random_integer(1, 2);"],
+					"transitions": [
+						{"default": "query.health != 8"}
+					]
+				},
+				"dmg19": {
+					"animations": [
+						{"hurt": "v.hurt_anim == 1"},
+						{"hurt2": "v.hurt_anim == 2"}
+					],
+					"on_entry": ["v.hurt_anim = math.random_integer(1, 2);"],
+					"transitions": [
+						{"default": "query.health != 7"}
+					]
+				},
+				"dmg20": {
+					"animations": [
+						{"hurt": "v.hurt_anim == 1"},
+						{"hurt2": "v.hurt_anim == 2"}
+					],
+					"on_entry": ["v.hurt_anim = math.random_integer(1, 2);"],
+					"transitions": [
+						{"default": "query.health != 6"}
+					]
+				},
+				"dmg21": {
+					"animations": [
+						{"hurt": "v.hurt_anim == 1"},
+						{"hurt2": "v.hurt_anim == 2"}
+					],
+					"on_entry": ["v.hurt_anim = math.random_integer(1, 2);"],
+					"transitions": [
+						{"default": "query.health != 5"}
+					]
+				},
+				"dmg22": {
+					"animations": [
+						{"hurt": "v.hurt_anim == 1"},
+						{"hurt2": "v.hurt_anim == 2"}
+					],
+					"on_entry": ["v.hurt_anim = math.random_integer(1, 2);"],
+					"transitions": [
+						{"default": "query.health != 4"}
+					]
+				},
+				"dmg23": {
+					"animations": [
+						{"hurt": "v.hurt_anim == 1"},
+						{"hurt2": "v.hurt_anim == 2"}
+					],
+					"on_entry": ["v.hurt_anim = math.random_integer(1, 2);"],
+					"transitions": [
+						{"default": "query.health != 3"}
+					]
+				},
+				"dmg24": {
+					"animations": [
+						{"hurt": "v.hurt_anim == 1"},
+						{"hurt2": "v.hurt_anim == 2"}
+					],
+					"on_entry": ["v.hurt_anim = math.random_integer(1, 2);"],
+					"transitions": [
+						{"default": "query.health != 2"}
+					]
+				},
+				"dmg25": {
+					"animations": [
+						{"hurt": "v.hurt_anim == 1"},
+						{"hurt2": "v.hurt_anim == 2"}
+					],
+					"on_entry": ["v.hurt_anim = math.random_integer(1, 2);"],
+					"transitions": [
+						{"default": "query.health != 1"}
+					]
+				}
+			}
+		},
+		"controller.animation.witch.look_target": {
+			"states": {
+				"default": {
+					"transitions": [
+						{"look": "query.is_alive && !query.is_sleeping"}
+					]
+				},
+				"look": {
+					"animations": ["looking"],
+					"transitions": [
+						{"default": "!query.is_alive || query.is_sleeping"}
+					]
+				}
+			}
+		}
+	}
+}
