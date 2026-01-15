@@ -1,0 +1,8 @@
+[
+  {
+    "atlas_tile": "els_bb:weathered_sea_lantern",
+    "flipbook_texture": "textures/blocks/weathered_sea_lantern",
+    "ticks_per_frame": 3,
+    "blend_frames": true
+  }
+]

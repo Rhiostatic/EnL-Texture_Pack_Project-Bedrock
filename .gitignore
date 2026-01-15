@@ -1,0 +1,10 @@
+behavior_packs/
+resource_packs/
+development_skin_packs/
+EnL-Texture_Pack_Project-Bedrock/
+Thumbs.db
+*.bak
+*.tmp
+Desktop.ini
+*.mcpack
+*.zip

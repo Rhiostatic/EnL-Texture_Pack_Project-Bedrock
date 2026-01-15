@@ -1,0 +1,27 @@
+{
+    "format_version": 2,
+    "header": {
+        "description": "Mob Mod behavior pack",
+        "name": "Mob Mod! handcuffing Endermen",
+        "uuid": "10a12998-04fd-43b1-8e8b-5908230b5d52",
+        "version": [ 1, 0, 3],
+        "min_engine_version": [ 1, 20, 1 ]
+    },
+    "modules": [
+        {
+            "description": "Mob Mod behavior pack",
+            "type": "data",
+            "uuid": "eb53db13-2945-4213-8eae-da1d4fc59b0f",
+            "version": [1, 0, 3]
+        }
+    ],
+  "dependencies": [
+        {
+            "uuid":"f8e4459a-7034-4672-85c2-675d573485f3",
+            "version":[1, 0, 3]
+        }
+    ],
+    "metadata": {
+        "product_type": "addon"
+    }
+}

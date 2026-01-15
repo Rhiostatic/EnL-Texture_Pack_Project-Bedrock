@@ -1,0 +1,23 @@
+{
+	"resource_pack_name": "Bonus Blocks",
+	"texture_name": "atlas.terrain",
+	"padding": 16,
+	"num_mip_levels": 6,
+	"texture_data": {
+		"tied_hay_bale_top": {
+			"textures": "textures/blocks/tied_hay_bale_top"
+		},
+		"tied_hay_bale_side": {
+			"textures": "textures/blocks/tied_hay_bale_side"
+		},
+		"els_bb:weathered_sea_lantern": {
+			"textures": "textures/blocks/weathered_sea_lantern"
+		},
+		"chisled_gold_block_side": {
+			"textures": "textures/blocks/chisled_gold_block"
+		},
+		"chisled_gold_block_top": {
+			"textures": "textures/blocks/chisled_gold_block_top"
+		}
+	}
+}
