@@ -5,7 +5,7 @@
             "identifier": "minecraft:evocation_illager",
             "min_engine_version": "1.8.0",
             "materials": {
-                "default": "entity_alphatest_culling"
+                "default": "entity_alphatest"
             },
             "textures": {
                 "default": "textures/entity/illager/evoker_anim"
@@ -41,7 +41,6 @@
                 "run": "animation.illager.sprint_evoker",
                 "walk": "animation.illager.run_evoker",
                 "riding.legs": "animation.anthro.riding_legs",
-                "celebrating": "animation.illager.celebrate",
                 "die_anim": "animation.anthro.death_3",
                 "controller_on_fire": "controller.animation.entity.on_fire",
                 "controller_angry": "controller.animation.evoker.angry",
@@ -69,7 +68,7 @@
                 "controller.render.evoker_oh"
             ],
             "spawn_egg": {
-        "texture": "spawn_egg_evoker"
+                "texture": "spawn_egg_evoker"
             }
         }
     }
