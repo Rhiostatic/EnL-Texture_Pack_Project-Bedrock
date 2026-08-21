@@ -8,15 +8,21 @@
         "default": "drowned"
       },
       "textures": {
-        "default": "textures/entity/zombie/drowned"
+        "default": "textures/entity/zombie/drowned",
+        "baby": "textures/entity/zombie/drowned_baby"
       },
       "geometry": {
-        "default": "geometry.zombie.drowned.v1.16"
+        "default": "geometry.zombie.drowned.v1.16",
+        "baby": "geometry.zombie.baby"
       },
       "scripts": {
         "pre_animation": [
+          "variable.use_dedicated_baby_armor = true;",
           "variable.tcos0 = (Math.cos(query.modified_distance_moved * 38.17) * query.modified_move_speed / variable.gliding_speed_value) * 57.3;"
         ],
+        "variables": {
+          "variable.use_dedicated_baby_armor": "public"
+        },
         "animate": [
           "general",
           "look_target",
@@ -51,7 +57,7 @@
         "baby_zombie": "controller.animation.zombie.drowned.v1.16.baby_zombie",
         "damage": "controller.animation.zombie.drowned.v1.16.damage"
       },
-      "render_controllers": [ "controller.render.drowned" ],
+      "render_controllers": [ "controller.render.zombie.v2" ],
       "enable_attachables": true,
       "spawn_egg": {
         "texture": "spawn_egg_drowned"

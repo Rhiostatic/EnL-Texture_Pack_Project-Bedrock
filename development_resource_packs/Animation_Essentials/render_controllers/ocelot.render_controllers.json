@@ -7,9 +7,9 @@
           "Array.skins": [ "Texture.wild", "Texture.black", "Texture.red", "Texture.siamese" ]
         }
       },
-      "geometry": "Geometry.default",
+      "geometry": "query.is_baby ? Geometry.baby : Geometry.default",
       "materials": [ { "*": "Material.default" } ],
-      "textures": [ "Array.skins[query.variant]" ]
+      "textures": [ "query.is_baby ? Texture.baby_wild : Array.skins[query.variant]" ]
     }
   }
 }

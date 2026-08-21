@@ -6,11 +6,13 @@
       "min_engine_version": "1.8.0",
       "materials": { "default": "sheep" },
       "textures": {
-        "default": "textures/entity/sheep/sheep"
+        "default": "textures/entity/sheep/sheep",
+        "baby": "textures/entity/sheep/sheep_baby"
       },
       "geometry": {
         "default": "geometry.sheep",
-        "sheared": "geometry.sheep.sheared"
+        "sheared": "geometry.sheep.sheared",
+        "baby": "geometry.sheep.baby"
       },
       "animations": {
         "base": "animation.sheep.base",
@@ -45,7 +47,7 @@
           "shearing"
         ]
       },
-      "render_controllers": [ "controller.render.sheep" ],
+      "render_controllers": [ "controller.render.sheep.v2" ],
       "spawn_egg": {
         "texture": "spawn_egg_sheep"
       }

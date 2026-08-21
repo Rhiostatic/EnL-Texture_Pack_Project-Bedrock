@@ -6,20 +6,26 @@
       "min_engine_version": "1.8.0",
       "materials": { "default": "phantom" },
       "textures": {
-        "default": "textures/entity/piglin/zombie_piglin"
+        "default": "textures/entity/piglin/zombie_piglin",
+        "baby": "textures/entity/piglin/zombie_piglin_baby"
       },
       "geometry": {
-        "default": "geometry.zombified_piglin"
+        "default": "geometry.zombified_piglin",
+        "baby": "geometry.piglin.baby"
       },
       "spawn_egg": {
         "texture": "spawn_egg_zombified_piglin"
       },
       "scripts": {
         "pre_animation": [
+          "variable.use_dedicated_baby_armor = true;",
           "variable.tcos0 = (Math.cos(query.modified_distance_moved * 38.17) * query.modified_move_speed / variable.gliding_speed_value) * 57.3;",
           "variable.eye_target_x = query.target_y_rotation - this;",
           "variable.eye_target_y = query.target_x_rotation - this;"
-        ]
+        ],
+        "variables": {
+          "variable.use_dedicated_baby_armor": "public"
+        }
       },
       "animations": {
         "base": "animation.zombie_piglin.base",
@@ -43,7 +49,7 @@
         { "look_target": "controller.animation.zombie_piglin.look_target" },
         { "damage": "controller.animation.zombie_piglin.damage" }
       ],
-      "render_controllers": [ "controller.render.zombie_pigman" ],
+      "render_controllers": [ "controller.render.zombie_pigman.v2" ],
       "enable_attachables": true
     }
   }

@@ -9,10 +9,12 @@
         "black": "textures/entity/cat/blackcat",
         "red": "textures/entity/cat/red",
         "siamese": "textures/entity/cat/siamese",
-        "wild": "textures/entity/cat/ocelot"
+        "wild": "textures/entity/cat/ocelot",
+        "baby_wild": "textures/entity/cat/ocelot_baby"
       },
       "geometry": {
-        "default": "geometry.ocelot.v1.8"
+        "default": "geometry.ocelot.v1.8",
+        "baby": "geometry.cat.baby"
       },
       "animations": {
         "sneak": "animation.ocelot.sneak",

@@ -26,9 +26,34 @@
         "ragdoll_tame": "textures/entity/cat/ragdoll_tame",
         "tabby_tame": "textures/entity/cat/tabby_tame",
         "all_black_tame": "textures/entity/cat/allblackcat_tame",
-        "jellie_tame":  "textures/entity/cat/jellie_tame"
+        "jellie_tame":  "textures/entity/cat/jellie_tame",
+        "baby_white": "textures/entity/cat/white_baby",
+        "baby_black": "textures/entity/cat/tuxedo_baby",
+        "baby_red": "textures/entity/cat/redtabby_baby",
+        "baby_siamese": "textures/entity/cat/siamese_baby",
+        "baby_british": "textures/entity/cat/britishshorthair_baby",
+        "baby_calico": "textures/entity/cat/calico_baby",
+        "baby_persian": "textures/entity/cat/persian_baby",
+        "baby_ragdoll": "textures/entity/cat/ragdoll_baby",
+        "baby_tabby": "textures/entity/cat/tabby_baby",
+        "baby_jellie": "textures/entity/cat/jellie_baby",
+        "baby_all_black": "textures/entity/cat/allblackcat_baby",
+        "baby_white_tame": "textures/entity/cat/white_tame_baby",
+        "baby_black_tame": "textures/entity/cat/tuxedo_tame_baby",
+        "baby_red_tame": "textures/entity/cat/redtabby_tame_baby",
+        "baby_siamese_tame": "textures/entity/cat/siamese_tame_baby",
+        "baby_british_tame": "textures/entity/cat/britishshorthair_tame_baby",
+        "baby_calico_tame": "textures/entity/cat/calico_tame_baby",
+        "baby_persian_tame": "textures/entity/cat/persian_tame_baby",
+        "baby_ragdoll_tame": "textures/entity/cat/ragdoll_tame_baby",
+        "baby_tabby_tame": "textures/entity/cat/tabby_tame_baby",
+        "baby_all_black_tame": "textures/entity/cat/allblackcat_tame_baby",
+        "baby_jellie_tame": "textures/entity/cat/jellie_tame_baby"
       },
-      "geometry": { "default": "geometry.cat" },
+      "geometry": {
+        "default": "geometry.cat",
+        "baby": "geometry.cat.baby"
+      },
       "scripts": {
         "pre_animation": [
           "variable.tcos0 = (Math.cos(query.modified_distance_moved * 38.17) * query.modified_move_speed / variable.gliding_speed_value) * 57.3;",
@@ -64,7 +89,7 @@
         { "baby_cat": "controller.animation.cat.baby_cat" },
         { "damage": "controller.animation.cat.damage" }
       ],
-      "render_controllers": [ "controller.render.cat" ],
+      "render_controllers": [ "controller.render.cat.v2" ],
       "spawn_egg": {
         "texture": "spawn_egg_cat"
       }

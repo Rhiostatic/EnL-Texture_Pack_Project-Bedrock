@@ -5,14 +5,24 @@
       "identifier": "minecraft:husk",
       "min_engine_version": "1.8.0",
       "materials": { "default": "husk" },
-      "textures": { "default": "textures/entity/zombie/husk" },
-      "geometry": { "default": "geometry.zombie.husk.v1.8" },
+      "textures": {
+        "default": "textures/entity/zombie/husk",
+        "baby": "textures/entity/zombie/husk_baby"
+      },
+      "geometry": {
+        "default": "geometry.zombie.husk.v1.8",
+        "baby": "geometry.zombie.baby"
+      },
       "scripts": {
         "pre_animation": [
+          "variable.use_dedicated_baby_armor = true;",
           "variable.tcos0 = (Math.cos(query.modified_distance_moved * 38.17) * query.modified_move_speed / variable.gliding_speed_value) * 57.3;",
           "variable.eye_target_x = query.target_y_rotation - this;",
           "variable.eye_target_y = query.target_x_rotation - this;"
-        ]
+        ],
+        "variables": {
+          "variable.use_dedicated_baby_armor": "public"
+        }
       },
       "animations": {
         "base": "animation.zombie.husk.v1.8.base",
@@ -38,7 +48,7 @@
         { "damage": "controller.animation.zombie.husk.v1.8.damage" },
         { "look_target": "controller.animation.zombie.husk.v1.8.look_target" }
       ],
-      "render_controllers": [ "controller.render.husk" ],
+      "render_controllers": [ "controller.render.zombie.v2" ],
       "enable_attachables": true,
       "spawn_egg": {
         "texture": "spawn_egg_husk"

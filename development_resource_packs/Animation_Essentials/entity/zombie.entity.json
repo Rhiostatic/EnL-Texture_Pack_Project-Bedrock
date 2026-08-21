@@ -8,20 +8,26 @@
         "default": "zombie"
       },
       "textures": {
-        "default": "textures/entity/zombie/zombie"
+        "default": "textures/entity/zombie/zombie",
+        "baby": "textures/entity/zombie/zombie_baby"
       },
       "geometry": {
-        "default": "geometry.zombie.v1.8"
+        "default": "geometry.zombie.v1.8",
+        "baby": "geometry.zombie.baby"
       },
       "spawn_egg": {
         "texture": "spawn_egg_zombie"
       },
       "scripts": {
         "pre_animation": [
+          "variable.use_dedicated_baby_armor = true;",
           "variable.tcos0 = (Math.cos(query.modified_distance_moved * 38.17) * query.modified_move_speed / variable.gliding_speed_value) * 57.3;",
           "variable.eye_target_x = query.target_y_rotation - this;",
           "variable.eye_target_y = query.target_x_rotation - this;"
-        ]
+        ],
+        "variables": {
+          "variable.use_dedicated_baby_armor": "public"
+        }
       },
       "animations": {
         "base": "animation.zombie.v1.8.base",
@@ -47,7 +53,7 @@
         { "baby_zombie": "controller.animation.zombie.v1.8.baby_zombie" },
         { "look_target": "controller.animation.zombie.v1.8.look_target" }
       ],
-      "render_controllers": [ "controller.render.zombie" ],
+      "render_controllers": [ "controller.render.zombie.v2" ],
       "enable_attachables": true
     }
   }
