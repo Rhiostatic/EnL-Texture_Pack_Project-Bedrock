@@ -38,7 +38,17 @@ Ocelot is the one exception: vanilla `ocelot.v2` only draws the wild skin and wo
 - adults: existing `Array.skins[query.variant]`
 - babies: `Texture.baby_wild` + `Geometry.baby`
 
-Baby texture **files** all resolve from **Choice** (lower pack). AE does not need copies.
+## Zombie / husk baby sheets (AE art, scaled)
+
+Erik’s AE zombie geo is a **custom face rig** (eyelids/eyeballs) on a 64×32 sheet. Choice `zombie_baby.png` was the other-good 64×64 baby layout and would not match that look.
+
+On this branch we **did not** put the blink bones on the baby model (vanilla `geometry.zombie.baby` stays). We remapped **AE’s adult** `zombie.png` / `husk.png` cube faces onto the vanilla baby 64×64 UV (nearest-neighbor, 128×128). Files live in AE so they win over Choice:
+
+- `textures/entity/zombie/zombie_baby.png` (from AE `zombie.png`)
+- `textures/entity/zombie/husk_baby.png` (from AE `husk.png`)
+
+Adults still use AE geo + AE adult PNG (blink rig intact). Babies use vanilla baby geo + these scaled AE skins. Extra 3D eyelid cubes are adult-only; the painted face from the adult head is what carries over.
+
 
 Zombie-family `controller.render.zombie.v2` lives in vanilla (`zombie.v2.render_controllers.json`). AE does not override that file.
 
