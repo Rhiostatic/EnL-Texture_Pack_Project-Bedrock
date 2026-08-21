@@ -1,0 +1,4 @@
+Entity hole-fills (vanilla 1.26.40, no overwrites of existing Choice art).
+Animals, villagers, sniffer/armadillo/turtle/etc, sulfur cube, banners/shields: Faithful 64x r14.
+Classic undead, illagers, shulker, remaining chests/beds: from "other good blocks to add".
+Faithful license: credits/faithful64/LICENSE.txt
