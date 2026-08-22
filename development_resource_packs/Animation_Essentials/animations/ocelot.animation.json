@@ -5,7 +5,7 @@
 			"loop" : true,
 			"bones" : {
 				"head" : {
-					"scale" : 1.5
+					"scale" : 1
 				}
 			}
 		},

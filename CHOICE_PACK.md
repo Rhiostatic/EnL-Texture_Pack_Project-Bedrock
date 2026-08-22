@@ -127,3 +127,9 @@ Blocks + items (non-Education) are **complete**. Paintings (incl. dennis) **comp
 ## Realm load order (intent)
 
 Choice = bottom / base so vanilla never peeks. Overlay packs Erik may enable on top: Faithful 64, Conquest Lite, Animation Essentials, patterned glass, mob add-on. Overlays win when present; Choice must still look finished **alone**.
+
+### Animation Essentials overlay
+
+AE replaces whole `client_entity` files (it does not merge). On 2026-08-21 we wired 1.26 **baby texture keys** so Choice baby skins + commissioned baby armor apply while AE animations stay. Details: [`AE_BABY_TEXTURES.md`](AE_BABY_TEXTURES.md).
+
+Still open: AE ships duplicate adult mob PNGs that hide Choice (action 2). Do not strip those unless Erik asks.
