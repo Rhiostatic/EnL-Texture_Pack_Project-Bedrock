@@ -47,11 +47,13 @@ On this branch we **did not** put the blink bones on the baby model (vanilla `ge
 - `textures/entity/zombie/zombie_baby.png` (from AE `zombie.png`)
 - `textures/entity/zombie/husk_baby.png` (from AE `husk.png`)
 
-## Cat babies (AE art, vanilla big-head geo)
+## Cat babies (scaled adult AE geo — no big head)
 
-AE cats also use a custom face rig. Vanilla `geometry.cat.baby` is a **32×32 big-head** kitten (Erik is fine with that proportion). Choice/Faithful `*_baby` sheets were showing instead of AE.
+Bedrock 1.26 **still** ships `geometry.cat.baby` (chibi 32×32, oversized head) plus `scale: 1/0.4` and a 1.5× head anim. That is what Erik was seeing. Vanilla did **not** switch cats to a proportional baby.
 
-Remap all 22 AE adult cat variants (wild + tame) onto `geometry.cat.baby` UVs, 128×128, stored in AE so they win over Choice. Head already has painted yellow eyes (unlike zombie sockets), so no extra eyeball stamp. Adults keep AE geo + blink.
+Kittens now use **AE adult `geometry.cat`** (blink rig + AE skins) at **`scale 0.5`**. Head scale 1.5 was turned off so they are small AE cats, not chibi. Same for ocelot cubs (`geometry.ocelot.v1.8`, scale 0.5).
+
+The remapped 32×32 `*_baby.png` sheets remain in AE unused; RC is `controller.render.cat` / `controller.render.ocelot` (adult texture arrays).
 
 
 
