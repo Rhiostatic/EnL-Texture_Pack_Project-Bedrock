@@ -1,13 +1,13 @@
-{ 
-  "format_version": "1.20.10", 
-  "minecraft:block": { 
-    "description": { 
+{
+  "format_version": "1.20.10",
+  "minecraft:block": {
+    "description": {
       "identifier": "patterned:patterned_glass_purple",
       "menu_category": {
         "category": "construction"
       }
-    }, 
-    "components": { 
+    },
+    "components": {
       "minecraft:destructible_by_mining": {
         "seconds_to_destroy": 0.5
       },
@@ -15,11 +15,13 @@
         "explosion_resistance": 0
       },
       "minecraft:light_dampening": 0,
+      "minecraft:loot": "loot_tables/blocks/patterned_glass_purple.json",
       "minecraft:material_instances": {
         "*": {
+          "texture": "patterned_glass_purple",
           "render_method": "blend"
         }
       }
-    } 
-  } 
+    }
+  }
 }

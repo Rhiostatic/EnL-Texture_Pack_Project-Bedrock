@@ -1,25 +1,23 @@
 {
   "format_version": "1.20.10",
-  "minecraft:recipe_shaped": {
+  "minecraft:recipe_shapeless": {
     "description": {
       "identifier": "patterned:patterned_glass_brown"
     },
-    "tags": [ "crafting_table" ],
-    "pattern": [
-      "   ",
-      " #X"
+    "tags": [
+      "crafting_table"
     ],
-    "key": {
-      "#": {
-        "item": "minecraft:stained_glass:12"
+    "ingredients": [
+      {
+        "item": "minecraft:brown_stained_glass"
       },
-      "X": {
+      {
         "item": "minecraft:iron_nugget"
       }
-    },
-	"unlock": [
+    ],
+    "unlock": [
       {
-        "item": "patterned:patterned_glass_brown"
+        "item": "minecraft:brown_stained_glass"
       }
     ],
     "result": {
