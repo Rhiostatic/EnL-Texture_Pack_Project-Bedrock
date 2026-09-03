@@ -8,3 +8,7 @@ Thumbs.db
 Desktop.ini
 *.mcpack
 *.zip
+
+# Posted Bedrock packs live here; keep source in development_*
+!releases/
+!releases/**
