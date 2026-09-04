@@ -1,28 +1,43 @@
 {
-   "format_version": 2,
-   "header": {
-     "description": "pack.description",
-     "name": "Patterned Glass",
-     "uuid":"7a792f2b-0d26-4148-ab8e-cc591ee9b81c",
-     "version": [3, 0, 3],
-     "min_engine_version": [1, 20, 1]
-   },
-   "modules":
-     [
-       {
-         "description": "Patterened Glass Pack. Credit to John Smith",
-           "type": "data",
-           "uuid": "be7d4e8f-515a-417f-b823-4a974c6e20b4",
-           "version": [3, 0, 3]
-       }
-     ],
-   "dependencies": [
-     {
-      "uuid":"d7943e5d-eda0-4ba3-b4ed-1f539f9a08f9",
-       "version":[3,0,3]
-     }
+  "format_version": 2,
+  "header": {
+    "description": "pack.description",
+    "name": "pack.name",
+    "uuid": "7a792f2b-0d26-4148-ab8e-cc591ee9b81c",
+    "version": [
+      3,
+      1,
+      0
+    ],
+    "min_engine_version": [
+      1,
+      20,
+      1
+    ]
+  },
+  "modules": [
+    {
+      "description": "Patterned Glass behavior pack",
+      "type": "data",
+      "uuid": "be7d4e8f-515a-417f-b823-4a974c6e20b4",
+      "version": [
+        3,
+        1,
+        0
+      ]
+    }
+  ],
+  "dependencies": [
+    {
+      "uuid": "d7943e5d-eda0-4ba3-b4ed-1f539f9a08f9",
+      "version": [
+        3,
+        1,
+        0
+      ]
+    }
   ],
   "metadata": {
     "product_type": "addon"
   }
- }
+}
