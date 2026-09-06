@@ -73,6 +73,11 @@ Commits after `main`:
 
 Pack on this branch: **v26.08.21b**, manifest **1.0.12**, `min_engine_version` still `[1, 21, 30]`.
 
+Current shipped pack on `main`: **v26.09.06**, manifest **1.0.14**.
+
+WIP Conquest stone variants live **outside** the pack at `wip/conquest_stone_in_progress/` so they do not ship with Choice. Work that set on its own branch and copy into `textures/blocks/` only when ready.
+
+
 ---
 
 ## Baby armor (important)
