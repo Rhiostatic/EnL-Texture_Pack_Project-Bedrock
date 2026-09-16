@@ -12,7 +12,20 @@ Pack path: `development_resource_packs/Choice Textures_rp/`
 3. Credit licenses stay under `credits/` (do not edit Faithful `LICENSE.txt`).
 4. Skip Vibrant Visuals (`_mer` / `_mers` / `_normal` / `_heightmap` / `.texture_set.json`) and Education Edition.
 
-See the pack file for the full 26.50 file list.
+## 2026-09-16 — Straw bed (26.50 Wilderness Bound hole)
+
+- **Branch:** `choice-fill-26.50-faithful32-wilderness`
+- **Source:** official Faithful 32x Bedrock (`Faithful-Resource-Pack/Faithful-32x-Bedrock`, `bedrock-latest`, September 2026 hotfix lineage)
+- **Rule:** holes only. Choice had no `straw_bed` color files yet. Do not overwrite existing Choice hay.
+- **Why not the Discord preview:** that attachment is a side-by-side *in-game render* (Faithful look on the left, vanilla on the right), not a UV sheet. Cropping it would smear pixels onto the 26.50 `straw_bed_head` / `straw_bed_foot` geos (`texture_width`/`texture_height` 16).
+- **Vanilla sheet sizes (bedrock-samples v1.26.50.4):** block `64x64`, item `16x16`, particle `16x16`.
+- **Faithful 32x sheet sizes (2× vanilla):** block `128x128`, item `32x32`, particle `32x32`.
+- **Files:**
+  - `textures/blocks/straw_bed.png`
+  - `textures/items/straw_bed.png`
+  - `textures/particle/straw_bed_particle.png`
+- **Skipped:** `*.texture_set.json` and `*_mers` (Vibrant Visuals).
+- **Note:** GitHub connector cannot ship binary PNGs cleanly from this session. Drop the three files from `artifacts/choice-fill-straw-bed/` onto this branch on Minecraft-DEV, then commit.
 
 ## 2026-09-15 — Bedrock 26.50 / Wilderness Bound hole-fill
 
