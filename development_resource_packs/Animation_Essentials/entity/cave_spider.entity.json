@@ -12,7 +12,7 @@
 				"default": "textures/entity/spider/cave_spider"
 			},
 			"geometry": {
-				"default": "geometry.spider"
+				"default": "geometry.cave_spider"
 			},
 			"animations": {
 				"look_at_target": "animation.spider.look_at_target",
