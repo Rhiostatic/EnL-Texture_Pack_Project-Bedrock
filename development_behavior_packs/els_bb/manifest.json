@@ -13,12 +13,24 @@
 			"version": [1, 0, 0],
 			"uuid": "69e9b1af-ac83-4900-955b-2113eb6c08e4",
 			"type": "data"
+		},
+		{
+			"description": "Waxed torch particles",
+			"type": "script",
+			"language": "javascript",
+			"uuid": "55373009-5141-48b4-be63-85a303966546",
+			"entry": "scripts/main.js",
+			"version": [1, 0, 0]
 		}
 	],
 	"dependencies": [
 		{
 			"uuid": "b9cb282d-e476-41de-aa52-ce4e967abce3",
 			"version": [1, 0, 0]
+		},
+		{
+			"module_name": "@minecraft/server",
+			"version": "1.18.0"
 		}
 	],
 	"metadata": {
