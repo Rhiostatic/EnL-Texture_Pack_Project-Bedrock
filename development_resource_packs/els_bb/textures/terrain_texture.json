@@ -18,6 +18,9 @@
 		},
 		"chisled_gold_block_top": {
 			"textures": "textures/blocks/chisled_gold_block_top"
+		},
+		"els_bb:waxed_torch": {
+			"textures": "textures/blocks/waxed_torch"
 		}
 	}
 }
