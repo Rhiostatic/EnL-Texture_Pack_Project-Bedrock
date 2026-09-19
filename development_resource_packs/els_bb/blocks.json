@@ -1,3 +1,6 @@
 {
-	"format_version": "1.21.40"
+	"format_version": "1.21.40",
+	"els_bb:waxed_torch": {
+		"sound": "wood"
+	}
 }
