@@ -33,6 +33,10 @@ Pack path: `development_resource_packs/Choice Textures_rp/`
   only.
 - **Also:** listed missing `poplar_boat` / `chest_boat_poplar` (entity + items) in
   `textures/textures_list.json`.
+- **Deleted unused aliases** (not in vanilla/Faithful/Conquest entity paths;
+  were byte-identical to the canonical sheets): `oak.png`, `acacia.png`,
+  `birch.png`, `spruce.png`, `jungle.png`, `dark_oak.png`, `mangrove.png`,
+  and leftover `boat.png`. Dropped matching `textures_list.json` rows.
 - **Imperfect / skipped:**
   - Private reference repo not readable this run; confirm hashes against
     EnL-Texture-References when that repo is in the installation.
@@ -40,7 +44,6 @@ Pack path: `development_resource_packs/Choice Textures_rp/`
     geo expects 256×128, so `chest_boat_*.png` currently ship the matching
     unmodified Faithful **hull** (same pixels as `boat_oak.png` etc.). No chest
     tiles and no rope — Erik adds both in Blockbench.
-  - `boat.png` entity alias is 128×64; nearest-neighbor scale of Faithful oak.
 
 ## 2026-09-16 — Straw bed (26.50 Wilderness Bound hole)
 
