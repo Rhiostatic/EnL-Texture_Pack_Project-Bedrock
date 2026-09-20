@@ -1,11 +1,11 @@
 {
 	"format_version": 2,
 	"header": {
-		"name": "Bonus Blocks",
-		"description": "Bonus Blocks with mctools.dev",
+		"name": "pack.name",
+		"description": "pack.description",
 		"uuid": "6f1f87bd-7627-41c8-a971-78dbc8ff9c1b",
 		"version": [1, 0, 2],
-		"min_engine_version": [1, 21, 70]
+		"min_engine_version": [1, 21, 80]
 	},
 	"modules": [
 		{
