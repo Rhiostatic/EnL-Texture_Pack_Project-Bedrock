@@ -12,6 +12,20 @@ Pack path: `development_resource_packs/Choice Textures_rp/`
 3. Credit licenses stay under `credits/` (do not edit Faithful `LICENSE.txt`).
 4. Skip Vibrant Visuals (`_mer` / `_mers` / `_normal` / `_heightmap` / `.texture_set.json`) and Education Edition.
 
+## 2026-09-20 — Dark-oak mash mask applied to other woods (#47)
+
+- **Branch:** `cursor/choice-faithful-boat-hulls-5c6f`
+- **Method:** coordinate mask from Erik’s `ad46e2a7` dark oak mash vs plain
+  Faithful dark oak at `c53fd415`. Regular boats use `boat_darkoak` mask
+  (7894 px). Chest boats use `chest_boat_darkoak` mask (7661 px). At those
+  coordinates only, copy RGBA from Conquest_Lite_RP (main) onto the current
+  Faithful hull. Dark oak files left as Erik’s mash.
+- **Poplar:** Conquest has no poplar boats. Base = Faithful poplar from
+  `c53fd415`; donor = `main` Choice `poplar_boat.png` / `chest_boat_poplar.png`.
+- **Footer leftovers:** Conquest unused fill bars that sit on masked
+  coordinates (e.g. spruce/cherry/poplar bottom strips) come through by
+  design — the mask is a raw RGBA inequality, not a rope-only paint.
+
 ## 2026-09-19 — Choice boats: plain Faithful 32x 26.x entity hulls (#46 / #47)
 
 - **Branch:** `cursor/choice-faithful-boat-hulls-5c6f`
