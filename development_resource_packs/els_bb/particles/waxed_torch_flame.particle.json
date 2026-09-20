@@ -24,8 +24,8 @@
 			},
 			"minecraft:particle_appearance_billboard": {
 				"size": [
-					"(0.1 + variable.ParticleRandom1*0.1) - (0.1 * variable.ParticleAge)",
-					"(0.1 + variable.ParticleRandom1*0.1) - (0.1 * variable.ParticleAge)"
+					"(0.025 + variable.ParticleRandom1*0.025) - (0.025 * variable.ParticleAge)",
+					"(0.025 + variable.ParticleRandom1*0.025) - (0.025 * variable.ParticleAge)"
 				],
 				"facing_camera_mode": "lookat_xyz",
 				"uv": {
