@@ -9,10 +9,7 @@
     ],
     "ingredients": [
       {
-        "item": "minecraft:honeycomb"
-      },
-      {
-        "item": "minecraft:torch"
+        "item": "minecraft:candle"
       },
       {
         "item": "minecraft:iron_nugget"
@@ -20,10 +17,10 @@
     ],
     "unlock": [
       {
-        "item": "minecraft:torch"
+        "item": "minecraft:candle"
       },
       {
-        "item": "minecraft:honeycomb"
+        "item": "minecraft:iron_nugget"
       }
     ],
     "result": {
