@@ -16,28 +16,28 @@ function warnOnce(key, message, err) {
 }
 
 /**
- * Floor: center, y + 0.7 (top of standing shaft).
- * Wall: 0.27 toward the attached face (south-hugging wall geo tip ~0.76) and y + 0.82.
+ * Floor: center, y + 0.85 (top of standing shaft after geo update).
+ * Wall: 0.27 toward the attached face (south-hugging wall geo tip ~0.76) and y + 0.97.
  * @param {import("@minecraft/server").Block} block
  */
 function flameLocation(block) {
 	const { x, y, z } = block.location;
 	let px = x + 0.5;
-	let py = y + 0.7;
+	let py = y + 0.85;
 	let pz = z + 0.5;
 	const face = block.permutation.getState("minecraft:block_face");
 	if (face === "north") {
 		pz += 0.27;
-		py = y + 0.82;
+		py = y + 0.97;
 	} else if (face === "south") {
 		pz -= 0.27;
-		py = y + 0.82;
+		py = y + 0.97;
 	} else if (face === "west") {
 		px += 0.27;
-		py = y + 0.82;
+		py = y + 0.97;
 	} else if (face === "east") {
 		px -= 0.27;
-		py = y + 0.82;
+		py = y + 0.97;
 	}
 	return { x: px, y: py, z: pz };
 }
