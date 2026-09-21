@@ -12,6 +12,18 @@ Pack path: `development_resource_packs/Choice Textures_rp/`
 3. Credit licenses stay under `credits/` (do not edit Faithful `LICENSE.txt`).
 4. Skip Vibrant Visuals (`_mer` / `_mers` / `_normal` / `_heightmap` / `.texture_set.json`) and Education Edition.
 
+## 2026-09-21 — Choice boat/raft **item** icons → Faithful 32x 26.x
+
+- **Branch:** `cursor/choice-faithful-boat-item-icons-7dc4`
+- **Rule:** replace inventory/item boat icons only (`textures/items/*boat*` / `*raft*`). Do **not** touch `textures/entity/boat/` (already handled in #47).
+- **Intended source:** `https://github.com/Rhiostatic/EnL-Texture-References`
+  `Packs Used to Build EnL from/32x/Faithful/Faithful 32x - 26.x/textures/items/`
+- **Access note:** GitHub App token still cannot read the private reference repo (404). Fallback is the same Faithful 32x 26.x line as #47: `Faithful-Resource-Pack/Faithful-32x-Bedrock` `@bedrock-latest` (`7ceeb1ecf18e`, 2026-09-21 autopush). PNGs only; ignored `.texture_set.json` / `_mers`.
+- **Matching filenames copied:** acacia/birch/cherry/jungle/mangrove/oak/pale_oak/spruce/dark_oak chest boats; bamboo raft + chest raft; cherry/mangrove/pale_oak boats; `boat.png`; `boat_oak` / `boat_spruce` / `boat_birch` / `boat_jungle` / `boat_acacia` / `boat_darkoak` / `boat_dark_oak`.
+- **Verified Bedrock aliases** (vanilla `item_texture.json` `boat` atlas uses `boat_oak`, not `oak_boat`; Choice also keeps the Java-style names): `oak_boat` ← `boat_oak`, `acacia_boat` ← `boat_acacia`, `birch_boat` ← `boat_birch`, `spruce_boat` ← `boat_spruce`, `jungle_boat` ← `boat_jungle`, `dark_oak_boat` ← `boat_darkoak`.
+- **Poplar:** Faithful-32x-Bedrock already has `poplar_boat.png` / `poplar_chest_boat.png` byte-identical to Choice; left in place (no visual change).
+- **Pack rev:** display `v26.09.21 Choice Textures`; manifest header+module `1.0.16`; UUIDs unchanged; `pack.description` unchanged.
+
 ## 2026-09-20 — Dark-oak mash mask applied to other woods (#47)
 
 - **Branch:** `cursor/choice-faithful-boat-hulls-5c6f`
