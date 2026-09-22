@@ -1,11 +1,10 @@
 {
-	"format_version": "1.21.50",
+	"format_version": "1.21.60",
 	"minecraft:block": {
 		"description": {
 			"identifier": "els_bb:chisled_gold_block",
 			"menu_category": {
-				"category": "construction",
-				"group": "els_bb:itemGroup.name.chisled_gold"
+				"category": "construction"
 			},
 			"traits": {
 				"minecraft:placement_direction": {
