@@ -4,7 +4,8 @@
 		"description": {
 			"identifier": "els_bb:chisled_gold_block_f",
 			"menu_category": {
-				"category": "construction"
+				"category": "construction",
+				"group": "els_bb:itemGroup.name.chisled_gold"
 			},
 			"traits": {
 				"minecraft:placement_direction": {
