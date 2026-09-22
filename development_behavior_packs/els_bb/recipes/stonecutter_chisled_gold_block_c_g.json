@@ -2,23 +2,23 @@
   "format_version": "1.20.10",
   "minecraft:recipe_shapeless": {
     "description": {
-      "identifier": "els_bb:stonecutter_chisled_gold_block_e"
+      "identifier": "els_bb:stonecutter_chisled_gold_block_c_g"
     },
     "tags": [
       "stonecutter"
     ],
     "ingredients": [
       {
-        "item": "els_bb:chisled_gold_block"
+        "item": "els_bb:chisled_gold_block_c"
       }
     ],
     "unlock": [
       {
-        "item": "els_bb:chisled_gold_block"
+        "item": "els_bb:chisled_gold_block_c"
       }
     ],
     "result": {
-      "item": "els_bb:chisled_gold_block_e",
+      "item": "els_bb:chisled_gold_block_g",
       "count": 1
     }
   }
