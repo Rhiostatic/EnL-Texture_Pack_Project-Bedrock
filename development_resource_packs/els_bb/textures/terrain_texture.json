@@ -16,6 +16,24 @@
 		"chisled_gold_block_side": {
 			"textures": "textures/blocks/chisled_gold_block"
 		},
+		"chisled_gold_block_b_side": {
+			"textures": "textures/blocks/chisled_gold_block_1"
+		},
+		"chisled_gold_block_c_side": {
+			"textures": "textures/blocks/chisled_gold_block_2"
+		},
+		"chisled_gold_block_d_side": {
+			"textures": "textures/blocks/chisled_gold_block_3"
+		},
+		"chisled_gold_block_e_side": {
+			"textures": "textures/blocks/chisled_gold_block_4"
+		},
+		"chisled_gold_block_f_side": {
+			"textures": "textures/blocks/chisled_gold_block_5"
+		},
+		"chisled_gold_block_g_side": {
+			"textures": "textures/blocks/chisled_gold_block_6"
+		},
 		"chisled_gold_block_top": {
 			"textures": "textures/blocks/chisled_gold_block_top"
 		},

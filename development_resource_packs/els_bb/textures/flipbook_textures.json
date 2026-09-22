@@ -4,5 +4,47 @@
     "flipbook_texture": "textures/blocks/weathered_sea_lantern",
     "ticks_per_frame": 5,
     "blend_frames": true
+  },
+  {
+    "atlas_tile": "chisled_gold_block_side",
+    "flipbook_texture": "textures/blocks/chisled_gold_block",
+    "ticks_per_frame": 8,
+    "blend_frames": true
+  },
+  {
+    "atlas_tile": "chisled_gold_block_b_side",
+    "flipbook_texture": "textures/blocks/chisled_gold_block_1",
+    "ticks_per_frame": 8,
+    "blend_frames": true
+  },
+  {
+    "atlas_tile": "chisled_gold_block_c_side",
+    "flipbook_texture": "textures/blocks/chisled_gold_block_2",
+    "ticks_per_frame": 8,
+    "blend_frames": true
+  },
+  {
+    "atlas_tile": "chisled_gold_block_d_side",
+    "flipbook_texture": "textures/blocks/chisled_gold_block_3",
+    "ticks_per_frame": 8,
+    "blend_frames": true
+  },
+  {
+    "atlas_tile": "chisled_gold_block_e_side",
+    "flipbook_texture": "textures/blocks/chisled_gold_block_4",
+    "ticks_per_frame": 8,
+    "blend_frames": true
+  },
+  {
+    "atlas_tile": "chisled_gold_block_f_side",
+    "flipbook_texture": "textures/blocks/chisled_gold_block_5",
+    "ticks_per_frame": 8,
+    "blend_frames": true
+  },
+  {
+    "atlas_tile": "chisled_gold_block_g_side",
+    "flipbook_texture": "textures/blocks/chisled_gold_block_6",
+    "ticks_per_frame": 8,
+    "blend_frames": true
   }
 ]
