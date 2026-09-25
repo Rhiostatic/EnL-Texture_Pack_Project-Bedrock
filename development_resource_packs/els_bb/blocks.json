@@ -7,59 +7,24 @@
 		"sound": "glass"
 	},
 	"els_bb:chisled_gold_block": {
-		"sound": "metal",
-		"textures": {
-			"up": "chisled_gold_block_top",
-			"down": "chisled_gold_block_top",
-			"side": "chisled_gold_block_side"
-		}
+		"sound": "metal"
 	},
 	"els_bb:chisled_gold_block_b": {
-		"sound": "metal",
-		"textures": {
-			"up": "chisled_gold_block_top",
-			"down": "chisled_gold_block_top",
-			"side": "chisled_gold_block_b_side"
-		}
+		"sound": "metal"
 	},
 	"els_bb:chisled_gold_block_c": {
-		"sound": "metal",
-		"textures": {
-			"up": "chisled_gold_block_top",
-			"down": "chisled_gold_block_top",
-			"side": "chisled_gold_block_c_side"
-		}
+		"sound": "metal"
 	},
 	"els_bb:chisled_gold_block_d": {
-		"sound": "metal",
-		"textures": {
-			"up": "chisled_gold_block_top",
-			"down": "chisled_gold_block_top",
-			"side": "chisled_gold_block_d_side"
-		}
+		"sound": "metal"
 	},
 	"els_bb:chisled_gold_block_e": {
-		"sound": "metal",
-		"textures": {
-			"up": "chisled_gold_block_top",
-			"down": "chisled_gold_block_top",
-			"side": "chisled_gold_block_e_side"
-		}
+		"sound": "metal"
 	},
 	"els_bb:chisled_gold_block_f": {
-		"sound": "metal",
-		"textures": {
-			"up": "chisled_gold_block_top",
-			"down": "chisled_gold_block_top",
-			"side": "chisled_gold_block_f_side"
-		}
+		"sound": "metal"
 	},
 	"els_bb:chisled_gold_block_g": {
-		"sound": "metal",
-		"textures": {
-			"up": "chisled_gold_block_top",
-			"down": "chisled_gold_block_top",
-			"side": "chisled_gold_block_g_side"
-		}
+		"sound": "metal"
 	}
 }
