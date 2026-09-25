@@ -29,7 +29,8 @@
         "general": "controller.animation.cow.v1.8.general",
         "facial": "controller.animation.cow.v1.8.facial",
         "look_target": "controller.animation.cow.v1.8.look_target",
-        "damage": "controller.animation.cow.v1.8.damage"
+        "damage": "controller.animation.cow.v1.8.damage",
+        "setup": "animation.mooshroom.setup"
       },
       "scripts": {
         "pre_animation": [
@@ -37,6 +38,7 @@
           "variable.eye_target_y = query.target_x_rotation - this;"
         ],
         "animate": [
+          "setup",
           "general",
           "facial",
           "look_target",
