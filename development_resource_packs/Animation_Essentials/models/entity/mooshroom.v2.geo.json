@@ -37,6 +37,15 @@
 					"parent": "Root",
 					"pivot": [
 						0,
+						15,
+						2
+					]
+				},
+				{
+					"name": "body_mesh",
+					"parent": "Root",
+					"pivot": [
+						0,
 						19,
 						2
 					],
@@ -97,6 +106,15 @@
 				},
 				{
 					"name": "head",
+					"parent": "Root",
+					"pivot": [
+						0,
+						-44,
+						-8
+					]
+				},
+				{
+					"name": "head_mesh",
 					"parent": "Root",
 					"pivot": [
 						0,
@@ -179,7 +197,7 @@
 				},
 				{
 					"name": "eye",
-					"parent": "head",
+					"parent": "head_mesh",
 					"pivot": [
 						0,
 						0,
@@ -224,7 +242,7 @@
 				},
 				{
 					"name": "eyelids",
-					"parent": "head",
+					"parent": "head_mesh",
 					"pivot": [
 						0,
 						0,
@@ -403,7 +421,7 @@
 				},
 				{
 					"name": "eyeballs",
-					"parent": "head",
+					"parent": "head_mesh",
 					"pivot": [
 						0,
 						20,

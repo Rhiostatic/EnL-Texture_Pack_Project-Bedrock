@@ -18,19 +18,18 @@
         "baby": "geometry.cow.baby"
       },
       "animations": {
-        "base": "animation.cow.v1.8.base",
-        "walking": "animation.cow.v1.8.walking",
-        "running": "animation.cow.v1.8.running",
-        "swimming": "animation.cow.v1.8.swimming",
-        "base_face": "animation.cow.v1.8.base_face",
-        "looking": "animation.cow.v1.8.looking",
-        "death_face": "animation.cow.v1.8.death_face",
-        "hurt": "animation.cow.v1.8.hurt",
+        "base": "animation.mooshroom.gold.base",
+        "walking": "animation.mooshroom.gold.walking",
+        "running": "animation.mooshroom.gold.running",
+        "swimming": "animation.mooshroom.gold.swimming",
+        "base_face": "animation.mooshroom.gold.base_face",
+        "looking": "animation.mooshroom.gold.looking",
+        "death_face": "animation.mooshroom.gold.death_face",
+        "hurt": "animation.mooshroom.gold.hurt",
         "general": "controller.animation.cow.v1.8.general",
         "facial": "controller.animation.cow.v1.8.facial",
         "look_target": "controller.animation.cow.v1.8.look_target",
-        "damage": "controller.animation.cow.v1.8.damage",
-        "setup": "animation.mooshroom.setup"
+        "damage": "controller.animation.cow.v1.8.damage"
       },
       "scripts": {
         "pre_animation": [
@@ -38,7 +37,6 @@
           "variable.eye_target_y = query.target_x_rotation - this;"
         ],
         "animate": [
-          "setup",
           "general",
           "facial",
           "look_target",
