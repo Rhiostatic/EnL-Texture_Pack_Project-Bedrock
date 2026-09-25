@@ -1,0 +1,176 @@
+{
+	"format_version": "1.19.0",
+	"animation_controllers": {
+		"controller.animation.cow.v1.8.general": {
+			"states": {
+				"default": {
+					"animations": ["base"],
+					"transitions": [
+						{"base": "query.ground_speed < 0.3"},
+						{"walk": "query.ground_speed > 0.3"},
+						{"swim": "query.is_in_water"},
+						{"ride": "query.is_riding"}
+					],
+					"blend_transition": 0.25
+				},
+				"base": {
+					"animations": ["base"],
+					"transitions": [
+						{"walk": "query.ground_speed > 0.3"},
+						{"swim": "query.is_in_water"},
+						{"ride": "query.is_riding"}
+					],
+					"blend_transition": 0.25
+				},
+				"walk": {
+					"animations": ["walking"],
+					"transitions": [
+						{"base": "query.ground_speed < 0.3"},
+						{"swim": "query.is_in_water"},
+						{"ride": "query.is_riding"},
+						{"run": "query.ground_speed > 4.4 && query.is_on_ground"}
+					],
+					"blend_transition": 0.25
+				},
+				"run": {
+					"animations": ["running"],
+					"transitions": [
+						{"walk": "query.ground_speed < 2 || !query.is_on_ground"},
+						{"swim": "query.is_in_water"},
+						{"ride": "query.is_riding"}
+					],
+					"blend_transition": 0.2
+				},
+				"swim": {
+					"animations": ["swimming"],
+					"transitions": [
+						{"default": "!query.is_in_water && query.is_on_ground\n"},
+						{"ride": "query.is_riding"}
+					],
+					"blend_transition": 0.25
+				},
+				"ride": {
+					"animations": ["base"],
+					"transitions": [
+						{"default": "!query.is_riding"}
+					],
+					"blend_transition": 0.2
+				}
+			}
+		},
+		"controller.animation.cow.v1.8.facial": {
+			"states": {
+				"default": {
+					"animations": ["base_face"],
+					"transitions": [
+						{"death_face": "!query.is_alive"}
+					],
+					"blend_transition": 0.25,
+					"blend_via_shortest_path": true
+				},
+				"death_face": {
+					"animations": ["death_face"],
+					"transitions": [
+						{"default": "query.is_alive"}
+					],
+					"blend_transition": 0.25
+				}
+			}
+		},
+		"controller.animation.cow.v1.8.look_target": {
+			"states": {
+				"default": {
+					"transitions": [
+						{"look": "query.is_alive"}
+					]
+				},
+				"look": {
+					"animations": ["looking"],
+					"transitions": [
+						{"default": "!query.is_alive"}
+					]
+				}
+			}
+		},
+		"controller.animation.cow.v1.8.damage": {
+			"states": {
+				"default": {
+					"transitions": [
+						{"dmg1": "query.health == 9"},
+						{"dmg2": "query.health == 8"},
+						{"dmg3": "query.health == 7"},
+						{"dmg4": "query.health == 6"},
+						{"dmg5": "query.health == 5"},
+						{"dmg6": "query.health == 4"},
+						{"dmg7": "query.health == 3"},
+						{"dmg8": "query.health == 2"},
+						{"dmg9": "query.health == 1"}
+					]
+				},
+				"dmg1": {
+					"animations": ["hurt"],
+					"transitions": [
+						{"default": "query.health != 9"}
+					]
+				},
+				"dmg2": {
+					"animations": ["hurt"],
+					"transitions": [
+						{"default": "query.health != 8"}
+					]
+				},
+				"dmg3": {
+					"animations": ["hurt"],
+					"transitions": [
+						{"default": "query.health != 7"}
+					]
+				},
+				"dmg4": {
+					"animations": ["hurt"],
+					"transitions": [
+						{"default": "query.health != 6"}
+					]
+				},
+				"dmg5": {
+					"animations": ["hurt"],
+					"transitions": [
+						{"default": "query.health != 5"}
+					]
+				},
+				"dmg6": {
+					"animations": ["hurt"],
+					"transitions": [
+						{"default": "query.health != 4"}
+					]
+				},
+				"dmg7": {
+					"animations": ["hurt"],
+					"transitions": [
+						{"default": "query.health != 3"}
+					]
+				},
+				"dmg8": {
+					"animations": ["hurt"],
+					"transitions": [
+						{"default": "query.health != 2"}
+					]
+				},
+				"dmg9": {
+					"animations": ["hurt"],
+					"transitions": [
+						{"default": "query.health != 1"}
+					]
+				}
+			}
+		},
+		"controller.animation.cow.v1.8.baby_cow": {
+			"states": {
+				"default": {
+					"animations": [
+						{"baby": "query.is_baby"}
+					]
+				}
+			}
+		}
+	}
+}

@@ -1,0 +1,55 @@
+{
+  "format_version": "1.10.0",
+  "minecraft:client_entity": {
+    "description": {
+      "identifier": "minecraft:mooshroom",
+      "min_engine_version": "1.8.0",
+      "materials": {
+        "default": "mooshroom"
+      },
+      "textures": {
+        "default": "textures/entity/cow/mooshroom_v2",
+        "brown": "textures/entity/cow/brown_mooshroom_v2",
+        "baby_default": "textures/entity/cow/mooshroom_red_baby",
+        "baby_brown": "textures/entity/cow/mooshroom_brown_baby"
+      },
+      "geometry": {
+        "default": "geometry.mooshroom.v2",
+        "baby": "geometry.cow.baby"
+      },
+      "animations": {
+        "base": "animation.mooshroom.gold.base",
+        "walking": "animation.mooshroom.gold.walking",
+        "running": "animation.mooshroom.gold.running",
+        "swimming": "animation.mooshroom.gold.swimming",
+        "base_face": "animation.mooshroom.gold.base_face",
+        "looking": "animation.mooshroom.gold.looking",
+        "death_face": "animation.mooshroom.gold.death_face",
+        "hurt": "animation.mooshroom.gold.hurt",
+        "general": "controller.animation.cow.v1.8.general",
+        "facial": "controller.animation.cow.v1.8.facial",
+        "look_target": "controller.animation.cow.v1.8.look_target",
+        "damage": "controller.animation.cow.v1.8.damage"
+      },
+      "scripts": {
+        "pre_animation": [
+          "variable.eye_target_x = query.target_y_rotation - this;",
+          "variable.eye_target_y = query.target_x_rotation - this;"
+        ],
+        "animate": [
+          "general",
+          "facial",
+          "look_target",
+          "damage"
+        ],
+        "scale": "query.is_baby ? 2.0 : 1.0"
+      },
+      "render_controllers": [
+        "controller.render.mooshroom.v2"
+      ],
+      "spawn_egg": {
+        "texture": "spawn_egg_mooshroom"
+      }
+    }
+  }
+}
