@@ -81,7 +81,7 @@
 				{
 					"name": "eyelid_right",
 					"parent": "eyelids",
-					"pivot": [0, 22, -9],
+					"pivot": [3, 22, -15.25],
 					"cubes": [
 						{
 							"origin": [2, 21, -15.25],
@@ -100,7 +100,7 @@
 				{
 					"name": "eyelid_left",
 					"parent": "eyelids",
-					"pivot": [0, 22, -9],
+					"pivot": [-3, 22, -15.25],
 					"cubes": [
 						{
 							"origin": [-4, 21, -15.25],
