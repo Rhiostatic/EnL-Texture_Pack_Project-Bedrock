@@ -3,14 +3,14 @@
   "minecraft:client_entity": {
     "description": {
       "identifier": "minecraft:husk",
-      "min_engine_version": "1.8.0",
+      "min_engine_version": "1.20.60",
       "materials": { "default": "husk" },
       "textures": {
         "default": "textures/entity/zombie/husk",
         "baby": "textures/entity/zombie/husk_baby"
       },
       "geometry": {
-        "default": "geometry.zombie.husk.v1.8",
+        "default": "geometry.ae.husk",
         "baby": "geometry.zombie.baby"
       },
       "scripts": {
