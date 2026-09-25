@@ -1,5 +1,5 @@
 {
-  "format_version": "1.8.0",
+  "format_version": "1.10.0",
   "minecraft:client_entity": {
     "description": {
       "identifier": "minecraft:zombie",
@@ -27,7 +27,14 @@
         ],
         "variables": {
           "variable.use_dedicated_baby_armor": "public"
-        }
+        },
+        "animate": [
+          "general",
+          "facial",
+          "damage",
+          "baby_zombie",
+          "look_target"
+        ]
       },
       "animations": {
         "base": "animation.zombie.v1.8.base",
@@ -44,15 +51,13 @@
         "hurt": "animation.zombie.v1.8.hurt",
         "hurt2": "animation.zombie.v1.8.hurt2",
         "looking": "animation.zombie.v1.8.looking",
-        "arm_control": "animation.zombie.v1.8.arm_control"
+        "arm_control": "animation.zombie.v1.8.arm_control",
+        "general": "controller.animation.zombie.v1.8.general",
+        "facial": "controller.animation.zombie.v1.8.facial",
+        "damage": "controller.animation.zombie.v1.8.damage",
+        "baby_zombie": "controller.animation.zombie.v1.8.baby_zombie",
+        "look_target": "controller.animation.zombie.v1.8.look_target"
       },
-      "animation_controllers": [
-        { "general": "controller.animation.zombie.v1.8.general" },
-        { "facial": "controller.animation.zombie.v1.8.facial" },
-        { "damage": "controller.animation.zombie.v1.8.damage" },
-        { "baby_zombie": "controller.animation.zombie.v1.8.baby_zombie" },
-        { "look_target": "controller.animation.zombie.v1.8.look_target" }
-      ],
       "render_controllers": [ "controller.render.zombie.v2" ],
       "enable_attachables": true
     }

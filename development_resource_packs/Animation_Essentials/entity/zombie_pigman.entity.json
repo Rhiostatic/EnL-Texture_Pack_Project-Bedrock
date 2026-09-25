@@ -1,5 +1,5 @@
 {
-  "format_version": "1.8.0",
+  "format_version": "1.10.0",
   "minecraft:client_entity": {
     "description": {
       "identifier": "minecraft:zombie_pigman",
@@ -25,7 +25,14 @@
         ],
         "variables": {
           "variable.use_dedicated_baby_armor": "public"
-        }
+        },
+        "animate": [
+          "general",
+          "facial",
+          "baby_piglin",
+          "look_target",
+          "damage"
+        ]
       },
       "animations": {
         "base": "animation.zombie_piglin.base",
@@ -40,15 +47,13 @@
         "baby": "animation.zombie_piglin.baby",
         "looking": "animation.zombie_piglin.looking",
         "arm_control": "animation.zombie_piglin.arm_control",
-        "hurt": "animation.zombie_piglin.hurt"
+        "hurt": "animation.zombie_piglin.hurt",
+        "general": "controller.animation.zombie_piglin.general",
+        "facial": "controller.animation.zombie_piglin.facial",
+        "baby_piglin": "controller.animation.zombie_piglin.baby_piglin",
+        "look_target": "controller.animation.zombie_piglin.look_target",
+        "damage": "controller.animation.zombie_piglin.damage"
       },
-      "animation_controllers": [
-        { "general": "controller.animation.zombie_piglin.general" },
-        { "facial": "controller.animation.zombie_piglin.facial" },
-        { "baby_piglin": "controller.animation.zombie_piglin.baby_piglin" },
-        { "look_target": "controller.animation.zombie_piglin.look_target" },
-        { "damage": "controller.animation.zombie_piglin.damage" }
-      ],
       "render_controllers": [ "controller.render.zombie_pigman.v2" ],
       "enable_attachables": true
     }
