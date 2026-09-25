@@ -14,7 +14,7 @@
         "baby_brown": "textures/entity/cow/mooshroom_brown_baby"
       },
       "geometry": {
-        "default": "geometry.cow.v2",
+        "default": "geometry.mooshroom.v2",
         "baby": "geometry.cow.baby"
       },
       "animations": {
