@@ -26,8 +26,8 @@
         "animate": [
           "general",
           "facial",
-          "baby_husk",
           "damage",
+          "baby_husk",
           "look_target"
         ]
       },
