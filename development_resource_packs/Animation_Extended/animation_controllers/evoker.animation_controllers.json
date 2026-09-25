@@ -1,0 +1,284 @@
+{
+  "format_version": "1.10.0",
+  "animation_controllers": {
+    "controller.animation.evoker.angry": {
+      "states": {
+        "default": {
+          "blend_transition": 0.1,
+          "transitions": [
+            {
+              "angry": "q.has_target||q.is_casting"
+            }
+          ]
+        },
+        "angry": {
+          "animations": [
+            "mad"
+          ],
+          "blend_transition": 0.1,
+          "transitions": [
+            {
+              "default": "!q.has_target&&!q.is_casting"
+            }
+          ]
+        }
+      }
+    },
+    "controller.animation.evoker.spell": {
+      "states": {
+        "casting": {
+          "animations": [
+            "casting_0",
+            "casting_1",
+            "land"
+          ],
+          "blend_transition": 0.7,
+          "transitions": [
+            {
+              "default": "!query.is_casting"
+            }
+          ]
+        },
+        "default": {
+          "animations": [
+            "bob",
+            "blink"
+          ],
+          "blend_transition": 0.1,
+          "transitions": [
+            {
+              "casting": "query.is_casting"
+            }
+          ]
+        }
+      }
+    },
+    "controller.animation.evoker.base": {
+      "states": {
+        "default": {
+          "animations": [
+            "controller_move",
+            "controller_land",
+            {
+              "controller_jump": "!q.is_riding"
+            },
+            {
+              "controller_fall": "!q.is_riding"
+            },
+            "look_at_target"
+          ],
+          "transitions": [
+            {
+              "alivent": "!q.is_alive"
+            }
+          ]
+        },
+        "alivent": {
+          "animations": [
+            "die_anim"
+          ]
+        }
+      }
+    },
+    "controller.animation.illager.move": {
+      "states": {
+        "default": {
+          "blend_transition": 0.2,
+          "animations": [
+            {
+              "walk": "query.modified_move_speed"
+            }
+          ],
+          "transitions": [
+            {
+              "aggro": "v.has_target"
+            },
+            {
+              "float": "q.is_in_water"
+            }
+          ]
+        },
+        "aggro": {
+          "blend_transition": 0.2,
+          "animations": [
+            {
+              "run": "q.modified_move_speed"
+            }
+          ],
+          "transitions": [
+            {
+              "default": "!v.has_target"
+            },
+            {
+              "float": "q.is_in_water"
+            },
+            {
+              "in_air": "!q.is_on_ground&&q.vertical_speed>1"
+            }
+          ]
+        },
+        "float": {
+          "blend_transition": 0.2,
+          "animations": [
+            "float"
+          ],
+          "transitions": [
+            {
+              "aggro": "v.has_target&&!q.is_in_water&&q.is_on_ground"
+            },
+            {
+              "default": "!q.is_in_water&&q.is_on_ground"
+            }
+          ]
+        },
+        "in_air": {
+          "blend_transition": 0.16,
+          "transitions": [
+            {
+              "float": "q.is_in_water"
+            },
+            {
+              "default": "q.is_on_ground&&!q.has_target"
+            },
+            {
+              "aggro": "q.is_on_ground||q.vertical_speed<0"
+            }
+          ]
+        }
+      }
+    },
+    "controller.animation.jump": {
+      "states": {
+        "default": {
+          "transitions": [
+            {
+              "up": "!query.is_on_ground&&!query.is_in_water&&query.vertical_speed>0"
+            }
+          ]
+        },
+        "up": {
+          "blend_transition": 0.24,
+          "animations": [
+            "jump"
+          ],
+          "transitions": [
+            {
+              "default": "query.is_on_ground||query.is_in_water||query.vertical_speed<0"
+            }
+          ]
+        }
+      }
+    },
+    "controller.animation.fall": {
+      "initial_state": "still",
+      "states": {
+        "still": {
+          "transitions": [
+            {
+              "dn": "!query.is_on_ground&&query.vertical_speed<0"
+            }
+          ]
+        },
+        "dn": {
+          "blend_transition": 0.26,
+          "animations": [
+            "fall",
+            {
+              "jump_timer": "q.is_on_ground"
+            }
+          ],
+          "transitions": [
+            {
+              "still": "(query.is_on_ground&&q.any_animation_finished)||q.vertical_speed>=0.0"
+            },
+            {
+              "splash": "query.is_in_water"
+            }
+          ]
+        },
+        "splash": {
+          "particle_effects": [
+            {
+              "effect": "splash"
+            },
+            {
+              "effect": "impact"
+            },
+            {
+              "effect": "ripples"
+            }
+          ],
+          "transitions": [
+            {
+              "still": "!query.is_in_water"
+            }
+          ]
+        }
+      }
+    },
+    "controller.animation.land": {
+      "states": {
+        "default": {
+          "blend_transition": 0.1,
+          "animations": [
+            "land"
+          ],
+          "transitions": [
+            {
+              "in_air": "!q.is_on_ground"
+            }
+          ]
+        },
+        "in_air": {
+          "blend_transition": 0.06,
+          "animations": [
+            "vert_cap",
+            {
+              "jump_timer": "q.is_on_ground"
+            }
+          ],
+          "transitions": [
+            {
+              "default": "q.is_on_ground&&q.all_animations_finished"
+            }
+          ]
+        }
+      }
+    },
+    "controller.animation.entity.on_fire": {
+      "states": {
+        "default": {
+          "transitions": [
+            {
+              "on_fire": "q.is_on_fire"
+            }
+          ]
+        },
+        "on_fire": {
+          "particle_effects": [
+            {
+              "effect": "fire"
+            }
+          ],
+          "transitions": [
+            {
+              "combust": "!q.is_on_fire"
+            }
+          ]
+        },
+        "combust": {
+          "particle_effects": [
+            {
+              "effect": "combust"
+            }
+          ],
+          "transitions": [
+            {
+              "default": "1"
+            }
+          ]
+        }
+      }
+    }
+  }
+}

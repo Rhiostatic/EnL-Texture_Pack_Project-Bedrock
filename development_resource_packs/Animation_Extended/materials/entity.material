@@ -1,0 +1,10 @@
+{
+  "materials": {
+    "version": "1.0.0",
+    "entity_alphatest_culling:entity": {
+      "+defines": [
+        "ALPHA_TEST"
+      ]
+    }
+  }
+}
