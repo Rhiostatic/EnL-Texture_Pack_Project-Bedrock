@@ -6,22 +6,22 @@
 				"default": {
 					"animations": ["base"],
 					"transitions": [
-						{"base": "query.ground_speed < 0.3"},
-						{"walk": "query.ground_speed > 0.3"},
+						{"base": "query.ground_speed < 0.4"},
+						{"walk": "query.ground_speed > 0.4 && !query.is_in_water"},
 						{"ride": "query.is_riding"},
-						{"walk_in_water": "query.is_in_water && query.ground_speed > 0.45"}
+						{"walk_in_water": "query.is_in_water && query.ground_speed > 0.45\n"}
 					],
-					"blend_transition": 0.2
+					"blend_transition": 0.22
 				},
 				"base": {
 					"animations": ["base"],
 					"transitions": [
-						{"walk": "query.ground_speed > 0.3"},
-						{"attack": "variable.attack_time"},
+						{"walk": "query.ground_speed > 0.3 && !query.is_in_water"},
 						{"ride": "query.is_riding"},
+						{"pre_attack": "variable.attack_time"},
 						{"walk_in_water": "query.is_in_water && query.ground_speed > 0.45"}
 					],
-					"blend_transition": 0.2
+					"blend_transition": 0.22
 				},
 				"walk": {
 					"animations": ["walking"],
@@ -29,10 +29,10 @@
 						{"base": "query.ground_speed < 0.3"},
 						{"pre_attack": "variable.attack_time"},
 						{"ride": "query.is_riding"},
-						{"walk_in_water": "query.is_in_water && query.ground_speed > 0.45"},
-						{"run": "query.ground_speed > 3.8 && query.is_on_ground"}
+						{"walk_in_water": "query.is_in_water && query.ground_speed > 0.45\n"},
+						{"run": "query.ground_speed > 3.75 && query.is_on_ground"}
 					],
-					"blend_transition": 0.2
+					"blend_transition": 0.22
 				},
 				"run": {
 					"animations": ["running"],
@@ -48,6 +48,7 @@
 					"transitions": [
 						{"attack": "variable.attack_time"}
 					],
+					"blend_transition": 0.012,
 					"blend_via_shortest_path": true
 				},
 				"attack": {
@@ -57,56 +58,67 @@
 						{"riding_leg": "query.is_riding"}
 					],
 					"transitions": [
-						{"walk": "variable.attack_time == 0 && !query.is_riding"},
-						{"ride": "variable.attack_time == 0 && query.is_riding"}
+						{"ride": "variable.attack_time == 0 && query.is_riding"},
+						{"walk": "variable.attack_time == 0 && !query.is_riding"}
 					],
 					"blend_transition": 0.2
 				},
 				"ride": {
-					"animations": [
-						"riding_leg",
-						{"riding_arms": "!query.has_target"},
-						{"riding_has_target": "query.has_target"}
-					],
+					"animations": ["riding_leg", "riding_arms"],
 					"transitions": [
 						{"default": "!query.is_riding"},
-						{"pre_attack_ride": "variable.attack_time"}
+						{"ride_attack": "variable.has_target && query.is_riding"}
 					],
 					"blend_transition": 0.2
 				},
-				"pre_attack_ride": {
+				"ride_attack": {
+					"animations": ["riding_leg", "riding_has_target"],
 					"transitions": [
-						{"attack": "variable.attack_time"}
+						{"ride": "!variable.has_target && query.is_riding"},
+						{"default": "!query.is_riding"},
+						{"pre_attack": "variable.attack_time"}
 					],
-					"blend_via_shortest_path": true
+					"blend_transition": 0.2
 				},
 				"walk_in_water": {
-					"animations": ["walking"],
+					"animations": ["walking", "arm_control"],
 					"transitions": [
 						{"base": "query.ground_speed == 0"},
-						{"walk": "!query.is_in_water && query.is_on_ground"},
 						{"pre_attack": "variable.attack_time"},
-						{"ride": "query.is_riding"}
+						{"ride": "query.is_riding"},
+						{"walk": "!query.is_in_water && query.is_on_ground"}
 					],
 					"blend_transition": 0.5
 				}
 			}
 		},
 		"controller.animation.zombie.husk.v1.8.facial": {
-			"initial_state": "base",
 			"states": {
-				"base": {
+				"default": {
+					"animations": ["base_face"],
+					"transitions": [
+						{"base_face": "query.ground_speed < 0.3"},
+						{"walk_face": "query.ground_speed > 0.3"},
+						{"death_face": "!query.is_alive"}
+					],
+					"blend_transition": 0.25
+				},
+				"base_face": {
 					"animations": ["base_face"],
 					"transitions": [
 						{"death_face": "!query.is_alive"}
 					],
-					"blend_transition": 0.2
+					"blend_transition": 0.25
+				},
+				"walk_face": {
+					"animations": ["base_face"],
+					"transitions": [
+						{"death_face": "!query.is_alive"}
+					],
+					"blend_transition": 0.25
 				},
 				"death_face": {
-					"animations": ["death_face"],
-					"transitions": [
-						{"base": "query.is_alive"}
-					]
+					"animations": ["death_face"]
 				}
 			}
 		},
