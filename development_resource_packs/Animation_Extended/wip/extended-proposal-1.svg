@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" width="256" height="256">
+  <rect width="256" height="256" fill="#5eb5f7"/>
+  <ellipse cx="48" cy="42" rx="28" ry="14" fill="#fff"/>
+  <ellipse cx="200" cy="36" rx="32" ry="16" fill="#fff"/>
+  <ellipse cx="128" cy="28" rx="22" ry="11" fill="#fff"/>
+  <rect x="0" y="148" width="256" height="40" fill="#6fbf4a"/>
+  <rect x="0" y="156" width="256" height="8" fill="#4e9a34"/>
+  <rect x="48" y="168" width="160" height="18" fill="#6fbf4a"/>
+  <rect x="48" y="186" width="160" height="52" fill="#8b5a2b"/>
+  <rect x="56" y="198" width="16" height="18" fill="#7a7a7a"/>
+  <rect x="120" y="206" width="14" height="16" fill="#7a7a7a"/>
+  <rect x="176" y="200" width="18" height="20" fill="#7a7a7a"/>
+  <polygon points="100,168 108,140 116,168" fill="#f2f2f2"/>
+  <polygon points="140,168 148,138 156,168" fill="#f2f2f2"/>
+  <rect x="108" y="96" width="40" height="72" fill="#1a1a1a"/>
+  <rect x="124" y="96" width="8" height="72" fill="#d4a017"/>
+  <rect x="108" y="96" width="40" height="8" fill="#d4a017"/>
+  <rect x="80" y="88" width="28" height="12" fill="#1a1a1a"/>
+  <rect x="148" y="88" width="28" height="12" fill="#1a1a1a"/>
+  <rect x="72" y="72" width="16" height="16" fill="#8a8a8a"/>
+  <rect x="168" y="72" width="16" height="16" fill="#8a8a8a"/>
+  <circle cx="80" cy="68" r="10" fill="#b14bff"/>
+  <circle cx="176" cy="68" r="10" fill="#b14bff"/>
+  <circle cx="80" cy="68" r="4" fill="#ffe66d"/>
+  <circle cx="176" cy="68" r="4" fill="#ffe66d"/>
+  <rect x="112" y="64" width="32" height="32" fill="#8a8a8a"/>
+  <rect x="118" y="76" width="6" height="6" fill="#111"/>
+  <rect x="132" y="76" width="6" height="6" fill="#111"/>
+  <rect x="124" y="86" width="8" height="10" fill="#6e6e6e"/>
+  <rect x="196" y="48" width="18" height="18" fill="#9aa0a6"/>
+  <rect x="188" y="52" width="10" height="8" fill="#e8e8e8"/>
+  <rect x="212" y="52" width="10" height="8" fill="#e8e8e8"/>
+  <rect x="190" y="62" width="16" height="4" fill="#cfcfcf"/>
+  <rect x="184" y="58" width="12" height="3" fill="#8b8b8b"/>
+</svg>
