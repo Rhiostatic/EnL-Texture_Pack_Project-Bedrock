@@ -1,25 +1,29 @@
 # Extended Animations — pack icon proposal #1
 
-Bedrock pack icon idea. Sibling scene to Animation Essentials (grass cliff + sky), but showing extra actions: evoker casting, fangs, flying vex with sword.
+Branch: `ae/extended-pack-icon-proposal`
 
-## Files in this folder
+Sibling scene to Animation Essentials: grass cliff + blue sky. This one shows extra actions — evoker casting, two fangs, flying vex with a sword. No text on the icon.
 
-- `extended-proposal-1.png` — **256x256** Bedrock `pack_icon.png` size. Open this file on GitHub to preview.
-- `extended-proposal-1-large.png` — bigger preview only. Do **not** use this as `pack_icon.png`.
+## Open these on GitHub
 
-## How to look at it (easiest)
+Folder:
+https://github.com/Rhiostatic/EnL-Texture_Pack_Project-Bedrock/tree/ae/extended-pack-icon-proposal/development_resource_packs/Animation_Extended/wip
 
-1. Switch to branch `ae/extended-pack-icon-proposal`.
-2. Open:
-   `development_resource_packs/Animation_Extended/wip/extended-proposal-1.png`
-3. GitHub shows the picture right on that page. Click **Download** if you want it locally.
+Preview (GitHub can show this file):
+https://github.com/Rhiostatic/EnL-Texture_Pack_Project-Bedrock/blob/ae/extended-pack-icon-proposal/development_resource_packs/Animation_Extended/wip/extended-proposal-1.svg
 
-## If we keep this one
+Click the SVG link. GitHub draws the picture on that page. That is the proposal layout.
 
-Copy `extended-proposal-1.png` over:
+## What this is / is not
+
+- The SVG is the **look-at-it-on-GitHub** version so you can see the idea without chat images.
+- Minecraft Bedrock `pack_icon.png` still needs a **256x256 PNG**. Do not drop the SVG in as `pack_icon.png`.
+- Live `pack_icon.png` on this pack is **not** replaced yet. Say yes if you want this idea turned into the real pack icon.
+
+## If you like the idea
+
+Reply that proposal 1 is a go. Then we put a real 256x256 PNG at:
 
 `development_resource_packs/Animation_Extended/pack_icon.png`
 
-Then sideload the pack in Minecraft Bedrock (Windows) and check it in the pack list. No text on the icon on purpose — it has to read at tiny size.
-
-This branch does **not** replace the live `pack_icon.png` yet. Say the word and we swap it.
+After that: sideload the pack in Minecraft Bedrock on Windows and check the pack list thumbnail.
