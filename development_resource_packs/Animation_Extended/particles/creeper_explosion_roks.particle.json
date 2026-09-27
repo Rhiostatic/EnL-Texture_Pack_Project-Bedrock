@@ -5,7 +5,7 @@
 			"identifier": "act:creeper_explosion_roks",
 			"basic_render_parameters": {
 				"material": "particles_alpha",
-				"texture": "textures/particle/particles"
+				"texture": "textures/particle/creeper_particles"
 			}
 		},
 		"curves": {

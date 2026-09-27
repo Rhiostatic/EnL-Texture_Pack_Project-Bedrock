@@ -1,0 +1,84 @@
+{
+  "format_version": "1.10.0",
+  "minecraft:client_entity": {
+    "description": {
+      "identifier": "minecraft:creeper",
+      "min_engine_version": "1.20.60",
+      "materials": {
+        "default": "entity_emissive",
+        "charged": "charged_creeper"
+      },
+      "textures": {
+        "default": "textures/entity/creeper/creeper",
+        "lit_up": "textures/entity/creeper/creeper",
+        "charged": "textures/entity/creeper/creeper",
+        "lightning": "textures/entity/creeper/creeper_armor"
+      },
+      "geometry": {
+        "default": "geometry.ae.creeper",
+        "charged": "geometry.ae.creeper.charged"
+      },
+      "spawn_egg": {
+        "texture": "spawn_egg_creeper"
+      },
+      "scripts": {
+        "initialize": [
+          "variable.target_yaw=0;"
+        ],
+        "pre_animation": [
+          "variable.flash=Math.mod(Math.Round(query.swell_amount*15.0*query.swell_amount),2);",
+          "variable.body_rot=math.sin(query.body_y_rotation-variable.target_yaw)*90;"
+        ],
+        "animate": [
+          "ct_walk",
+          "ct_in_air",
+          "creeper_head",
+          "bob",
+          "fire_particles",
+          "ct_rotate",
+          "ct_swell",
+          "ct_boom"
+        ]
+      },
+      "animations": {
+        "rotate_right": "animation.ae.creeper.rotate_right",
+        "rotate_left": "animation.ae.creeper.rotate_left",
+        "creeper_head": "animation.ae.creeper.head",
+        "walk": "animation.ae.creeper.walk",
+        "float": "animation.ae.creeper.swim",
+        "creeper_swelling": "animation.ae.creeper.swelling",
+        "vibrate": "animation.ae.creeper.vibrating",
+        "shake": "animation.ae.creeper.shake",
+        "bob": "animation.ae.creeper.bob",
+        "jump_timer": "animation.ae.creeper.jump_timer",
+        "jump": "animation.ae.creeper.jump",
+        "fall": "animation.ae.creeper.fall",
+        "land": "animation.ae.creeper.land",
+        "vert_cap": "animation.ae.creeper.vert_cap",
+        "controller_jump": "controller.animation.ae.creeper.jump",
+        "controller_fall": "controller.animation.ae.creeper.fall",
+        "controller_land": "controller.animation.ae.creeper.land",
+        "ct_walk": "controller.animation.ae.creeper.walk",
+        "ct_in_air": "controller.animation.ae.creeper.in_air",
+        "ct_rotate": "controller.animation.ae.creeper.rotate",
+        "ct_swell": "controller.animation.ae.creeper.swell",
+        "ct_boom": "controller.animation.ae.creeper.boom",
+        "fire_particles": "controller.animation.ae.creeper.on_fire"
+      },
+      "particle_effects": {
+        "dust": "act:dust_medium",
+        "fire": "act:on_fire_creeper",
+        "combust": "act:combust_humanoid",
+        "charging": "act:creeper_charge",
+        "explosion_0": "act:creeper_explosion_core",
+        "explosion_2": "act:creeper_explosion_rays",
+        "explosion_3": "act:creeper_explosion_dust",
+        "explosion_4": "act:creeper_explosion_roks"
+      },
+      "render_controllers": [
+        "controller.render.ae.creeper",
+        "controller.render.ae.creeper.armor"
+      ]
+    }
+  }
+}
