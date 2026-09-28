@@ -29,11 +29,11 @@ These files are **meant** to be referenced by more than one mob or attachable. D
 
 | File | Role | Identifiers (selected) | Who maps them today |
 |---|---|---|---|
-| `animations/shared/timers.animation.json` | Dummy-length timers plus leftover player-action keys | `animation.jump_timer`, `animation.idle_timer`, `animation.hurt_timer`, `animation.action.*` | Creeper + armor stand (`jump_timer`). Other keys unused by current AE entities; kept because they are shared helpers, not a mob dump. |
+| `animations/shared/timers.animation.json` | Dummy-length timers plus leftover player-action keys | `animation.jump_timer`, `animation.idle_timer`, `animation.hurt_timer`, `animation.action.*` | Armor stand (`jump_timer`). Creeper moved to Animation Extended and no longer maps this file. Other keys unused by current AE entities; kept because they are shared helpers, not a mob dump. |
 | `animations/shared/blink.animation.json` | Generic blink helpers | `animation.blink.0/1`, `animation.step.blink*`, `animation.motion.blink`, `animation.vertical.blink` | No current AE entity maps these (P0 mobs own their own blink keys). Kept as the shared blink library. |
-| `animations/shared/look_at_target.animation.json` | Look-at-target helpers | `animation.anthro.target`, `animation.humanoid.target`, `animation.local_space.target`, … | Creeper uses `animation.anthro.target`. Other target variants unused today; same library. |
-| `animation_controllers/shared/jump_fall_land.animation_controllers.json` | Jump / fall / land / in-air, plus on-fire, idle, splash, particles | `controller.animation.jump`, `.fall`, `.land`, `.in_air`, `controller.animation.entity.on_fire`, `.particles`, `.idle*` | Creeper (jump/fall/land/in_air/on_fire), phantom (on_fire), xp orb (particles). |
-| `animation_controllers/shared/attack_hurt_ride.animation_controllers.json` | Attack / hurt / rotate / ride / pose / crossbow | `controller.animation.entity.rotate`, `.attack`, `.hurt`, `.riding`, `.ridden`, `.pose`, `controller.animation.crossbow_anim` | Creeper uses `.rotate`. Other keys unused today; kept as shared combat/ride helpers. |
+| `animations/shared/look_at_target.animation.json` | Look-at-target helpers | `animation.anthro.target`, `animation.humanoid.target`, `animation.local_space.target`, … | No current AE entity maps these. Creeper moved to Animation Extended with its own copy of `animation.anthro.target`. Library kept. |
+| `animation_controllers/shared/jump_fall_land.animation_controllers.json` | Jump / fall / land / in-air, plus on-fire, idle, splash, particles | `controller.animation.jump`, `.fall`, `.land`, `.in_air`, `controller.animation.entity.on_fire`, `.particles`, `.idle*` | Phantom (`on_fire`), xp orb (particles). Jump / fall / land / in-air have no current AE entity after the creeper moved to Animation Extended. Keys stay; they are the shared shelf, not a creeper dump. |
+| `animation_controllers/shared/attack_hurt_ride.animation_controllers.json` | Attack / hurt / rotate / ride / pose / crossbow | `controller.animation.entity.rotate`, `.attack`, `.hurt`, `.riding`, `.ridden`, `.pose`, `controller.animation.crossbow_anim` | No current AE entity maps these. Creeper moved to Animation Extended with its own copy of `.rotate`. Keys stay as shared combat/ride helpers. |
 | `animations/shared/player_item.animation.json` | Default attachable 1st/3rd-person hold | `animation.player_item.first_person_hold`, `.third_person_hold` | Most AE attachables. |
 | `animations/shared/player_item_rod.animation.json` | Rod hold | `animation.player_item_rod.*` | `attachables/breeze_rod.json` |
 | `animations/shared/player_item_fishing_rod.animation.json` | Fishing-rod hold | `animation.player_item_fishing_rod.*` | `attachables/warped_fungus_on_a_stick.json` |
@@ -104,21 +104,20 @@ Sibling files may still define the same identifier strings (intentional after P0
 
 | Mob | Typical owns (filename match) |
 |---|---|
-| creeper | `entity/creeper.entity.json`, `animations/creeper.animation.json`, `animation_controllers/creeper.animation_controllers.json`, `models/entity/creeper.geo.json`, `render_controllers/creeper.render_controllers.json` — **also maps shared** look-at-target, jump_timer, jump/fall/land/in_air, rotate, on_fire |
 | phantom | per-mob phantom files — **also maps shared** `controller.animation.entity.on_fire` |
 | xp_orb | `entity/experience_orb.entity.json`, `animations/experience_orb.animation.json`, `models/entity/xp_orb.geo.json` — **also maps shared** `controller.animation.entity.particles` |
 | armor_stand | per-mob armor_stand files — **also maps shared** `animation.jump_timer` |
 | cat, ocelot, bee, sheep, witch, villager_v2, wandering_trader, iron_golem, piglin_brute | matching `entity/`, `animations/`, `animation_controllers/`, `models/entity/`, and (where present) `render_controllers/` files named for that mob |
 
-Creeper still maps `animation.skeleton.idle_anim_3` (Actions&St leftover, not defined in AE). Unchanged.
+Creeper is not in this pack. It is a standalone mob in `development_resource_packs/Animation_Extended/` (`minecraft:creeper`, geometry `geometry.ae.creeper` / `geometry.ae.creeper.charged`). Animation Extended also has the evoker (`minecraft:evocation_illager`) and the vex.
 
 ## Smoke-test (Bedrock client)
 
-Enable Animation Essentials (optionally on top of Choice Textures). Do **not** need Actions&St for these:
+Enable Animation Essentials (optionally on top of Choice Textures). Do **not** need Actions&St for these. Creeper checks belong on Animation Extended, not here: AE alone should show a vanilla creeper.
 
-1. **Creeper** — head look (`animation.anthro.target` from `animations/shared/look_at_target.animation.json`); jump / fall / land / in-air controllers from `animation_controllers/shared/jump_fall_land.animation_controllers.json`; on-fire particles via `controller.animation.entity.on_fire`.
-2. **Phantom** — on-fire controller still plays (`controller.animation.entity.on_fire`).
-3. **Armor stand** — pose timer still uses `animation.jump_timer`.
-4. **Any blinking mob** — P0 per-mob blink keys are unchanged; the shared blink library is unused until an entity maps it.
-5. **Held items** — apple / music disc / breeze rod / warped fungus on a stick still use `animation.player_item*` from `animations/shared/`.
-6. Content log should not report missing `animation.anthro.target`, `animation.jump_timer`, `controller.animation.jump` / `.on_fire`, or `animation.player_item.first_person_hold`.
+1. **Phantom** — on-fire controller still plays (`controller.animation.entity.on_fire`).
+2. **Armor stand** — pose timer still uses `animation.jump_timer`.
+3. **Any blinking mob** — P0 per-mob blink keys are unchanged; the shared blink library is unused until an entity maps it.
+4. **Held items** — apple / music disc / breeze rod / warped fungus on a stick still use `animation.player_item*` from `animations/shared/`.
+5. Content log should not report missing `animation.jump_timer`, `controller.animation.entity.on_fire`, or `animation.player_item.first_person_hold`.
+6. **Creeper** — not overridden by this pack. With AE alone it is the vanilla creeper, and the content log should not mention removed creeper files.
