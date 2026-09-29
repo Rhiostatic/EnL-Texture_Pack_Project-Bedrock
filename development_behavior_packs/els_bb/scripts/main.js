@@ -192,11 +192,16 @@ function updateWall(block) {
 	const straightEW = flags.east && flags.west && !flags.north && !flags.south;
 	const covered = !!(above && !above.isAir);
 	const post = !((straightNS || straightEW) && !covered);
+	// Bones and collision for "north" sit on model -Z, but in game that arm
+	// rendered away from the northern neighbor (same for the other three
+	// sides). Drive each bone from the opposite neighbor so the arm, and the
+	// collision/selection that follow that state, point at the connection.
+	// Straight/post still use the real neighbor flags above.
 	const next = {
-		"els_bb:connection_north": flags.north,
-		"els_bb:connection_south": flags.south,
-		"els_bb:connection_east": flags.east,
-		"els_bb:connection_west": flags.west,
+		"els_bb:connection_north": flags.south,
+		"els_bb:connection_south": flags.north,
+		"els_bb:connection_east": flags.west,
+		"els_bb:connection_west": flags.east,
 		"els_bb:wall_post": post
 	};
 	let perm = block.permutation;
