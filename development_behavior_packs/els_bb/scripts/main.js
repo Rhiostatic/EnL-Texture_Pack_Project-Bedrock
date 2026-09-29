@@ -99,7 +99,7 @@ const stairComponent = {
 	},
 	onTick(e) {
 		try {
-			updateStair(e.block);
+			updateAround(e.block);
 		} catch (err) {
 			warnOnce("stair-tick", "[els_bb] chiseled end stone stair onTick failed", err);
 		}
@@ -331,30 +331,30 @@ function canTakeStairShape(dimension, location, ourFacing, ourHalf, side) {
 	return other.facing !== ourFacing || other.half !== ourHalf;
 }
 
-// Vanilla StairBlock. Java facing is the tall back from stairFacingAndHalf.
-// The neighbor on that tall side is checked first and makes an outer corner.
-// The neighbor on the step side makes an inner corner. Neighbors count only
-// in the same half and only when turned 90°. Left is counter-clockwise from
-// the tall side. The shape name is stored as-is: the bone for state s is the
-// Java shape for opposite(s).
+// Java facing is the tall back. Erik's side-by-side placement puts the
+// neighbor on the step side, and that case is an outside corner: one tall
+// quarter on the step side, toward that neighbor's tall back. The neighbor
+// on the tall side is an inside corner: three quarters, with the open
+// quarter where the two steps meet. Left is counter-clockwise from the tall
+// side. Neighbors count only in the same half and only when turned 90°.
 function stairShape(block) {
 	const self = stairFacingAndHalf(block);
 	if (!self) {
 		return "straight";
 	}
 	const { dimension, location } = block;
-	const frontDir = WALL_DIRS[self.facing];
-	const front = stairFacingAndHalf(blockAt(dimension, location, frontDir.x, frontDir.y, frontDir.z));
-	if (front && front.half === self.half && !sameStairAxis(front.facing, self.facing)) {
-		if (canTakeStairShape(dimension, location, self.facing, self.half, STAIR_OPP[front.facing])) {
-			return front.facing === STAIR_CCW[self.facing] ? "outer_left" : "outer_right";
+	const tallDir = WALL_DIRS[self.facing];
+	const tallNeighbor = stairFacingAndHalf(blockAt(dimension, location, tallDir.x, tallDir.y, tallDir.z));
+	if (tallNeighbor && tallNeighbor.half === self.half && !sameStairAxis(tallNeighbor.facing, self.facing)) {
+		if (canTakeStairShape(dimension, location, self.facing, self.half, STAIR_OPP[tallNeighbor.facing])) {
+			return tallNeighbor.facing === STAIR_CCW[self.facing] ? "inner_left" : "inner_right";
 		}
 	}
-	const backDir = WALL_DIRS[STAIR_OPP[self.facing]];
-	const back = stairFacingAndHalf(blockAt(dimension, location, backDir.x, backDir.y, backDir.z));
-	if (back && back.half === self.half && !sameStairAxis(back.facing, self.facing)) {
-		if (canTakeStairShape(dimension, location, self.facing, self.half, back.facing)) {
-			return back.facing === STAIR_CCW[self.facing] ? "inner_left" : "inner_right";
+	const stepDir = WALL_DIRS[STAIR_OPP[self.facing]];
+	const stepNeighbor = stairFacingAndHalf(blockAt(dimension, location, stepDir.x, stepDir.y, stepDir.z));
+	if (stepNeighbor && stepNeighbor.half === self.half && !sameStairAxis(stepNeighbor.facing, self.facing)) {
+		if (canTakeStairShape(dimension, location, self.facing, self.half, stepNeighbor.facing)) {
+			return stepNeighbor.facing === STAIR_CCW[self.facing] ? "outer_left" : "outer_right";
 		}
 	}
 	return "straight";
