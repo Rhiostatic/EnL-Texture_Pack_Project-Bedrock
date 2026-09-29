@@ -231,6 +231,10 @@ const STAIR_OPP = {
 	west: "east"
 };
 
+// Bedrock weirdo_direction is the tall back, not the open step.
+// 0 east, 1 west, 2 south, 3 north. Vanilla stairs list this state,
+// upside_down_bit, and minecraft:corner. They do not list
+// minecraft:cardinal_direction.
 const WEIRDO_FACING = {
 	0: "east",
 	1: "west",
@@ -284,12 +288,19 @@ function stairFacingAndHalf(block) {
 	if (!perm || typeof perm.getState !== "function") {
 		return undefined;
 	}
-	let facing = facingFromWeirdo(readState(perm, "minecraft:cardinal_direction"));
-	if (!facing) {
+	// Returned facing is Java facing: the tall back, in world coordinates.
+	// Our geometry is rendered 180° from world, so cardinal_direction names
+	// the open step (the side toward the player). Opposite of that state is
+	// the tall back. Vanilla weirdo_direction is already the tall back.
+	let facing;
+	if (id === STAIR_ID) {
+		const step = facingFromWeirdo(readState(perm, "minecraft:cardinal_direction"));
+		facing = step ? STAIR_OPP[step] : undefined;
+	} else {
 		facing = facingFromWeirdo(readState(perm, "weirdo_direction"));
-	}
-	if (!facing) {
-		facing = facingFromWeirdo(readState(perm, "minecraft:weirdo_direction"));
+		if (!facing) {
+			facing = facingFromWeirdo(readState(perm, "minecraft:weirdo_direction"));
+		}
 	}
 	let half = halfFromState(readState(perm, "minecraft:vertical_half"));
 	if (!half) {
@@ -318,11 +329,12 @@ function canTakeStairShape(dimension, location, ourFacing, ourHalf, side) {
 	return other.facing !== ourFacing || other.half !== ourHalf;
 }
 
-// Vanilla StairBlock: front neighbor (outer) wins over the back neighbor (inner).
-// Neighbors count only in the same half, and only when they are turned 90 degrees.
-// Left is counter-clockwise from the facing (north's left is west). The corner
-// meshes already match those vanilla models, including which way the open step
-// faces, so the names are not flipped.
+// Vanilla StairBlock, using the Java facing from stairFacingAndHalf (tall
+// back in world). Front neighbor wins (outer) over the back neighbor (inner).
+// Neighbors count only in the same half and only when turned 90°. Left is
+// counter-clockwise from that facing. The shape name is stored as-is: the
+// bone for our state s is the Java shape for opposite(s), because the model
+// is turned 180° from world.
 function stairShape(block) {
 	const self = stairFacingAndHalf(block);
 	if (!self) {
