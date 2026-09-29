@@ -332,11 +332,15 @@ function canTakeStairShape(dimension, location, ourFacing, ourHalf, side) {
 }
 
 // Java facing is the tall back. Erik's side-by-side placement puts the
-// neighbor on the step side, and that case is an outside corner: one tall
-// quarter on the step side, toward that neighbor's tall back. The neighbor
-// on the tall side is an inside corner: three quarters, with the open
-// quarter where the two steps meet. Left is counter-clockwise from the tall
-// side. Neighbors count only in the same half and only when turned 90°.
+// neighbor on the step side, and that case is an outside corner. Model +X
+// is world east and model -Z is world south. For that placement the outer
+// bones already sit on the back corner next to the middle stair (the end of
+// its tall back), so outer_left / outer_right stay on the counter-clockwise
+// test. Swapping them would move the quarter onto the middle stair's step.
+// The tall-side neighbor is an inside corner: three quarters, open where
+// the two steps meet. That CCW test matches those open quarters, so inner
+// left/right stay as well. Neighbors count only in the same half and only
+// when turned 90°. Top and bottom use the same horizontal footprint.
 function stairShape(block) {
 	const self = stairFacingAndHalf(block);
 	if (!self) {
