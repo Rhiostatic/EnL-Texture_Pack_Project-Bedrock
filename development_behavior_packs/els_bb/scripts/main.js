@@ -332,11 +332,12 @@ function canTakeStairShape(dimension, location, ourFacing, ourHalf, side) {
 }
 
 // Java facing is the tall back. Erik's side-by-side placement puts the
-// neighbor on the step side, and that case is an outside corner. In game the
-// outer quarter renders on the far back corner, mirrored left to right from
-// the counter-clockwise test, so outer_left and outer_right are swapped
-// here. Inner left/right stay on that test: the screenshot did not show them
-// mirrored. Neighbors count only in the same half and only when turned 90°.
+// neighbor on the step side, and that case is an outside corner. Keep the
+// v26.09.29c left/right names: swapping them moved the quarter from the back
+// to the front. The outer cubes are mirrored on the other axis, the one
+// parallel to the middle stair's back, so the quarter stays on the back and
+// meets that tall back. Inner left/right are unchanged. Neighbors count only
+// in the same half and only when turned 90°.
 function stairShape(block) {
 	const self = stairFacingAndHalf(block);
 	if (!self) {
@@ -354,7 +355,7 @@ function stairShape(block) {
 	const stepNeighbor = stairFacingAndHalf(blockAt(dimension, location, stepDir.x, stepDir.y, stepDir.z));
 	if (stepNeighbor && stepNeighbor.half === self.half && !sameStairAxis(stepNeighbor.facing, self.facing)) {
 		if (canTakeStairShape(dimension, location, self.facing, self.half, stepNeighbor.facing)) {
-			return stepNeighbor.facing === STAIR_CCW[self.facing] ? "outer_right" : "outer_left";
+			return stepNeighbor.facing === STAIR_CCW[self.facing] ? "outer_left" : "outer_right";
 		}
 	}
 	return "straight";
