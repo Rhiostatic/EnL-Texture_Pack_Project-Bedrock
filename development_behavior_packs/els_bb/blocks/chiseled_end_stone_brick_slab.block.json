@@ -1,0 +1,155 @@
+{
+	"format_version": "1.21.70",
+	"minecraft:block": {
+		"description": {
+			"identifier": "els_bb:chiseled_end_stone_brick_slab",
+			"menu_category": {
+				"category": "construction",
+				"group": "minecraft:itemGroup.name.slab"
+			},
+			"states": {
+				"els_bb:double": [
+					false,
+					true
+				]
+			},
+			"traits": {
+				"minecraft:placement_position": {
+					"enabled_states": [
+						"minecraft:vertical_half"
+					]
+				}
+			}
+		},
+		"components": {
+			"minecraft:collision_box": {
+				"origin": [
+					-8,
+					0,
+					-8
+				],
+				"size": [
+					16,
+					8,
+					16
+				]
+			},
+			"minecraft:selection_box": {
+				"origin": [
+					-8,
+					0,
+					-8
+				],
+				"size": [
+					16,
+					8,
+					16
+				]
+			},
+			"minecraft:destructible_by_mining": {
+				"seconds_to_destroy": 3.0,
+				"item_specific_speeds": [
+					{
+						"item": {
+							"tags": "q.all_tags('minecraft:is_pickaxe', 'minecraft:wooden_tier')"
+						},
+						"destroy_speed": 2.25
+					},
+					{
+						"item": {
+							"tags": "q.all_tags('minecraft:is_pickaxe', 'minecraft:stone_tier')"
+						},
+						"destroy_speed": 1.15
+					},
+					{
+						"item": {
+							"tags": "q.all_tags('minecraft:is_pickaxe', 'minecraft:copper_tier')"
+						},
+						"destroy_speed": 0.9
+					},
+					{
+						"item": {
+							"tags": "q.all_tags('minecraft:is_pickaxe', 'minecraft:iron_tier')"
+						},
+						"destroy_speed": 0.75
+					},
+					{
+						"item": {
+							"tags": "q.all_tags('minecraft:is_pickaxe', 'minecraft:golden_tier')"
+						},
+						"destroy_speed": 0.4
+					},
+					{
+						"item": {
+							"tags": "q.all_tags('minecraft:is_pickaxe', 'minecraft:diamond_tier')"
+						},
+						"destroy_speed": 0.6
+					},
+					{
+						"item": {
+							"tags": "q.all_tags('minecraft:is_pickaxe', 'minecraft:netherite_tier')"
+						},
+						"destroy_speed": 0.5
+					}
+				]
+			},
+			"minecraft:destructible_by_explosion": {
+				"explosion_resistance": 9
+			},
+			"minecraft:map_color": "#F7E9A3",
+			"minecraft:geometry": {
+				"identifier": "geometry.chiseled_end_stone_brick_slab",
+				"bone_visibility": {
+					"bottom": "!q.block_state('els_bb:double') && q.block_state('minecraft:vertical_half') != 'top'",
+					"top": "!q.block_state('els_bb:double') && q.block_state('minecraft:vertical_half') == 'top'",
+					"double": "q.block_state('els_bb:double')"
+				}
+			},
+			"minecraft:material_instances": {
+				"*": {
+					"texture": "chiseled_end_stone_bricks",
+					"render_method": "opaque"
+				}
+			},
+			"minecraft:loot": "loot_tables/blocks/chiseled_end_stone_brick_slab.json"
+		},
+		"permutations": [
+			{
+				"condition": "q.block_state('minecraft:vertical_half') == 'top' && !q.block_state('els_bb:double')",
+				"components": {
+					"minecraft:collision_box": {
+						"origin": [
+							-8,
+							8,
+							-8
+						],
+						"size": [
+							16,
+							8,
+							16
+						]
+					},
+					"minecraft:selection_box": {
+						"origin": [
+							-8,
+							8,
+							-8
+						],
+						"size": [
+							16,
+							8,
+							16
+						]
+					}
+				}
+			},
+			{
+				"condition": "q.block_state('els_bb:double')",
+				"components": {
+					"minecraft:collision_box": true,
+					"minecraft:selection_box": true
+				}
+			}
+		]
+	}
+}
