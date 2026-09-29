@@ -336,7 +336,9 @@ function canTakeStairShape(dimension, location, ourFacing, ourHalf, side) {
 // v26.09.29c left/right names: swapping them moved the quarter from the back
 // to the front. The outer cubes are mirrored on the other axis, the one
 // parallel to the middle stair's back, so the quarter stays on the back and
-// meets that tall back. Inner left/right are unchanged. Neighbors count only
+// meets that tall back. Inner left/right use the same names; their cubes
+// are mirrored on that same axis so the open quarter is on the step half.
+// Neighbors count only
 // in the same half and only when turned 90°.
 function stairShape(block) {
 	const self = stairFacingAndHalf(block);
