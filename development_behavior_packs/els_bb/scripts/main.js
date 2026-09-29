@@ -192,16 +192,16 @@ function updateWall(block) {
 	const straightEW = flags.east && flags.west && !flags.north && !flags.south;
 	const covered = !!(above && !above.isAir);
 	const post = !((straightNS || straightEW) && !covered);
-	// Bones and collision for "north" sit on model -Z, but in game that arm
-	// rendered away from the northern neighbor (same for the other three
-	// sides). Drive each bone from the opposite neighbor so the arm, and the
-	// collision/selection that follow that state, point at the connection.
-	// Straight/post still use the real neighbor flags above.
+	// Model -Z renders on world south and model +Z on world north, so the
+	// north and south arms are driven by the opposite neighbor. Model -X
+	// renders on world west and model +X on world east, so the east and west
+	// arms use the neighbor on that same side. Straight/post still use the
+	// real neighbor flags above. Collision follows these states.
 	const next = {
 		"els_bb:connection_north": flags.south,
 		"els_bb:connection_south": flags.north,
-		"els_bb:connection_east": flags.west,
-		"els_bb:connection_west": flags.east,
+		"els_bb:connection_east": flags.east,
+		"els_bb:connection_west": flags.west,
 		"els_bb:wall_post": post
 	};
 	let perm = block.permutation;
@@ -289,9 +289,11 @@ function stairFacingAndHalf(block) {
 		return undefined;
 	}
 	// Returned facing is Java facing: the tall back, in world coordinates.
-	// Our geometry is rendered 180° from world, so cardinal_direction names
-	// the open step (the side toward the player). Opposite of that state is
-	// the tall back. Vanilla weirdo_direction is already the tall back.
+	// Model Z is mirrored (model -Z is world south) and model X is not
+	// (model +X is world east). cardinal_direction is the side toward the
+	// player, the open step, so the tall back is the opposite of that state.
+	// East and west meshes are mirrored on X so they follow the same rule.
+	// Vanilla weirdo_direction is already the tall back.
 	let facing;
 	if (id === STAIR_ID) {
 		const step = facingFromWeirdo(readState(perm, "minecraft:cardinal_direction"));
@@ -329,12 +331,12 @@ function canTakeStairShape(dimension, location, ourFacing, ourHalf, side) {
 	return other.facing !== ourFacing || other.half !== ourHalf;
 }
 
-// Vanilla StairBlock, using the Java facing from stairFacingAndHalf (tall
-// back in world). Front neighbor wins (outer) over the back neighbor (inner).
-// Neighbors count only in the same half and only when turned 90°. Left is
-// counter-clockwise from that facing. The shape name is stored as-is: the
-// bone for our state s is the Java shape for opposite(s), because the model
-// is turned 180° from world.
+// Vanilla StairBlock. Java facing is the tall back from stairFacingAndHalf.
+// The neighbor on that tall side is checked first and makes an outer corner.
+// The neighbor on the step side makes an inner corner. Neighbors count only
+// in the same half and only when turned 90°. Left is counter-clockwise from
+// the tall side. The shape name is stored as-is: the bone for state s is the
+// Java shape for opposite(s).
 function stairShape(block) {
 	const self = stairFacingAndHalf(block);
 	if (!self) {
