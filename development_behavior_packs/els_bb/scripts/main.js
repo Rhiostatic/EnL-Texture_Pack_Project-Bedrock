@@ -4,8 +4,10 @@ const CUSTOM_FLAME = "els_bb:waxed_torch_flame";
 const VANILLA_FLAME = "minecraft:basic_flame_particle";
 const COMPONENT_ID = "els_bb:waxed_torch_particles";
 const WALL_COMPONENT = "els_bb:chiseled_end_stone_brick_wall";
+const STAIR_COMPONENT = "els_bb:chiseled_end_stone_brick_stairs";
 const SLAB_ID = "els_bb:chiseled_end_stone_brick_slab";
 const WALL_ID = "els_bb:chiseled_end_stone_brick_wall";
+const STAIR_ID = "els_bb:chiseled_end_stone_brick_stairs";
 
 const warned = {};
 
@@ -87,9 +89,27 @@ const wallComponent = {
 	}
 };
 
+const stairComponent = {
+	onPlace(e) {
+		try {
+			updateAround(e.block);
+		} catch (err) {
+			warnOnce("stair-place", "[els_bb] chiseled end stone stair onPlace failed", err);
+		}
+	},
+	onTick(e) {
+		try {
+			updateStair(e.block);
+		} catch (err) {
+			warnOnce("stair-tick", "[els_bb] chiseled end stone stair onTick failed", err);
+		}
+	}
+};
+
 function register(registry) {
 	registry.registerCustomComponent(COMPONENT_ID, waxedTorchParticles);
 	registry.registerCustomComponent(WALL_COMPONENT, wallComponent);
+	registry.registerCustomComponent(STAIR_COMPONENT, stairComponent);
 	console.warn("[els_bb] registered els_bb:waxed_torch_particles");
 }
 
@@ -192,14 +212,154 @@ function updateWall(block) {
 	}
 }
 
+const STAIR_CCW = {
+	north: "west",
+	west: "south",
+	south: "east",
+	east: "north"
+};
+
+const STAIR_OPP = {
+	north: "south",
+	south: "north",
+	east: "west",
+	west: "east"
+};
+
+const WEIRDO_FACING = {
+	0: "east",
+	1: "west",
+	2: "south",
+	3: "north"
+};
+
+function readState(perm, name) {
+	try {
+		return perm.getState(name);
+	} catch (err) {
+		return undefined;
+	}
+}
+
+function facingFromWeirdo(value) {
+	if (value === "north" || value === "south" || value === "east" || value === "west") {
+		return value;
+	}
+	if (value === 0 || value === 1 || value === 2 || value === 3) {
+		return WEIRDO_FACING[value];
+	}
+	if (value === "0" || value === "1" || value === "2" || value === "3") {
+		return WEIRDO_FACING[Number(value)];
+	}
+	return undefined;
+}
+
+function halfFromState(value) {
+	if (value === "bottom" || value === "top") {
+		return value;
+	}
+	if (value === true || value === 1 || value === "1" || value === "true") {
+		return "top";
+	}
+	if (value === false || value === 0 || value === "0" || value === "false") {
+		return "bottom";
+	}
+	return undefined;
+}
+
+function stairFacingAndHalf(block) {
+	if (!block || block.isAir) {
+		return undefined;
+	}
+	const id = block.typeId;
+	if (typeof id !== "string" || (id !== STAIR_ID && !id.endsWith("_stairs"))) {
+		return undefined;
+	}
+	const perm = block.permutation;
+	if (!perm || typeof perm.getState !== "function") {
+		return undefined;
+	}
+	let facing = facingFromWeirdo(readState(perm, "minecraft:cardinal_direction"));
+	if (!facing) {
+		facing = facingFromWeirdo(readState(perm, "weirdo_direction"));
+	}
+	if (!facing) {
+		facing = facingFromWeirdo(readState(perm, "minecraft:weirdo_direction"));
+	}
+	let half = halfFromState(readState(perm, "minecraft:vertical_half"));
+	if (!half) {
+		half = halfFromState(readState(perm, "upside_down_bit"));
+	}
+	if (!half) {
+		half = halfFromState(readState(perm, "minecraft:upside_down_bit"));
+	}
+	if (!facing || !half) {
+		return undefined;
+	}
+	return { facing: facing, half: half };
+}
+
+function sameStairAxis(a, b) {
+	const northSouth = a === "north" || a === "south";
+	return northSouth === (b === "north" || b === "south");
+}
+
+function canTakeStairShape(dimension, location, ourFacing, ourHalf, side) {
+	const dir = WALL_DIRS[side];
+	const other = stairFacingAndHalf(blockAt(dimension, location, dir.x, dir.y, dir.z));
+	if (!other) {
+		return true;
+	}
+	return other.facing !== ourFacing || other.half !== ourHalf;
+}
+
+// Vanilla StairBlock: front neighbor (outer) wins over the back neighbor (inner).
+// Neighbors count only in the same half, and only when they are turned 90 degrees.
+function stairShape(block) {
+	const self = stairFacingAndHalf(block);
+	if (!self) {
+		return "straight";
+	}
+	const { dimension, location } = block;
+	const frontDir = WALL_DIRS[self.facing];
+	const front = stairFacingAndHalf(blockAt(dimension, location, frontDir.x, frontDir.y, frontDir.z));
+	if (front && front.half === self.half && !sameStairAxis(front.facing, self.facing)) {
+		if (canTakeStairShape(dimension, location, self.facing, self.half, STAIR_OPP[front.facing])) {
+			return front.facing === STAIR_CCW[self.facing] ? "outer_left" : "outer_right";
+		}
+	}
+	const backDir = WALL_DIRS[STAIR_OPP[self.facing]];
+	const back = stairFacingAndHalf(blockAt(dimension, location, backDir.x, backDir.y, backDir.z));
+	if (back && back.half === self.half && !sameStairAxis(back.facing, self.facing)) {
+		if (canTakeStairShape(dimension, location, self.facing, self.half, back.facing)) {
+			return back.facing === STAIR_CCW[self.facing] ? "inner_left" : "inner_right";
+		}
+	}
+	return "straight";
+}
+
+function updateStair(block) {
+	if (!block || block.typeId !== STAIR_ID) {
+		return;
+	}
+	const shape = stairShape(block);
+	const perm = block.permutation;
+	if (perm.getState("els_bb:stair_shape") !== shape) {
+		block.setPermutation(perm.withState("els_bb:stair_shape", shape));
+	}
+}
+
 function updateAround(block) {
 	if (!block) {
 		return;
 	}
 	updateWall(block);
+	updateStair(block);
 	const { dimension, location } = block;
 	for (const dir of Object.values(WALL_DIRS)) {
-		updateWall(blockAt(dimension, location, dir.x, dir.y, dir.z));
+		const neighbor = blockAt(dimension, location, dir.x, dir.y, dir.z);
+		updateWall(neighbor);
+		updateStair(neighbor);
 	}
 	updateWall(blockAt(dimension, location, 0, -1, 0));
 }
