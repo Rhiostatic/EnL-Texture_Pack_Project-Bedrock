@@ -320,10 +320,9 @@ function canTakeStairShape(dimension, location, ourFacing, ourHalf, side) {
 
 // Vanilla StairBlock: front neighbor (outer) wins over the back neighbor (inner).
 // Neighbors count only in the same half, and only when they are turned 90 degrees.
-// The meshes match the vanilla inner/outer models, but the Java counter-clockwise
-// "left" read as the right-hand corner in game (a stair on the right cornered as
-// if it were on the left). The names below are flipped so the visible corner, and
-// the collision tied to that shape, match vanilla stairs.
+// Left is counter-clockwise from the facing (north's left is west). The corner
+// meshes already match those vanilla models, including which way the open step
+// faces, so the names are not flipped.
 function stairShape(block) {
 	const self = stairFacingAndHalf(block);
 	if (!self) {
@@ -334,14 +333,14 @@ function stairShape(block) {
 	const front = stairFacingAndHalf(blockAt(dimension, location, frontDir.x, frontDir.y, frontDir.z));
 	if (front && front.half === self.half && !sameStairAxis(front.facing, self.facing)) {
 		if (canTakeStairShape(dimension, location, self.facing, self.half, STAIR_OPP[front.facing])) {
-			return front.facing === STAIR_CCW[self.facing] ? "outer_right" : "outer_left";
+			return front.facing === STAIR_CCW[self.facing] ? "outer_left" : "outer_right";
 		}
 	}
 	const backDir = WALL_DIRS[STAIR_OPP[self.facing]];
 	const back = stairFacingAndHalf(blockAt(dimension, location, backDir.x, backDir.y, backDir.z));
 	if (back && back.half === self.half && !sameStairAxis(back.facing, self.facing)) {
 		if (canTakeStairShape(dimension, location, self.facing, self.half, back.facing)) {
-			return back.facing === STAIR_CCW[self.facing] ? "inner_right" : "inner_left";
+			return back.facing === STAIR_CCW[self.facing] ? "inner_left" : "inner_right";
 		}
 	}
 	return "straight";
