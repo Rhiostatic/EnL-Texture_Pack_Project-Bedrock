@@ -1,4 +1,4 @@
-pack.name=v26.09.25 Bonus Blocks
+pack.name=v26.09.30b Bonus Blocks
 pack.description=An EnL Studios bonus blocks add-on. Extra decorative blocks including waxed torch and weathered sea lantern.
 els_bb:itemGroup.name.chisled_gold=Chiseled Gold
 tile.els_bb:chisled_gold_block.name=Silent
@@ -8,3 +8,7 @@ tile.els_bb:chisled_gold_block_d.name=Sun
 tile.els_bb:chisled_gold_block_e.name=Ship
 tile.els_bb:chisled_gold_block_f.name=Key
 tile.els_bb:chisled_gold_block_g.name=Face Right
+tile.els_bb:chiseled_end_stone_bricks.name=Chiseled End Stone Bricks
+tile.els_bb:chiseled_end_stone_brick_slab.name=Chiseled End Stone Brick Slab
+tile.els_bb:chiseled_end_stone_brick_stairs.name=Chiseled End Stone Brick Stairs
+tile.els_bb:chiseled_end_stone_brick_wall.name=Chiseled End Stone Brick Wall

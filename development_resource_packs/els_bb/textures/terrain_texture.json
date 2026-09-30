@@ -39,6 +39,24 @@
 		},
 		"els_bb:waxed_torch": {
 			"textures": "textures/blocks/waxed_torch"
+		},
+		"chiseled_end_stone_bricks": {
+			"textures": {
+				"variations": [
+					{
+						"path": "textures/blocks/chiseled_end_stone_bricks"
+					},
+					{
+						"path": "textures/blocks/chiseled_end_stone_bricks_1"
+					},
+					{
+						"path": "textures/blocks/chiseled_end_stone_bricks_2"
+					},
+					{
+						"path": "textures/blocks/chiseled_end_stone_bricks_3"
+					}
+				]
+			}
 		}
 	}
 }

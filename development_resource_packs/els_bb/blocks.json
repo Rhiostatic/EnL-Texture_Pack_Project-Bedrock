@@ -26,5 +26,17 @@
 	},
 	"els_bb:chisled_gold_block_g": {
 		"sound": "metal"
+	},
+	"els_bb:chiseled_end_stone_bricks": {
+		"sound": "stone"
+	},
+	"els_bb:chiseled_end_stone_brick_slab": {
+		"sound": "stone"
+	},
+	"els_bb:chiseled_end_stone_brick_stairs": {
+		"sound": "stone"
+	},
+	"els_bb:chiseled_end_stone_brick_wall": {
+		"sound": "stone"
 	}
 }
