@@ -82,7 +82,7 @@ const wallComponent = {
 	},
 	onTick(e) {
 		try {
-			updateWall(e.block);
+			updateWallColumn(e.block);
 		} catch (err) {
 			warnOnce("wall-tick", "[els_bb] chiseled end stone wall onTick failed", err);
 		}
@@ -178,6 +178,97 @@ function connectsToWall(block) {
 	return block.isSolid === true;
 }
 
+function isAnyWall(block) {
+	return !!(block && typeof block.typeId === "string" && block.typeId.endsWith("_wall"));
+}
+
+function isFullSolid(block) {
+	if (!block || block.isAir || block.isLiquid || block.isSolid !== true) {
+		return false;
+	}
+	const id = block.typeId;
+	if (typeof id !== "string" || isAnyWall(block)) {
+		return false;
+	}
+	if (
+		id.endsWith("_slab") ||
+		id.endsWith("_stairs") ||
+		id.endsWith("_fence") ||
+		id.endsWith("_bars") ||
+		id.endsWith("_pane") ||
+		id.endsWith("_door") ||
+		id.endsWith("_trapdoor") ||
+		id.endsWith("_carpet") ||
+		id.endsWith("_pressure_plate") ||
+		id.includes("fence_gate") ||
+		id.includes("glass_pane")
+	) {
+		return false;
+	}
+	return true;
+}
+
+function straightWall(flags) {
+	const ns = flags.north && flags.south && !flags.east && !flags.west;
+	const ew = flags.east && flags.west && !flags.north && !flags.south;
+	return ns || ew;
+}
+
+function ourWallIsPost(block) {
+	if (!block || block.typeId !== WALL_ID) {
+		return false;
+	}
+	try {
+		return block.permutation.getState("els_bb:wall_post") === true;
+	} catch (err) {
+		warnOnce("wall-post-read", "[els_bb] wall_post read failed", err);
+		return true;
+	}
+}
+
+function foreignWallHasPost(block) {
+	const { dimension, location } = block;
+	const flags = {};
+	for (const [name, dir] of Object.entries(WALL_DIRS)) {
+		flags[name] = connectsToWall(blockAt(dimension, location, dir.x, 0, dir.z));
+	}
+	if (!straightWall(flags)) {
+		return true;
+	}
+	const higher = blockAt(dimension, location, 0, 1, 0);
+	if (isFullSolid(higher)) {
+		return true;
+	}
+	return ourWallIsPost(higher);
+}
+
+function aboveMakesPost(above) {
+	if (!above || above.isAir || above.isLiquid) {
+		return false;
+	}
+	if (above.typeId === WALL_ID) {
+		return ourWallIsPost(above);
+	}
+	if (isAnyWall(above)) {
+		return foreignWallHasPost(above);
+	}
+	return isFullSolid(above);
+}
+
+function armIsTall(dimension, location, dir) {
+	const above = blockAt(dimension, location, 0, 1, 0);
+	if (!above || above.isAir || above.isLiquid) {
+		return false;
+	}
+	if (isFullSolid(above)) {
+		return true;
+	}
+	if (isAnyWall(above)) {
+		return connectsToWall(blockAt(dimension, location, dir.x, 1, dir.z));
+	}
+	return false;
+}
+
 function updateWall(block) {
 	if (!block || block.typeId !== WALL_ID) {
 		return;
@@ -188,20 +279,30 @@ function updateWall(block) {
 		flags[name] = connectsToWall(blockAt(dimension, location, dir.x, dir.y, dir.z));
 	}
 	const above = blockAt(dimension, location, 0, 1, 0);
-	const straightNS = flags.north && flags.south && !flags.east && !flags.west;
-	const straightEW = flags.east && flags.west && !flags.north && !flags.south;
-	const covered = !!(above && !above.isAir);
-	const post = !((straightNS || straightEW) && !covered);
+	// Straight runs hide the post unless the block above is itself a wall
+	// post or a non-wall full solid. Ends, corners, junctions, and a lone
+	// wall keep the post. An arm is 16 tall when a full solid is above, or
+	// the wall above connects on that same world side; otherwise it stays 14.
+	const post = !straightWall(flags) || aboveMakesPost(above);
+	const tall = {};
+	for (const [name, dir] of Object.entries(WALL_DIRS)) {
+		tall[name] = flags[name] && armIsTall(dimension, location, dir);
+	}
 	// In game every arm mesh renders 180 degrees from its name: the north
 	// bone points south, south points north, east points west, west points
 	// east. Drive each state from the opposite neighbor so the mesh and the
-	// collision tied to that state point at the connection. Straight/post
-	// still use the real neighbor flags above.
+	// collision tied to that state point at the connection. Tall uses the
+	// same opposite-name mapping. Straight/post still use the real neighbor
+	// flags above.
 	const next = {
 		"els_bb:connection_north": flags.south,
 		"els_bb:connection_south": flags.north,
 		"els_bb:connection_east": flags.west,
 		"els_bb:connection_west": flags.east,
+		"els_bb:tall_north": tall.south,
+		"els_bb:tall_south": tall.north,
+		"els_bb:tall_east": tall.west,
+		"els_bb:tall_west": tall.east,
 		"els_bb:wall_post": post
 	};
 	let perm = block.permutation;
@@ -215,6 +316,16 @@ function updateWall(block) {
 	if (changed) {
 		block.setPermutation(perm);
 	}
+}
+
+function updateWallColumn(block) {
+	if (!block) {
+		return;
+	}
+	const { dimension, location } = block;
+	updateWall(blockAt(dimension, location, 0, 1, 0));
+	updateWall(block);
+	updateWall(blockAt(dimension, location, 0, -1, 0));
 }
 
 const STAIR_CCW = {
@@ -378,14 +489,17 @@ function updateAround(block) {
 	if (!block) {
 		return;
 	}
+	const { dimension, location } = block;
+	updateWall(blockAt(dimension, location, 0, 1, 0));
 	updateWall(block);
 	updateStair(block);
-	const { dimension, location } = block;
 	for (const dir of Object.values(WALL_DIRS)) {
 		const neighbor = blockAt(dimension, location, dir.x, dir.y, dir.z);
 		updateWall(neighbor);
 		updateStair(neighbor);
 	}
+	updateWall(blockAt(dimension, location, 0, -1, 0));
+	updateWall(block);
 	updateWall(blockAt(dimension, location, 0, -1, 0));
 }
 

@@ -24,6 +24,22 @@
 					false,
 					true
 				],
+				"els_bb:tall_north": [
+					false,
+					true
+				],
+				"els_bb:tall_south": [
+					false,
+					true
+				],
+				"els_bb:tall_east": [
+					false,
+					true
+				],
+				"els_bb:tall_west": [
+					false,
+					true
+				],
 				"els_bb:wall_post": [
 					true,
 					false
@@ -112,10 +128,14 @@
 				"identifier": "geometry.chiseled_end_stone_brick_wall",
 				"bone_visibility": {
 					"post": "q.block_state('els_bb:wall_post')",
-					"north": "q.block_state('els_bb:connection_north')",
-					"south": "q.block_state('els_bb:connection_south')",
-					"east": "q.block_state('els_bb:connection_east')",
-					"west": "q.block_state('els_bb:connection_west')"
+					"north": "q.block_state('els_bb:connection_north') && !q.block_state('els_bb:tall_north')",
+					"north_tall": "q.block_state('els_bb:connection_north') && q.block_state('els_bb:tall_north')",
+					"south": "q.block_state('els_bb:connection_south') && !q.block_state('els_bb:tall_south')",
+					"south_tall": "q.block_state('els_bb:connection_south') && q.block_state('els_bb:tall_south')",
+					"east": "q.block_state('els_bb:connection_east') && !q.block_state('els_bb:tall_east')",
+					"east_tall": "q.block_state('els_bb:connection_east') && q.block_state('els_bb:tall_east')",
+					"west": "q.block_state('els_bb:connection_west') && !q.block_state('els_bb:tall_west')",
+					"west_tall": "q.block_state('els_bb:connection_west') && q.block_state('els_bb:tall_west')"
 				}
 			},
 			"minecraft:material_instances": {
