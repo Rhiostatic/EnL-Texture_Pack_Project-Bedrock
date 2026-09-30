@@ -74,8 +74,7 @@
       ],
       "enable_attachables": false,
       "spawn_egg": {
-        "texture": "spawn_egg",
-        "texture_index": 41
+        "texture": "spawn_egg_vex"
       }
     }
   }

@@ -71,8 +71,7 @@
         "controller.render.evoker_oh"
       ],
       "spawn_egg": {
-        "texture": "spawn_egg",
-        "texture_index": 40
+        "texture": "spawn_egg_evoker"
       }
     }
   }
