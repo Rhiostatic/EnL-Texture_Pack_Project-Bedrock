@@ -109,11 +109,11 @@ Sibling files may still define the same identifier strings (intentional after P0
 | armor_stand | per-mob armor_stand files — **also maps shared** `animation.jump_timer` |
 | cat, ocelot, bee, sheep, witch, villager_v2, wandering_trader, iron_golem, piglin_brute | matching `entity/`, `animations/`, `animation_controllers/`, `models/entity/`, and (where present) `render_controllers/` files named for that mob |
 
-Creeper is not in this pack. It is a standalone mob in `development_resource_packs/Animation_Extended/` (`minecraft:creeper`, geometry `geometry.ae.creeper` / `geometry.ae.creeper.charged`). Animation Extended also has the evoker (`minecraft:evocation_illager`) and the vex.
+Creeper, allay, and polar bear are not in this pack. They are standalone mobs in `development_resource_packs/Animation_Extended/`. Creeper: `minecraft:creeper`, geometry `geometry.ae.creeper` / `geometry.ae.creeper.charged`. Allay: `minecraft:allay`, geometry `geometry.ae.allay`. Polar bear: `minecraft:polar_bear`, geometry `geometry.ae.polar_bear`. Animation Extended also has the evoker (`minecraft:evocation_illager`) and the vex. This pack has no allay or polar bear client entity, geometry, animation, controller, render controller, or texture.
 
 ## Smoke-test (Bedrock client)
 
-Enable Animation Essentials (optionally on top of Choice Textures). Do **not** need Actions&St for these. Creeper checks belong on Animation Extended, not here: AE alone should show a vanilla creeper.
+Enable Animation Essentials (optionally on top of Choice Textures). Do **not** need Actions&St for these. Creeper, allay, and polar bear checks belong on Animation Extended, not here: AE alone should show the vanilla creeper, allay, and polar bear.
 
 1. **Phantom** — on-fire controller still plays (`controller.animation.entity.on_fire`).
 2. **Armor stand** — pose timer still uses `animation.jump_timer`.
@@ -121,3 +121,4 @@ Enable Animation Essentials (optionally on top of Choice Textures). Do **not** n
 4. **Held items** — apple / music disc / breeze rod / warped fungus on a stick still use `animation.player_item*` from `animations/shared/`.
 5. Content log should not report missing `animation.jump_timer`, `controller.animation.entity.on_fire`, or `animation.player_item.first_person_hold`.
 6. **Creeper** — not overridden by this pack. With AE alone it is the vanilla creeper, and the content log should not mention removed creeper files.
+7. **Allay and polar bear** — not overridden by this pack. With AE alone they are the vanilla mobs.

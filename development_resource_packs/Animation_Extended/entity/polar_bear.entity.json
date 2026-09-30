@@ -1,0 +1,78 @@
+{
+  "format_version": "1.10.0",
+  "minecraft:client_entity": {
+    "description": {
+      "identifier": "minecraft:polar_bear",
+      "min_engine_version": "1.20.60",
+      "materials": {
+        "default": "entity"
+      },
+      "textures": {
+        "default": "textures/entity/polar_bear/polar_bear"
+      },
+      "geometry": {
+        "default": "geometry.ae.polar_bear"
+      },
+      "scripts": {
+        "pre_animation": [
+          "0;"
+        ],
+        "initialize": [
+          "v.standing=0;"
+        ],
+        "scale": "1.25",
+        "animate": [
+          "controller_baby",
+          "controller_in_air",
+          "controller_attack",
+          "controller_stand",
+          "controller_fire",
+          "look_at_target",
+          "blink"
+        ]
+      },
+      "animations": {
+        "look_at_target": "animation.ae.polar_bear.target",
+        "baby_transform": "animation.ae.polar_bear.baby_transform",
+        "attack": "animation.ae.polar_bear.attack",
+        "blink": "animation.ae.polar_bear.blink",
+        "stand": "animation.ae.polar_bear.stand",
+        "down": "animation.ae.polar_bear.down",
+        "idle": "animation.ae.polar_bear.idle",
+        "walk": "animation.ae.polar_bear.walk",
+        "idle_baby": "animation.ae.polar_bear.idle_baby",
+        "walk_baby": "animation.ae.polar_bear.walk_baby",
+        "stand_walk": "animation.ae.polar_bear.stand_walk",
+        "float": "animation.ae.polar_bear.swim",
+        "jump_timer": "animation.ae.polar_bear.jump_timer",
+        "jump": "animation.ae.polar_bear.jump",
+        "fall": "animation.ae.polar_bear.fall",
+        "land": "animation.ae.polar_bear.land",
+        "controller_attack": "controller.animation.ae.polar_bear.attack",
+        "controller_stand": "controller.animation.ae.polar_bear.stand",
+        "controller_move": "controller.animation.ae.polar_bear.move",
+        "controller_baby": "controller.animation.ae.polar_bear.baby",
+        "controller_in_air": "controller.animation.ae.polar_bear.in_air",
+        "controller_jump": "controller.animation.ae.polar_bear.jump",
+        "controller_fall": "controller.animation.ae.polar_bear.fall",
+        "controller_land": "controller.animation.ae.polar_bear.land",
+        "controller_fire": "controller.animation.ae.polar_bear.on_fire"
+      },
+      "particle_effects": {
+        "dust": "act:dust_big",
+        "fire": "act:on_fire_large",
+        "combust": "act:combust_large",
+        "impact": "act:water_impact_big",
+        "splash": "act:water_splash_big",
+        "ripples": "act:water_ripples_big"
+      },
+      "render_controllers": [
+        "controller.render.default"
+      ],
+      "spawn_egg": {
+        "base_color": "#eeeede",
+        "overlay_color": "#d5d6cd"
+      }
+    }
+  }
+}
