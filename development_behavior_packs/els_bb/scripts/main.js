@@ -192,15 +192,16 @@ function updateWall(block) {
 	const straightEW = flags.east && flags.west && !flags.north && !flags.south;
 	const covered = !!(above && !above.isAir);
 	const post = !((straightNS || straightEW) && !covered);
-	// Model -Z renders on world south, model +Z on world north, model +X on
-	// world east, and model -X on world west. Each arm cube sits on that
-	// same world side, so the connection state uses the neighbor there.
-	// Straight/post still use the real neighbor flags above.
+	// In game every arm mesh renders 180 degrees from its name: the north
+	// bone points south, south points north, east points west, west points
+	// east. Drive each state from the opposite neighbor so the mesh and the
+	// collision tied to that state point at the connection. Straight/post
+	// still use the real neighbor flags above.
 	const next = {
-		"els_bb:connection_north": flags.north,
-		"els_bb:connection_south": flags.south,
-		"els_bb:connection_east": flags.east,
-		"els_bb:connection_west": flags.west,
+		"els_bb:connection_north": flags.south,
+		"els_bb:connection_south": flags.north,
+		"els_bb:connection_east": flags.west,
+		"els_bb:connection_west": flags.east,
 		"els_bb:wall_post": post
 	};
 	let perm = block.permutation;
