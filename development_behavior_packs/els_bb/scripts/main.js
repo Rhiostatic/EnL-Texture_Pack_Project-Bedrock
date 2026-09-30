@@ -156,7 +156,19 @@ function blockAt(dimension, loc, dx, dy, dz) {
 	return dimension.getBlock({ x: loc.x + dx, y: loc.y + dy, z: loc.z + dz });
 }
 
-function connectsToWall(block) {
+function blockHasTag(block, tag) {
+	if (!block || typeof block.hasTag !== "function") {
+		return false;
+	}
+	try {
+		return block.hasTag(tag) === true;
+	} catch (err) {
+		warnOnce("block-tag", "[els_bb] block tag check failed", err);
+		return false;
+	}
+}
+
+function isAnyWall(block) {
 	if (!block || block.isAir || block.isLiquid) {
 		return false;
 	}
@@ -164,48 +176,211 @@ function connectsToWall(block) {
 	if (id === WALL_ID) {
 		return true;
 	}
-	if (
+	if (typeof id === "string" && id.endsWith("_wall")) {
+		return true;
+	}
+	return blockHasTag(block, "minecraft:wall") || blockHasTag(block, "wall");
+}
+
+function isLeafBlock(id) {
+	return id === "minecraft:leaves" || id.endsWith("_leaves") || id.includes("leaves");
+}
+
+function isPaneOrBars(id) {
+	return (
 		id === "minecraft:iron_bars" ||
 		id.endsWith("_bars") ||
 		id.includes("glass_pane") ||
-		id.endsWith("_pane") ||
-		id === "minecraft:fence" ||
-		id.endsWith("_fence") ||
-		id.includes("fence_gate")
-	) {
-		return false;
-	}
-	return block.isSolid === true;
+		id.endsWith("_pane")
+	);
 }
 
-function isAnyWall(block) {
-	return !!(block && typeof block.typeId === "string" && block.typeId.endsWith("_wall"));
+function isFenceGate(id) {
+	return id === "minecraft:fence_gate" || id.endsWith("_fence_gate") || id.includes("fence_gate");
 }
 
-function isFullSolid(block) {
-	if (!block || block.isAir || block.isLiquid || block.isSolid !== true) {
-		return false;
-	}
-	const id = block.typeId;
-	if (typeof id !== "string" || isAnyWall(block)) {
-		return false;
+function isFence(id) {
+	return (id === "minecraft:fence" || id.endsWith("_fence")) && !isFenceGate(id);
+}
+
+// Partial, plant, and utility blocks vanilla walls do not treat as a full face.
+function isNonFullBlock(id) {
+	if (isLeafBlock(id) || isFence(id) || isFenceGate(id) || isPaneOrBars(id)) {
+		return true;
 	}
 	if (
 		id.endsWith("_slab") ||
 		id.endsWith("_stairs") ||
-		id.endsWith("_fence") ||
-		id.endsWith("_bars") ||
-		id.endsWith("_pane") ||
 		id.endsWith("_door") ||
 		id.endsWith("_trapdoor") ||
 		id.endsWith("_carpet") ||
 		id.endsWith("_pressure_plate") ||
-		id.includes("fence_gate") ||
-		id.includes("glass_pane")
+		id.endsWith("_button") ||
+		id.endsWith("_sign") ||
+		id.endsWith("_banner") ||
+		id.endsWith("_rail") ||
+		id.endsWith("_candle") ||
+		id.endsWith("_lantern") ||
+		id.endsWith("_campfire") ||
+		id.endsWith("_plant") ||
+		id.endsWith("_sapling") ||
+		id.endsWith("_fungus") ||
+		id.endsWith("_roots") ||
+		id.endsWith("_coral") ||
+		id.endsWith("_coral_fan") ||
+		id.endsWith("_grass") ||
+		id === "minecraft:grass" ||
+		id === "minecraft:short_grass" ||
+		id === "minecraft:tall_grass" ||
+		id === "minecraft:fern" ||
+		id === "minecraft:large_fern" ||
+		id === "minecraft:deadbush" ||
+		id === "minecraft:vine" ||
+		id === "minecraft:twisting_vines" ||
+		id === "minecraft:weeping_vines" ||
+		id === "minecraft:cave_vines" ||
+		id === "minecraft:seagrass" ||
+		id === "minecraft:kelp" ||
+		id === "minecraft:bamboo" ||
+		id === "minecraft:torch" ||
+		id === "minecraft:soul_torch" ||
+		id === "minecraft:redstone_torch" ||
+		id.endsWith("_torch") ||
+		id === "minecraft:ladder" ||
+		id === "minecraft:chain" ||
+		id === "minecraft:snow_layer" ||
+		id === "minecraft:scaffolding" ||
+		id === "minecraft:web" ||
+		id === "minecraft:cobweb" ||
+		id === "minecraft:fire" ||
+		id === "minecraft:soul_fire" ||
+		id.endsWith("_chest") ||
+		id === "minecraft:chest" ||
+		id === "minecraft:barrel" ||
+		id === "minecraft:hopper" ||
+		id === "minecraft:composter" ||
+		id.endsWith("_cauldron") ||
+		id === "minecraft:enchanting_table" ||
+		id === "minecraft:brewing_stand" ||
+		id === "minecraft:end_portal_frame" ||
+		id === "minecraft:lectern" ||
+		id === "minecraft:grindstone" ||
+		id === "minecraft:stonecutter_block" ||
+		id === "minecraft:bell" ||
+		id === "minecraft:conduit" ||
+		id === "minecraft:beacon" ||
+		id === "minecraft:anvil" ||
+		id.endsWith("_anvil") ||
+		id.endsWith("_bed") ||
+		id === "minecraft:cake" ||
+		id === "minecraft:farmland" ||
+		id === "minecraft:dirt_path" ||
+		id === "minecraft:grass_path" ||
+		id.endsWith("_path") ||
+		id.endsWith("_head") ||
+		id.endsWith("_skull") ||
+		id === "minecraft:flower_pot" ||
+		id.endsWith("_flower_pot") ||
+		id.includes("piston") ||
+		id === "minecraft:daylight_detector" ||
+		id === "minecraft:repeater" ||
+		id === "minecraft:comparator" ||
+		id === "minecraft:redstone_wire" ||
+		id === "minecraft:lever" ||
+		id === "minecraft:tripwire" ||
+		id === "minecraft:tripwire_hook" ||
+		id === "minecraft:lily_pad" ||
+		id === "minecraft:waterlily"
 	) {
+		return true;
+	}
+	return false;
+}
+
+function safeIsSolid(block) {
+	try {
+		const solid = block.isSolid;
+		if (solid === true || solid === 1) {
+			return true;
+		}
+		if (solid === false || solid === 0) {
+			return false;
+		}
+		return undefined;
+	} catch (err) {
+		warnOnce("is-solid", "[els_bb] block.isSolid is unavailable; using a full-cube check", err);
+		return undefined;
+	}
+}
+
+function isFullSolid(block) {
+	if (!block || block.isAir || block.isLiquid || isAnyWall(block)) {
+		return false;
+	}
+	const id = block.typeId;
+	if (typeof id !== "string" || isNonFullBlock(id)) {
+		return false;
+	}
+	const solid = safeIsSolid(block);
+	if (solid === false) {
 		return false;
 	}
 	return true;
+}
+
+function gateFacing(block) {
+	const perm = block.permutation;
+	if (!perm || typeof perm.getState !== "function") {
+		return undefined;
+	}
+	const cardinal = readState(perm, "minecraft:cardinal_direction");
+	if (cardinal === "north" || cardinal === "south" || cardinal === "east" || cardinal === "west") {
+		return cardinal;
+	}
+	const direction = readState(perm, "direction");
+	const byDirection = {
+		0: "south",
+		1: "west",
+		2: "north",
+		3: "east"
+	};
+	if (byDirection[direction] !== undefined) {
+		return byDirection[direction];
+	}
+	if (direction === "0" || direction === "1" || direction === "2" || direction === "3") {
+		return byDirection[Number(direction)];
+	}
+	return undefined;
+}
+
+function gateConnectsOnSide(facing, side) {
+	if (facing === "north" || facing === "south") {
+		return side === "east" || side === "west";
+	}
+	if (facing === "east" || facing === "west") {
+		return side === "north" || side === "south";
+	}
+	return false;
+}
+
+function connectsToWall(block, side) {
+	if (!block || block.isAir || block.isLiquid) {
+		return false;
+	}
+	const id = block.typeId;
+	if (typeof id !== "string") {
+		return false;
+	}
+	if (isAnyWall(block)) {
+		return true;
+	}
+	if (isPaneOrBars(id)) {
+		return true;
+	}
+	if (isFenceGate(id)) {
+		return gateConnectsOnSide(gateFacing(block), side);
+	}
+	return isFullSolid(block);
 }
 
 function straightWall(flags) {
@@ -230,7 +405,7 @@ function foreignWallHasPost(block) {
 	const { dimension, location } = block;
 	const flags = {};
 	for (const [name, dir] of Object.entries(WALL_DIRS)) {
-		flags[name] = connectsToWall(blockAt(dimension, location, dir.x, 0, dir.z));
+		flags[name] = connectsToWall(blockAt(dimension, location, dir.x, 0, dir.z), name);
 	}
 	if (!straightWall(flags)) {
 		return true;
@@ -255,7 +430,7 @@ function aboveMakesPost(above) {
 	return isFullSolid(above);
 }
 
-function armIsTall(dimension, location, dir) {
+function armIsTall(dimension, location, dir, side) {
 	const above = blockAt(dimension, location, 0, 1, 0);
 	if (!above || above.isAir || above.isLiquid) {
 		return false;
@@ -264,7 +439,7 @@ function armIsTall(dimension, location, dir) {
 		return true;
 	}
 	if (isAnyWall(above)) {
-		return connectsToWall(blockAt(dimension, location, dir.x, 1, dir.z));
+		return connectsToWall(blockAt(dimension, location, dir.x, 1, dir.z), side);
 	}
 	return false;
 }
@@ -276,7 +451,7 @@ function updateWall(block) {
 	const { dimension, location } = block;
 	const flags = {};
 	for (const [name, dir] of Object.entries(WALL_DIRS)) {
-		flags[name] = connectsToWall(blockAt(dimension, location, dir.x, dir.y, dir.z));
+		flags[name] = connectsToWall(blockAt(dimension, location, dir.x, dir.y, dir.z), name);
 	}
 	const above = blockAt(dimension, location, 0, 1, 0);
 	// Straight runs hide the post unless the block above is itself a wall
@@ -286,7 +461,7 @@ function updateWall(block) {
 	const post = !straightWall(flags) || aboveMakesPost(above);
 	const tall = {};
 	for (const [name, dir] of Object.entries(WALL_DIRS)) {
-		tall[name] = flags[name] && armIsTall(dimension, location, dir);
+		tall[name] = flags[name] && armIsTall(dimension, location, dir, name);
 	}
 	// In game every arm mesh renders 180 degrees from its name: the north
 	// bone points south, south points north, east points west, west points
@@ -637,6 +812,7 @@ function subscribeWorldEvents() {
 	if (after && after.playerPlaceBlock) {
 		after.playerPlaceBlock.subscribe((event) => {
 			try {
+				// The placed block and the walls beside, above, and below it.
 				updateAround(event.block);
 			} catch (err) {
 				warnOnce("place", "[els_bb] chiseled end stone place handler failed", err);
