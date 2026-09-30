@@ -73,7 +73,24 @@ Commits after `main`:
 
 Pack on this branch: **v26.08.21b**, manifest **1.0.12**, `min_engine_version` still `[1, 21, 30]`.
 
-Current shipped pack on `main`: **v26.09.06**, manifest **1.0.14**.
+Current shipped pack on `main` before this branch: **v26.09.27**, manifest **1.0.17**.
+
+### Spawn eggs (2026-09-30)
+
+Stable Bedrock (`bedrock-samples` **v1.26.50.4**) uses one PNG per mob at `textures/items/spawn_eggs/spawn_egg_<mob>.png` (item texture key `spawn_egg_<mob>`). Choice ships **88** of those, byte-identical to Faithful 64x r14. Education `spawn_egg_agent` is omitted.
+
+Erik approved replacing the five custom eggs — allay, bee, chicken, parrot, rabbit — with Faithful 64x r14 (rule 4).
+
+The old shared-egg system is gone from Choice except four icons vanilla still reads from the legacy `spawn_egg` textures array: `egg_villager.png`, `egg_zombievillager.png`, `egg_evoker.png`, and `egg_vex.png` (bedrock-samples v1.26.50.4 `item_texture.json`, indices 14, 42, 40, 41). Those four are the Faithful 64x r14 copies from `main`. Do not delete them. The other `textures/items/egg_*.png` files (including `egg_null`), `spawn_egg.png`, and `spawn_egg_overlay.png` stay removed.
+
+Still in the pack, on purpose:
+
+- Legacy icons still used for villager, zombie villager, evoker, and vex: `textures/items/egg_villager.png`, `egg_zombievillager.png`, `egg_evoker.png`, `egg_vex.png`.
+- Throwable chicken eggs: `textures/items/egg.png`, `blue_egg.png`, `brown_egg.png` (vanilla keys `egg`, `blue_egg`, `brown_egg`).
+- Carried block-item icons: `textures/items/sniffer_egg.png` (`sniffer_egg_carried`) and `textures/items/turtle_egg.png` (`turtle_egg_carried`).
+- Block sheets for dragon, sniffer, and turtle eggs.
+
+This branch: **v26.09.30b**, manifest **1.0.19**. UUIDs unchanged. `pack.description` unchanged.
 
 WIP Conquest stone variants live **outside** the pack at `wip/conquest_stone_in_progress/` so they do not ship with Choice. Work that set on its own branch and copy into `textures/blocks/` only when ready.
 

@@ -12,6 +12,17 @@ Pack path: `development_resource_packs/Choice Textures_rp/`
 3. Credit licenses stay under `credits/` (do not edit Faithful `LICENSE.txt`).
 4. Skip Vibrant Visuals (`_mer` / `_mers` / `_normal` / `_heightmap` / `.texture_set.json`) and Education Edition.
 
+## 2026-09-30 — Spawn eggs → Faithful 64x r14, legacy egg icons removed
+
+- **Branch:** `cursor/choice-faithful-spawn-eggs-1216`
+- **Rule exception:** Erik explicitly approved replacing five existing Choice spawn eggs (rule 4). Everything else in `textures/items/spawn_eggs/` was already byte-identical to Faithful 64x Release 14 and was left as-is.
+- **Source:** Faithful 64x Release 14 (`Add_Faithful64-14`), PNGs only. Replaced: `spawn_egg_allay`, `spawn_egg_bee`, `spawn_egg_chicken`, `spawn_egg_parrot`, `spawn_egg_rabbit`.
+- **Check:** all 88 Choice `textures/items/spawn_eggs/*.png` match that Faithful tree. `spawn_egg_agent` stays out (Education).
+- **Removed legacy system** (not used by current `spawn_egg_<mob>` keys in bedrock-samples v1.26.50.4): 57 `textures/items/egg_*.png` files (including `egg_null`; `egg_bee` is only the leftover atlas key, live bee egg is `spawn_egg_bee`; `egg_fish`, `egg_glow_squid`, and `egg_wanderingtrader` are not in that item atlas), plus `textures/items/spawn_egg.png` and `textures/items/spawn_egg_overlay.png`. Dropped the matching `textures_list.json` rows.
+- **Restored from `main` (unchanged Faithful 64x r14 copies):** `egg_villager.png`, `egg_zombievillager.png`, `egg_evoker.png`, `egg_vex.png`. In-game these four still take their icon from the legacy `spawn_egg` array (indices 14, 42, 40, 41), even though `spawn_egg_villager` / `spawn_egg_zombie_villager` / `spawn_egg_evoker` / `spawn_egg_vex` keys also exist. Every other legacy-array mob has a dedicated `spawn_egg_<mob>` key (renames included: mooshroom, zombified piglin, magma cube, elder guardian, polar bear, skeleton horse, zombie horse, tropical fish). `egg_npc` / `egg_mask` / `egg_agent` were never in Choice (Education). `egg_null` is a placeholder, not a mob, and stays deleted.
+- **Kept:** those four legacy icons, throwable `egg` / `blue_egg` / `brown_egg`, and carried `sniffer_egg` / `turtle_egg` item icons. No other packs touched.
+- **Pack rev:** display `v26.09.30b Choice Textures`; manifest header+module `1.0.19`; UUIDs unchanged; `pack.description` unchanged.
+
 ## 2026-09-21 — Choice boat/raft **item** icons → Faithful 32x 26.x
 
 - **Branch:** `cursor/choice-faithful-boat-item-icons-7dc4`
