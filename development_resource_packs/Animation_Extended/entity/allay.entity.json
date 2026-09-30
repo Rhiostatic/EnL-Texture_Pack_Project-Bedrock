@@ -1,0 +1,71 @@
+{
+  "format_version": "1.10.0",
+  "minecraft:client_entity": {
+    "description": {
+      "identifier": "minecraft:allay",
+      "min_engine_version": "1.20.60",
+      "materials": {
+        "default": "entity",
+        "glow": "entity_emissive_alpha_one_sided",
+        "opaque": "entity_alphatest"
+      },
+      "textures": {
+        "default": "textures/entity/allay/0"
+      },
+      "geometry": {
+        "default": "geometry.ae.allay"
+      },
+      "scripts": {
+        "initialize": [
+          "variable.die_roll=0;",
+          "variable.relative_health=0;"
+        ],
+        "pre_animation": [
+          "0;"
+        ],
+        "animate": [
+          "controller_general",
+          "controller_dancing",
+          {
+            "hold_item": "variable.is_holding_right"
+          },
+          "controller_idle",
+          "controller_hurt"
+        ]
+      },
+      "animations": {
+        "hurt": "animation.ae.allay.hurt",
+        "blink": "animation.ae.allay.blink",
+        "idle": "animation.ae.allay.idle_bob",
+        "idle_0": "animation.ae.allay.idle_anim_0",
+        "idle_1": "animation.ae.allay.idle_anim_1",
+        "move": "animation.ae.allay.move",
+        "fly": "animation.ae.allay.wings",
+        "hold_item": "animation.ae.allay.hold",
+        "look_at_target_default": "animation.ae.allay.look",
+        "dance_timer": "animation.ae.allay.dance_timer",
+        "dance_0": "animation.ae.allay.dance.floss",
+        "dance_1": "animation.ae.allay.dance.smug",
+        "dance_2": "animation.ae.allay.dance.jotaro",
+        "controller_idle": "controller.animation.ae.allay.idle",
+        "controller_general": "controller.animation.ae.allay.base",
+        "controller_dancing": "controller.animation.ae.allay.tanz",
+        "controller_hurt": "controller.animation.ae.allay.hurt"
+      },
+      "particle_effects": {
+        "particle_0": "act:summoned_2",
+        "particle_1": "act:vex_glow",
+        "hurt": "ae:allay_hurt_sparkle"
+      },
+      "render_controllers": [
+        "controller.render.ae.allay"
+      ],
+      "held_item_ignores_lighting": true,
+      "enable_attachables": true,
+      "spawn_egg": {
+        "base_color": "#00daff",
+        "overlay_color": "#00adff"
+      }
+    }
+  }
+}

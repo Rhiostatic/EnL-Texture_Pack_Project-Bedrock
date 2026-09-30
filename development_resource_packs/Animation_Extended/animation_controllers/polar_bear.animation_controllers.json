@@ -1,0 +1,299 @@
+{
+  "format_version": "1.10.0",
+  "animation_controllers": {
+    "controller.animation.ae.polar_bear.baby": {
+      "initial_state": "baby",
+      "states": {
+        "baby": {
+          "animations": [
+            "idle_baby",
+            "baby_transform",
+            {
+              "walk_baby": "q.modified_move_speed*0.8"
+            }
+          ],
+          "transitions": [
+            {
+              "adult": "!query.is_baby"
+            }
+          ]
+        },
+        "adult": {
+          "animations": [
+            "idle",
+            "controller_move"
+          ]
+        }
+      }
+    },
+    "controller.animation.ae.polar_bear.move": {
+      "states": {
+        "default": {
+          "animations": [
+            {
+              "walk": "query.modified_move_speed*1.2"
+            }
+          ],
+          "blend_transition": 0.12,
+          "transitions": [
+            {
+              "float": "q.is_in_water"
+            },
+            {
+              "stand": "v.standing"
+            }
+          ]
+        },
+        "stand": {
+          "animations": [
+            {
+              "stand_walk": "query.modified_move_speed"
+            }
+          ],
+          "blend_transition": 0.12,
+          "transitions": [
+            {
+              "float": "q.is_in_water"
+            },
+            {
+              "default": "!v.standing&&q.all_animations_finished"
+            }
+          ]
+        },
+        "float": {
+          "animations": [
+            "float"
+          ],
+          "blend_transition": 0.24,
+          "transitions": [
+            {
+              "default": "!q.is_in_water"
+            }
+          ]
+        }
+      }
+    },
+    "controller.animation.ae.polar_bear.stand": {
+      "states": {
+        "default": {
+          "transitions": [
+            {
+              "stand": "q.standing_scale!=0"
+            }
+          ]
+        },
+        "stand": {
+          "on_entry": [
+            "v.standing=1;"
+          ],
+          "animations": [
+            "stand"
+          ],
+          "transitions": [
+            {
+              "down": "q.standing_scale==0&&q.all_animations_finished"
+            }
+          ]
+        },
+        "down": {
+          "on_entry": [
+            "v.standing=0;"
+          ],
+          "animations": [
+            "down"
+          ],
+          "transitions": [
+            {
+              "default": "q.all_animations_finished"
+            }
+          ]
+        }
+      }
+    },
+    "controller.animation.ae.polar_bear.attack": {
+      "states": {
+        "default": {
+          "transitions": [
+            {
+              "attack": "variable.attack_time>0.0"
+            }
+          ]
+        },
+        "attack": {
+          "animations": [
+            "attack"
+          ],
+          "transitions": [
+            {
+              "default": "query.all_animations_finished"
+            }
+          ]
+        }
+      }
+    },
+    "controller.animation.ae.polar_bear.in_air": {
+      "states": {
+        "default": {
+          "animations": [
+            "controller_land",
+            "controller_jump",
+            "controller_fall"
+          ]
+        }
+      }
+    },
+    "controller.animation.ae.polar_bear.jump": {
+      "initial_state": "still_0",
+      "states": {
+        "still_0": {
+          "transitions": [
+            {
+              "up_0": "!q.is_on_ground&&q.vertical_speed>2.0&&!q.is_in_water"
+            }
+          ]
+        },
+        "still_1": {
+          "transitions": [
+            {
+              "up_1": "!q.is_on_ground&&q.vertical_speed>2.0&&!q.is_in_water"
+            }
+          ]
+        },
+        "up_0": {
+          "blend_transition": 0.3,
+          "animations": [
+            "jump",
+            "jump_timer"
+          ],
+          "transitions": [
+            {
+              "still_1": "q.is_on_ground||q.is_in_water||(q.vertical_speed<0.0&&q.any_animation_finished)"
+            }
+          ]
+        },
+        "up_1": {
+          "blend_transition": 0.3,
+          "animations": [
+            "jump",
+            "jump_timer"
+          ],
+          "transitions": [
+            {
+              "still_0": "q.is_on_ground||q.is_in_water||(q.vertical_speed<0.0&&q.any_animation_finished)"
+            }
+          ]
+        }
+      }
+    },
+    "controller.animation.ae.polar_bear.fall": {
+      "initial_state": "still",
+      "states": {
+        "still": {
+          "transitions": [
+            {
+              "dn": "!query.is_on_ground&&query.vertical_speed<0"
+            }
+          ]
+        },
+        "dn": {
+          "blend_transition": 0.22,
+          "animations": [
+            "fall",
+            {
+              "jump_timer": "q.is_on_ground"
+            }
+          ],
+          "transitions": [
+            {
+              "still": "(query.is_on_ground&&q.any_animation_finished)||q.vertical_speed>=0.0"
+            },
+            {
+              "splash": "query.is_in_water"
+            }
+          ]
+        },
+        "splash": {
+          "particle_effects": [
+            {
+              "effect": "splash"
+            },
+            {
+              "effect": "impact"
+            },
+            {
+              "effect": "ripples"
+            }
+          ],
+          "transitions": [
+            {
+              "still": "!query.is_in_water"
+            }
+          ]
+        }
+      }
+    },
+    "controller.animation.ae.polar_bear.land": {
+      "states": {
+        "default": {
+          "blend_transition": 0.1,
+          "animations": [
+            "land"
+          ],
+          "transitions": [
+            {
+              "in_air": "!q.is_on_ground"
+            }
+          ]
+        },
+        "in_air": {
+          "blend_transition": 0.1,
+          "animations": [
+            {
+              "jump_timer": "q.is_on_ground"
+            }
+          ],
+          "transitions": [
+            {
+              "default": "q.is_on_ground&&q.any_animation_finished"
+            }
+          ]
+        }
+      }
+    },
+    "controller.animation.ae.polar_bear.on_fire": {
+      "states": {
+        "default": {
+          "transitions": [
+            {
+              "on_fire": "q.is_on_fire"
+            }
+          ]
+        },
+        "on_fire": {
+          "particle_effects": [
+            {
+              "effect": "fire"
+            }
+          ],
+          "transitions": [
+            {
+              "combust": "!q.is_on_fire"
+            }
+          ]
+        },
+        "combust": {
+          "particle_effects": [
+            {
+              "effect": "combust"
+            }
+          ],
+          "transitions": [
+            {
+              "default": "1"
+            }
+          ]
+        }
+      }
+    }
+  }
+}
