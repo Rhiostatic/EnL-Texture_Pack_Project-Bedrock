@@ -38,5 +38,8 @@
 	},
 	"els_bb:chiseled_end_stone_brick_wall": {
 		"sound": "stone"
+	},
+	"els_bb:framed_emerald": {
+		"sound": "metal"
 	}
 }

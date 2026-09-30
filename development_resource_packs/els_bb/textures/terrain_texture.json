@@ -57,6 +57,12 @@
 					}
 				]
 			}
+		},
+		"framed_emerald_side": {
+			"textures": "textures/blocks/framed_emerald_side"
+		},
+		"framed_emerald_top": {
+			"textures": "textures/blocks/framed_emerald_top"
 		}
 	}
 }
