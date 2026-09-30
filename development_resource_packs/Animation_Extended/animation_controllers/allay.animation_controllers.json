@@ -163,7 +163,8 @@
           ],
           "particle_effects": [
             {
-              "effect": "hurt"
+              "effect": "hurt",
+              "locator": "lead"
             }
           ],
           "animations": [
@@ -184,7 +185,8 @@
           ],
           "particle_effects": [
             {
-              "effect": "hurt"
+              "effect": "hurt",
+              "locator": "lead"
             }
           ],
           "animations": [
