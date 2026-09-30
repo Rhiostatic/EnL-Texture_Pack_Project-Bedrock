@@ -63,8 +63,7 @@
       "held_item_ignores_lighting": true,
       "enable_attachables": true,
       "spawn_egg": {
-        "base_color": "#00daff",
-        "overlay_color": "#00adff"
+        "texture": "spawn_egg_allay"
       }
     }
   }
