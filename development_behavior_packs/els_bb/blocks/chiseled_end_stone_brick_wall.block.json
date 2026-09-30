@@ -157,7 +157,7 @@
 							"origin": [
 								-3,
 								0,
-								-8
+								0
 							],
 							"size": [
 								6,
@@ -170,7 +170,7 @@
 						"origin": [
 							-4,
 							0,
-							-8
+							-4
 						],
 						"size": [
 							8,
@@ -200,7 +200,7 @@
 							"origin": [
 								-3,
 								0,
-								0
+								-8
 							],
 							"size": [
 								6,
@@ -213,7 +213,7 @@
 						"origin": [
 							-4,
 							0,
-							-4
+							-8
 						],
 						"size": [
 							8,
@@ -231,7 +231,7 @@
 							"origin": [
 								-3,
 								0,
-								-8
+								0
 							],
 							"size": [
 								6,
@@ -243,7 +243,7 @@
 							"origin": [
 								-3,
 								0,
-								0
+								-8
 							],
 							"size": [
 								6,
@@ -329,61 +329,6 @@
 							"origin": [
 								-3,
 								0,
-								-8
-							],
-							"size": [
-								6,
-								24,
-								8
-							]
-						},
-						{
-							"origin": [
-								0,
-								0,
-								-3
-							],
-							"size": [
-								8,
-								24,
-								6
-							]
-						}
-					],
-					"minecraft:selection_box": {
-						"origin": [
-							-4,
-							0,
-							-8
-						],
-						"size": [
-							12,
-							16,
-							12
-						]
-					}
-				}
-			},
-			{
-				"condition": "q.block_state('els_bb:connection_north') == false && q.block_state('els_bb:connection_south') == true && q.block_state('els_bb:connection_east') == true && q.block_state('els_bb:connection_west') == false",
-				"components": {
-					"minecraft:collision_box": [
-						{
-							"origin": [
-								-4,
-								0,
-								-4
-							],
-							"size": [
-								8,
-								24,
-								8
-							]
-						},
-						{
-							"origin": [
-								-3,
-								0,
 								0
 							],
 							"size": [
@@ -420,7 +365,7 @@
 				}
 			},
 			{
-				"condition": "q.block_state('els_bb:connection_north') == true && q.block_state('els_bb:connection_south') == true && q.block_state('els_bb:connection_east') == true && q.block_state('els_bb:connection_west') == false",
+				"condition": "q.block_state('els_bb:connection_north') == false && q.block_state('els_bb:connection_south') == true && q.block_state('els_bb:connection_east') == true && q.block_state('els_bb:connection_west') == false",
 				"components": {
 					"minecraft:collision_box": [
 						{
@@ -449,9 +394,64 @@
 						},
 						{
 							"origin": [
+								0,
+								0,
+								-3
+							],
+							"size": [
+								8,
+								24,
+								6
+							]
+						}
+					],
+					"minecraft:selection_box": {
+						"origin": [
+							-4,
+							0,
+							-8
+						],
+						"size": [
+							12,
+							16,
+							12
+						]
+					}
+				}
+			},
+			{
+				"condition": "q.block_state('els_bb:connection_north') == true && q.block_state('els_bb:connection_south') == true && q.block_state('els_bb:connection_east') == true && q.block_state('els_bb:connection_west') == false",
+				"components": {
+					"minecraft:collision_box": [
+						{
+							"origin": [
+								-4,
+								0,
+								-4
+							],
+							"size": [
+								8,
+								24,
+								8
+							]
+						},
+						{
+							"origin": [
 								-3,
 								0,
 								0
+							],
+							"size": [
+								6,
+								24,
+								8
+							]
+						},
+						{
+							"origin": [
+								-3,
+								0,
+								-8
 							],
 							"size": [
 								6,
@@ -549,61 +549,6 @@
 							"origin": [
 								-3,
 								0,
-								-8
-							],
-							"size": [
-								6,
-								24,
-								8
-							]
-						},
-						{
-							"origin": [
-								-8,
-								0,
-								-3
-							],
-							"size": [
-								8,
-								24,
-								6
-							]
-						}
-					],
-					"minecraft:selection_box": {
-						"origin": [
-							-8,
-							0,
-							-8
-						],
-						"size": [
-							12,
-							16,
-							12
-						]
-					}
-				}
-			},
-			{
-				"condition": "q.block_state('els_bb:connection_north') == false && q.block_state('els_bb:connection_south') == true && q.block_state('els_bb:connection_east') == false && q.block_state('els_bb:connection_west') == true",
-				"components": {
-					"minecraft:collision_box": [
-						{
-							"origin": [
-								-4,
-								0,
-								-4
-							],
-							"size": [
-								8,
-								24,
-								8
-							]
-						},
-						{
-							"origin": [
-								-3,
-								0,
 								0
 							],
 							"size": [
@@ -640,7 +585,7 @@
 				}
 			},
 			{
-				"condition": "q.block_state('els_bb:connection_north') == true && q.block_state('els_bb:connection_south') == true && q.block_state('els_bb:connection_east') == false && q.block_state('els_bb:connection_west') == true",
+				"condition": "q.block_state('els_bb:connection_north') == false && q.block_state('els_bb:connection_south') == true && q.block_state('els_bb:connection_east') == false && q.block_state('els_bb:connection_west') == true",
 				"components": {
 					"minecraft:collision_box": [
 						{
@@ -669,9 +614,64 @@
 						},
 						{
 							"origin": [
+								-8,
+								0,
+								-3
+							],
+							"size": [
+								8,
+								24,
+								6
+							]
+						}
+					],
+					"minecraft:selection_box": {
+						"origin": [
+							-8,
+							0,
+							-8
+						],
+						"size": [
+							12,
+							16,
+							12
+						]
+					}
+				}
+			},
+			{
+				"condition": "q.block_state('els_bb:connection_north') == true && q.block_state('els_bb:connection_south') == true && q.block_state('els_bb:connection_east') == false && q.block_state('els_bb:connection_west') == true",
+				"components": {
+					"minecraft:collision_box": [
+						{
+							"origin": [
+								-4,
+								0,
+								-4
+							],
+							"size": [
+								8,
+								24,
+								8
+							]
+						},
+						{
+							"origin": [
 								-3,
 								0,
 								0
+							],
+							"size": [
+								6,
+								24,
+								8
+							]
+						},
+						{
+							"origin": [
+								-3,
+								0,
+								-8
 							],
 							"size": [
 								6,
@@ -769,73 +769,6 @@
 							"origin": [
 								-3,
 								0,
-								-8
-							],
-							"size": [
-								6,
-								24,
-								8
-							]
-						},
-						{
-							"origin": [
-								0,
-								0,
-								-3
-							],
-							"size": [
-								8,
-								24,
-								6
-							]
-						},
-						{
-							"origin": [
-								-8,
-								0,
-								-3
-							],
-							"size": [
-								8,
-								24,
-								6
-							]
-						}
-					],
-					"minecraft:selection_box": {
-						"origin": [
-							-8,
-							0,
-							-8
-						],
-						"size": [
-							16,
-							16,
-							12
-						]
-					}
-				}
-			},
-			{
-				"condition": "q.block_state('els_bb:connection_north') == false && q.block_state('els_bb:connection_south') == true && q.block_state('els_bb:connection_east') == true && q.block_state('els_bb:connection_west') == true",
-				"components": {
-					"minecraft:collision_box": [
-						{
-							"origin": [
-								-4,
-								0,
-								-4
-							],
-							"size": [
-								8,
-								24,
-								8
-							]
-						},
-						{
-							"origin": [
-								-3,
-								0,
 								0
 							],
 							"size": [
@@ -884,7 +817,7 @@
 				}
 			},
 			{
-				"condition": "q.block_state('els_bb:connection_north') == true && q.block_state('els_bb:connection_south') == true && q.block_state('els_bb:connection_east') == true && q.block_state('els_bb:connection_west') == true",
+				"condition": "q.block_state('els_bb:connection_north') == false && q.block_state('els_bb:connection_south') == true && q.block_state('els_bb:connection_east') == true && q.block_state('els_bb:connection_west') == true",
 				"components": {
 					"minecraft:collision_box": [
 						{
@@ -913,9 +846,76 @@
 						},
 						{
 							"origin": [
+								0,
+								0,
+								-3
+							],
+							"size": [
+								8,
+								24,
+								6
+							]
+						},
+						{
+							"origin": [
+								-8,
+								0,
+								-3
+							],
+							"size": [
+								8,
+								24,
+								6
+							]
+						}
+					],
+					"minecraft:selection_box": {
+						"origin": [
+							-8,
+							0,
+							-8
+						],
+						"size": [
+							16,
+							16,
+							12
+						]
+					}
+				}
+			},
+			{
+				"condition": "q.block_state('els_bb:connection_north') == true && q.block_state('els_bb:connection_south') == true && q.block_state('els_bb:connection_east') == true && q.block_state('els_bb:connection_west') == true",
+				"components": {
+					"minecraft:collision_box": [
+						{
+							"origin": [
+								-4,
+								0,
+								-4
+							],
+							"size": [
+								8,
+								24,
+								8
+							]
+						},
+						{
+							"origin": [
 								-3,
 								0,
 								0
+							],
+							"size": [
+								6,
+								24,
+								8
+							]
+						},
+						{
+							"origin": [
+								-3,
+								0,
+								-8
 							],
 							"size": [
 								6,
