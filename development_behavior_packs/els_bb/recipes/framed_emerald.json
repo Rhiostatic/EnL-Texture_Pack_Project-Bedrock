@@ -1,0 +1,28 @@
+{
+  "format_version": "1.20.10",
+  "minecraft:recipe_shapeless": {
+    "description": {
+      "identifier": "els_bb:framed_emerald"
+    },
+    "tags": [
+      "crafting_table"
+    ],
+    "ingredients": [
+      {
+        "item": "minecraft:emerald_block"
+      },
+      {
+        "item": "minecraft:iron_ingot"
+      }
+    ],
+    "unlock": [
+      {
+        "item": "minecraft:emerald_block"
+      }
+    ],
+    "result": {
+      "item": "els_bb:framed_emerald",
+      "count": 1
+    }
+  }
+}

@@ -6,6 +6,11 @@
 				"category_name": "construction",
 				"groups": [
 					{
+						"items": [
+							"els_bb:framed_emerald"
+						]
+					},
+					{
 						"group_identifier": {
 							"icon": "els_bb:chisled_gold_block",
 							"name": "els_bb:itemGroup.name.chisled_gold"
