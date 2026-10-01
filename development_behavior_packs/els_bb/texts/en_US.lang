@@ -1,5 +1,5 @@
-pack.name=v26.09.30c Bonus Blocks
-pack.description=An EnL Studios bonus blocks add-on. Extra decorative blocks including waxed torch and weathered sea lantern.
+pack.name=v26.10.01 Bonus Blocks
+pack.description=An EnL Studios bonus blocks add-on. Extra decorative blocks including waxed torch, weathered sea lantern, and patterned glass. Patterned glass by John Smith.
 els_bb:itemGroup.name.chisled_gold=Chiseled Gold
 tile.els_bb:chisled_gold_block.name=Silent
 tile.els_bb:chisled_gold_block_b.name=Face Left

@@ -1,3 +1,5 @@
+// Patterned glass pane connections. One behavior pack can register one script entry.
+import "./patterned_glass_panes.js";
 import { Direction, GameMode, ItemStack, system, world } from "@minecraft/server";
 
 const CUSTOM_FLAME = "els_bb:waxed_torch_flame";
