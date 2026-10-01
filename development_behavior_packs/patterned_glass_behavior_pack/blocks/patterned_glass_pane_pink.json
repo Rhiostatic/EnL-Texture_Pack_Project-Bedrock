@@ -22,6 +22,22 @@
         "patterned:connection_west": [
           false,
           true
+        ],
+        "patterned:end_north": [
+          false,
+          true
+        ],
+        "patterned:end_south": [
+          false,
+          true
+        ],
+        "patterned:end_east": [
+          false,
+          true
+        ],
+        "patterned:end_west": [
+          false,
+          true
         ]
       }
     },
@@ -62,14 +78,22 @@
       "minecraft:geometry": {
         "identifier": "geometry.patterned_glass_pane",
         "bone_visibility": {
-          "face_east": "!q.block_state('patterned:connection_east') || q.block_state('patterned:connection_north') || q.block_state('patterned:connection_south')",
-          "face_west": "!q.block_state('patterned:connection_west') || q.block_state('patterned:connection_north') || q.block_state('patterned:connection_south')",
-          "face_south": "!q.block_state('patterned:connection_north') || q.block_state('patterned:connection_east') || q.block_state('patterned:connection_west')",
-          "face_north": "!q.block_state('patterned:connection_south') || q.block_state('patterned:connection_east') || q.block_state('patterned:connection_west')",
+          "face_east": "q.block_state('patterned:connection_north') || q.block_state('patterned:connection_south')",
+          "face_west": "q.block_state('patterned:connection_north') || q.block_state('patterned:connection_south')",
+          "face_south": "q.block_state('patterned:connection_east') || q.block_state('patterned:connection_west')",
+          "face_north": "q.block_state('patterned:connection_east') || q.block_state('patterned:connection_west')",
+          "cap_east": "!q.block_state('patterned:connection_east') && !q.block_state('patterned:connection_north') && !q.block_state('patterned:connection_south')",
+          "cap_west": "!q.block_state('patterned:connection_west') && !q.block_state('patterned:connection_north') && !q.block_state('patterned:connection_south')",
+          "cap_south": "!q.block_state('patterned:connection_north') && !q.block_state('patterned:connection_east') && !q.block_state('patterned:connection_west')",
+          "cap_north": "!q.block_state('patterned:connection_south') && !q.block_state('patterned:connection_east') && !q.block_state('patterned:connection_west')",
           "north": "q.block_state('patterned:connection_north')",
           "south": "q.block_state('patterned:connection_south')",
           "east": "q.block_state('patterned:connection_east')",
-          "west": "q.block_state('patterned:connection_west')"
+          "west": "q.block_state('patterned:connection_west')",
+          "end_north": "q.block_state('patterned:end_north') && q.block_state('patterned:connection_north')",
+          "end_south": "q.block_state('patterned:end_south') && q.block_state('patterned:connection_south')",
+          "end_east": "q.block_state('patterned:end_east') && q.block_state('patterned:connection_east')",
+          "end_west": "q.block_state('patterned:end_west') && q.block_state('patterned:connection_west')"
         }
       },
       "minecraft:material_instances": {
@@ -82,6 +106,10 @@
           "render_method": "blend"
         },
         "down": {
+          "texture": "patterned_glass_pane_top_pink",
+          "render_method": "blend"
+        },
+        "edge": {
           "texture": "patterned_glass_pane_top_pink",
           "render_method": "blend"
         }

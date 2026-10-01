@@ -454,6 +454,286 @@
               }
             }
           ]
+        },
+        {
+          "name": "cap_east",
+          "pivot": [
+            0,
+            0,
+            0
+          ],
+          "cubes": [
+            {
+              "origin": [
+                -1,
+                0,
+                -1
+              ],
+              "size": [
+                2,
+                16,
+                2
+              ],
+              "uv": {
+                "east": {
+                  "uv": [
+                    14,
+                    0
+                  ],
+                  "uv_size": [
+                    4,
+                    32
+                  ],
+                  "material_instance": "edge"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "name": "cap_west",
+          "pivot": [
+            0,
+            0,
+            0
+          ],
+          "cubes": [
+            {
+              "origin": [
+                -1,
+                0,
+                -1
+              ],
+              "size": [
+                2,
+                16,
+                2
+              ],
+              "uv": {
+                "west": {
+                  "uv": [
+                    14,
+                    0
+                  ],
+                  "uv_size": [
+                    4,
+                    32
+                  ],
+                  "material_instance": "edge"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "name": "cap_south",
+          "pivot": [
+            0,
+            0,
+            0
+          ],
+          "cubes": [
+            {
+              "origin": [
+                -1,
+                0,
+                -1
+              ],
+              "size": [
+                2,
+                16,
+                2
+              ],
+              "uv": {
+                "south": {
+                  "uv": [
+                    14,
+                    0
+                  ],
+                  "uv_size": [
+                    4,
+                    32
+                  ],
+                  "material_instance": "edge"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "name": "cap_north",
+          "pivot": [
+            0,
+            0,
+            0
+          ],
+          "cubes": [
+            {
+              "origin": [
+                -1,
+                0,
+                -1
+              ],
+              "size": [
+                2,
+                16,
+                2
+              ],
+              "uv": {
+                "north": {
+                  "uv": [
+                    14,
+                    0
+                  ],
+                  "uv_size": [
+                    4,
+                    32
+                  ],
+                  "material_instance": "edge"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "name": "end_north",
+          "pivot": [
+            0,
+            0,
+            0
+          ],
+          "cubes": [
+            {
+              "origin": [
+                -1,
+                0,
+                7
+              ],
+              "size": [
+                2,
+                16,
+                1
+              ],
+              "uv": {
+                "south": {
+                  "uv": [
+                    14,
+                    0
+                  ],
+                  "uv_size": [
+                    4,
+                    32
+                  ],
+                  "material_instance": "edge"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "name": "end_south",
+          "pivot": [
+            0,
+            0,
+            0
+          ],
+          "cubes": [
+            {
+              "origin": [
+                -1,
+                0,
+                -8
+              ],
+              "size": [
+                2,
+                16,
+                1
+              ],
+              "uv": {
+                "north": {
+                  "uv": [
+                    14,
+                    0
+                  ],
+                  "uv_size": [
+                    4,
+                    32
+                  ],
+                  "material_instance": "edge"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "name": "end_east",
+          "pivot": [
+            0,
+            0,
+            0
+          ],
+          "cubes": [
+            {
+              "origin": [
+                7,
+                0,
+                -1
+              ],
+              "size": [
+                1,
+                16,
+                2
+              ],
+              "uv": {
+                "east": {
+                  "uv": [
+                    14,
+                    0
+                  ],
+                  "uv_size": [
+                    4,
+                    32
+                  ],
+                  "material_instance": "edge"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "name": "end_west",
+          "pivot": [
+            0,
+            0,
+            0
+          ],
+          "cubes": [
+            {
+              "origin": [
+                -8,
+                0,
+                -1
+              ],
+              "size": [
+                1,
+                16,
+                2
+              ],
+              "uv": {
+                "west": {
+                  "uv": [
+                    14,
+                    0
+                  ],
+                  "uv_size": [
+                    4,
+                    32
+                  ],
+                  "material_instance": "edge"
+                }
+              }
+            }
+          ]
         }
       ],
       "item_display_transforms": {

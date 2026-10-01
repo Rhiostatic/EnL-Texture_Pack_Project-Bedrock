@@ -109,6 +109,7 @@ function isPaneOrBars(id) {
 	return (
 		id === "minecraft:iron_bars" ||
 		id.endsWith("_bars") ||
+		id.endsWith("_grate") ||
 		id === "minecraft:glass_pane" ||
 		id.endsWith("_stained_glass_pane") ||
 		id.includes("glass_pane") ||
@@ -278,7 +279,7 @@ function connectsTo(block) {
 	if (typeof id !== "string") {
 		return false;
 	}
-	// Patterned panes, vanilla and stained panes, and iron bars.
+	// Patterned panes, vanilla and stained panes, iron and copper bars, copper grates.
 	if (isPaneOrBars(id)) {
 		return true;
 	}
@@ -300,18 +301,29 @@ function updatePane(block) {
 	const { dimension, location } = block;
 	const flags = {};
 	for (const [name, dir] of Object.entries(DIRS)) {
-		flags[name] = connectsTo(blockAt(dimension, location, dir.x, dir.y, dir.z));
+		const neighbor = blockAt(dimension, location, dir.x, dir.y, dir.z);
+		flags[name] = {
+			connects: connectsTo(neighbor),
+			patterned: isOurPane(neighbor)
+		};
 	}
 	// Same orientation fix as els_bb:chiseled_end_stone_brick_wall. In game the
 	// arm meshes render 180 degrees from their names: the north bone points
 	// south, south points north, east points west, west points east. Drive
 	// each state from the opposite neighbor so the mesh and the collision
 	// tied to that state point at the connection.
+	// end_* uses that same swap. It is true only when the arm's neighbor
+	// connects and is not another patterned pane, so the arm tip draws the
+	// pane-top strip against vanilla panes, bars, grates, glass, and solids.
 	const next = {
-		"patterned:connection_north": flags.south,
-		"patterned:connection_south": flags.north,
-		"patterned:connection_east": flags.west,
-		"patterned:connection_west": flags.east
+		"patterned:connection_north": flags.south.connects,
+		"patterned:connection_south": flags.north.connects,
+		"patterned:connection_east": flags.west.connects,
+		"patterned:connection_west": flags.east.connects,
+		"patterned:end_north": flags.south.connects && !flags.south.patterned,
+		"patterned:end_south": flags.north.connects && !flags.north.patterned,
+		"patterned:end_east": flags.west.connects && !flags.west.patterned,
+		"patterned:end_west": flags.east.connects && !flags.east.patterned
 	};
 	let perm = block.permutation;
 	let changed = false;
