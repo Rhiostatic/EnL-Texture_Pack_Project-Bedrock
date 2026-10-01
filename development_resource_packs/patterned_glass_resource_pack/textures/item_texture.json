@@ -3,55 +3,55 @@
   "texture_name": "atlas.items",
   "texture_data": {
     "patterned_glass_pane": {
-      "textures": "textures/blocks/patterned_glass"
+      "textures": "textures/items/patterned_glass_pane"
     },
     "patterned_glass_pane_black": {
-      "textures": "textures/blocks/patterned_glass_black"
+      "textures": "textures/items/patterned_glass_pane_black"
     },
     "patterned_glass_pane_blue": {
-      "textures": "textures/blocks/patterned_glass_blue"
+      "textures": "textures/items/patterned_glass_pane_blue"
     },
     "patterned_glass_pane_brown": {
-      "textures": "textures/blocks/patterned_glass_brown"
+      "textures": "textures/items/patterned_glass_pane_brown"
     },
     "patterned_glass_pane_cyan": {
-      "textures": "textures/blocks/patterned_glass_cyan"
+      "textures": "textures/items/patterned_glass_pane_cyan"
     },
     "patterned_glass_pane_gray": {
-      "textures": "textures/blocks/patterned_glass_gray"
+      "textures": "textures/items/patterned_glass_pane_gray"
     },
     "patterned_glass_pane_green": {
-      "textures": "textures/blocks/patterned_glass_green"
+      "textures": "textures/items/patterned_glass_pane_green"
     },
     "patterned_glass_pane_light_blue": {
-      "textures": "textures/blocks/patterned_glass_light_blue"
+      "textures": "textures/items/patterned_glass_pane_light_blue"
     },
     "patterned_glass_pane_lime": {
-      "textures": "textures/blocks/patterned_glass_lime"
+      "textures": "textures/items/patterned_glass_pane_lime"
     },
     "patterned_glass_pane_magenta": {
-      "textures": "textures/blocks/patterned_glass_magenta"
+      "textures": "textures/items/patterned_glass_pane_magenta"
     },
     "patterned_glass_pane_orange": {
-      "textures": "textures/blocks/patterned_glass_orange"
+      "textures": "textures/items/patterned_glass_pane_orange"
     },
     "patterned_glass_pane_pink": {
-      "textures": "textures/blocks/patterned_glass_pink"
+      "textures": "textures/items/patterned_glass_pane_pink"
     },
     "patterned_glass_pane_purple": {
-      "textures": "textures/blocks/patterned_glass_purple"
+      "textures": "textures/items/patterned_glass_pane_purple"
     },
     "patterned_glass_pane_red": {
-      "textures": "textures/blocks/patterned_glass_red"
+      "textures": "textures/items/patterned_glass_pane_red"
     },
     "patterned_glass_pane_light_grey": {
-      "textures": "textures/blocks/patterned_glass_light_grey"
+      "textures": "textures/items/patterned_glass_pane_light_grey"
     },
     "patterned_glass_pane_white": {
-      "textures": "textures/blocks/patterned_glass_white"
+      "textures": "textures/items/patterned_glass_pane_white"
     },
     "patterned_glass_pane_yellow": {
-      "textures": "textures/blocks/patterned_glass_yellow"
+      "textures": "textures/items/patterned_glass_pane_yellow"
     }
   }
 }
