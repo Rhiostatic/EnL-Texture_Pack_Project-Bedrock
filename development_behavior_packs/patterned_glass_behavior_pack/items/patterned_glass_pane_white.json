@@ -1,0 +1,21 @@
+{
+  "format_version": "1.21.60",
+  "minecraft:item": {
+    "description": {
+      "identifier": "patterned:patterned_glass_pane_white",
+      "menu_category": {
+        "category": "construction"
+      }
+    },
+    "components": {
+      "minecraft:icon": "patterned_glass_pane_white",
+      "minecraft:display_name": {
+        "value": "tile.patterned:patterned_glass_pane_white.name"
+      },
+      "minecraft:block_placer": {
+        "block": "patterned:patterned_glass_pane_white",
+        "replace_block_item": true
+      }
+    }
+  }
+}
