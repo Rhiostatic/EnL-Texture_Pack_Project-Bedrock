@@ -84,5 +84,56 @@
     "sound": "glass",
     "textures": "patterned_glass_yellow",
     "brightness_gamma": 1
+  },
+  "patterned:patterned_glass_pane": {
+    "sound": "glass"
+  },
+  "patterned:patterned_glass_pane_black": {
+    "sound": "glass"
+  },
+  "patterned:patterned_glass_pane_blue": {
+    "sound": "glass"
+  },
+  "patterned:patterned_glass_pane_brown": {
+    "sound": "glass"
+  },
+  "patterned:patterned_glass_pane_cyan": {
+    "sound": "glass"
+  },
+  "patterned:patterned_glass_pane_gray": {
+    "sound": "glass"
+  },
+  "patterned:patterned_glass_pane_green": {
+    "sound": "glass"
+  },
+  "patterned:patterned_glass_pane_light_blue": {
+    "sound": "glass"
+  },
+  "patterned:patterned_glass_pane_lime": {
+    "sound": "glass"
+  },
+  "patterned:patterned_glass_pane_magenta": {
+    "sound": "glass"
+  },
+  "patterned:patterned_glass_pane_orange": {
+    "sound": "glass"
+  },
+  "patterned:patterned_glass_pane_pink": {
+    "sound": "glass"
+  },
+  "patterned:patterned_glass_pane_purple": {
+    "sound": "glass"
+  },
+  "patterned:patterned_glass_pane_red": {
+    "sound": "glass"
+  },
+  "patterned:patterned_glass_pane_light_grey": {
+    "sound": "glass"
+  },
+  "patterned:patterned_glass_pane_white": {
+    "sound": "glass"
+  },
+  "patterned:patterned_glass_pane_yellow": {
+    "sound": "glass"
   }
 }

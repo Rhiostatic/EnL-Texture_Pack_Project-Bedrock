@@ -1,0 +1,29 @@
+{
+  "format_version": "1.20.10",
+  "minecraft:recipe_shaped": {
+    "description": {
+      "identifier": "patterned:patterned_glass_pane_brown"
+    },
+    "tags": [
+      "crafting_table"
+    ],
+    "pattern": [
+      "GGG",
+      "GGG"
+    ],
+    "key": {
+      "G": {
+        "item": "patterned:patterned_glass_brown"
+      }
+    },
+    "unlock": [
+      {
+        "item": "patterned:patterned_glass_brown"
+      }
+    ],
+    "result": {
+      "item": "patterned:patterned_glass_pane_brown",
+      "count": 16
+    }
+  }
+}
