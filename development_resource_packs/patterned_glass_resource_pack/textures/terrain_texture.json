@@ -54,6 +54,57 @@
     },
     "patterned_glass_yellow": {
       "textures": "textures/blocks/patterned_glass_yellow"
+    },
+    "patterned_glass_pane_top": {
+      "textures": "textures/blocks/patterned_glass_pane_top"
+    },
+    "patterned_glass_pane_top_black": {
+      "textures": "textures/blocks/patterned_glass_pane_top_black"
+    },
+    "patterned_glass_pane_top_blue": {
+      "textures": "textures/blocks/patterned_glass_pane_top_blue"
+    },
+    "patterned_glass_pane_top_brown": {
+      "textures": "textures/blocks/patterned_glass_pane_top_brown"
+    },
+    "patterned_glass_pane_top_cyan": {
+      "textures": "textures/blocks/patterned_glass_pane_top_cyan"
+    },
+    "patterned_glass_pane_top_gray": {
+      "textures": "textures/blocks/patterned_glass_pane_top_gray"
+    },
+    "patterned_glass_pane_top_green": {
+      "textures": "textures/blocks/patterned_glass_pane_top_green"
+    },
+    "patterned_glass_pane_top_light_blue": {
+      "textures": "textures/blocks/patterned_glass_pane_top_light_blue"
+    },
+    "patterned_glass_pane_top_lime": {
+      "textures": "textures/blocks/patterned_glass_pane_top_lime"
+    },
+    "patterned_glass_pane_top_magenta": {
+      "textures": "textures/blocks/patterned_glass_pane_top_magenta"
+    },
+    "patterned_glass_pane_top_orange": {
+      "textures": "textures/blocks/patterned_glass_pane_top_orange"
+    },
+    "patterned_glass_pane_top_pink": {
+      "textures": "textures/blocks/patterned_glass_pane_top_pink"
+    },
+    "patterned_glass_pane_top_purple": {
+      "textures": "textures/blocks/patterned_glass_pane_top_purple"
+    },
+    "patterned_glass_pane_top_red": {
+      "textures": "textures/blocks/patterned_glass_pane_top_red"
+    },
+    "patterned_glass_pane_top_light_grey": {
+      "textures": "textures/blocks/patterned_glass_pane_top_light_grey"
+    },
+    "patterned_glass_pane_top_white": {
+      "textures": "textures/blocks/patterned_glass_pane_top_white"
+    },
+    "patterned_glass_pane_top_yellow": {
+      "textures": "textures/blocks/patterned_glass_pane_top_yellow"
     }
   }
 }
