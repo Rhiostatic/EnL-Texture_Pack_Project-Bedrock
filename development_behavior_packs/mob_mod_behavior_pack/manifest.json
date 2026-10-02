@@ -1,8 +1,8 @@
 {
     "format_version": 2,
     "header": {
-        "description": "Mob Mod behavior pack",
-        "name": "Mob Mod! handcuffing Endermen",
+        "description": "pack.description",
+        "name": "pack.name",
         "uuid": "10a12998-04fd-43b1-8e8b-5908230b5d52",
         "version": [ 1, 0, 4],
         "min_engine_version": [ 1, 20, 1 ]
