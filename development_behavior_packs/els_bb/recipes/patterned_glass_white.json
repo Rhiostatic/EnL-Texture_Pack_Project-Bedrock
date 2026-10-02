@@ -1,20 +1,23 @@
 {
   "format_version": "1.20.10",
-  "minecraft:recipe_shapeless": {
+  "minecraft:recipe_shaped": {
     "description": {
       "identifier": "patterned:patterned_glass_white"
     },
     "tags": [
       "crafting_table"
     ],
-    "ingredients": [
-      {
+    "pattern": [
+      "G N"
+    ],
+    "key": {
+      "G": {
         "item": "minecraft:white_stained_glass"
       },
-      {
+      "N": {
         "item": "minecraft:iron_nugget"
       }
-    ],
+    },
     "unlock": [
       {
         "item": "minecraft:white_stained_glass"
