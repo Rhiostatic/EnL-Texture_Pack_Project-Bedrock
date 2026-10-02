@@ -1,20 +1,23 @@
 {
   "format_version": "1.20.10",
-  "minecraft:recipe_shapeless": {
+  "minecraft:recipe_shaped": {
     "description": {
       "identifier": "patterned:patterned_glass"
     },
     "tags": [
       "crafting_table"
     ],
-    "ingredients": [
-      {
+    "pattern": [
+      "G N"
+    ],
+    "key": {
+      "G": {
         "item": "minecraft:glass"
       },
-      {
+      "N": {
         "item": "minecraft:iron_nugget"
       }
-    ],
+    },
     "unlock": [
       {
         "item": "minecraft:glass"
