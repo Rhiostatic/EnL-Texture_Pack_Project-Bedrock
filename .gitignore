@@ -6,9 +6,12 @@ Thumbs.db
 *.bak
 *.tmp
 Desktop.ini
-*.mcpack
 *.zip
 
 # Posted Bedrock packs live here; keep source in development_*
 !releases/
 !releases/**
+
+# Pack archives are GitHub Release assets only, never committed.
+*.mcpack
+*.mcaddon
