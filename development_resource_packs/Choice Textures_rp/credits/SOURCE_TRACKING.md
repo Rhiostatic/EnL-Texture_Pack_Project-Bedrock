@@ -12,7 +12,17 @@ Pack path: `development_resource_packs/Choice Textures_rp/`
 3. Credit licenses stay under `credits/` (do not edit Faithful `LICENSE.txt`).
 4. Skip Vibrant Visuals (`_mer` / `_mers` / `_normal` / `_heightmap` / `.texture_set.json`) and Education Edition.
 
-## 2026-09-30 — Spawn eggs → Faithful 64x r14, legacy egg icons removed
+## 2026-10-04 — Animal entities → Natural Texture Pack 1.0.89
+
+- **Branch:** `choice/natural-animals`
+- **Issue:** #75. Erik approved replacing existing Choice animal entity art (rule 4 exception).
+- **Source:** Natural Texture Pack 1.0.89, Minecraft Marketplace (Mojang). Reference path `Packs Used to Build EnL from/32x/Natural_1.0.89`. The pack has no custom entity models; these sheets use vanilla UVs. Credit: Natural Texture Pack by Mojang / Marketplace.
+- **Scope:** Choice Textures entity textures only. Animation Essentials and Animation Extended were not changed. Spawn eggs were not changed. Zombie, villager, creeper, dragon, and allay were not changed. Hoglin, strider, ghast, and happy ghast were not changed.
+- **Resolution:** Natural is the 32× pack. 246 sheets are exactly half Choice’s previous size on both axes (same aspect). 29 sheets were already the same pixel size. Two differ from that 2× pattern and were still copied because the aspect and UV silhouette match: `bat_v2.png` (Choice 32×32 → Natural 64×64) and `sheep/sheep_baby.tga` (Choice 128×128 → Natural 32×32).
+- **Copied:** 277 entity files whose path matched. 259 of those bytes changed. The legacy `textures/entity/horse/` set (18 files, including donkey, mule, markings, and horse armor) was already byte-identical to this Natural build, so those files are unchanged. Live horse skins are `textures/entity/horse2/`.
+- **Left on the previous art:** 50 files that were not in the supplied Natural subset (cat and wolf baby/angry/tame variants, `horse2/horse_white_baby.png`, `horse2/horse_skeleton_baby.png`). Also left because Natural had no matching path: `dolphin.png`, `polarbear.png`, `polar_bear.png`, `sea_turtle.png`, `squid.png`, `cat/blackcat.png`, `cat/red.png`, `cat/siamese.png`, `fish/clownfish.png`, `fish/fish.png`. Zombie horse, zombie nautilus, and zombified piglin sheets were not touched.
+- **In Natural, not added** (Choice has no file at that path): `redcow.png`, `sheep/sheep_fur.png`, `rabbit/black.png`, `rabbit/caerbannog.png`, `wolf/wolf_collar.png`, `horse/armor/horse_armor_leather.png` (Choice keeps the `.tga`, which already matched Natural’s `.tga`).
+- **Pack rev:** display `v26.10.04 Choice Textures`; manifest header+module `1.0.19`; UUIDs unchanged; `pack.description` unchanged.
 
 - **Branch:** `cursor/choice-faithful-spawn-eggs-1216`
 - **Rule exception:** Erik explicitly approved replacing five existing Choice spawn eggs (rule 4). Everything else in `textures/items/spawn_eggs/` was already byte-identical to Faithful 64x Release 14 and was left as-is.
