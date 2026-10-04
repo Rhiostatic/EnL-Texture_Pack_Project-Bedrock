@@ -12,6 +12,19 @@ Pack path: `development_resource_packs/Choice Textures_rp/`
 3. Credit licenses stay under `credits/` (do not edit Faithful `LICENSE.txt`).
 4. Skip Vibrant Visuals (`_mer` / `_mers` / `_normal` / `_heightmap` / `.texture_set.json`) and Education Edition.
 
+## 2026-10-04 — Tame cats and wolves, leftover adults → Natural Texture Pack 1.0.89
+
+- **Branch:** `choice/natural-tame`
+- **Issue:** #75 follow-up. Erik approved this Marketplace art in Choice.
+- **Source:** Natural Texture Pack 1.0.89, pack path `Packs Used to Build EnL from/32x/Natural_1.0.89`. Files came from the attached export (pack-relative paths), not a fresh clone. Credit: Natural Texture Pack by Mojang / Marketplace.
+- **Scope:** Choice Textures entity textures only. Animation Essentials, Animation Extended, and spawn eggs were not changed. Display name stays `v26.10.04 Choice Textures`. Manifest header and module `1.0.19` → `1.0.20`. UUIDs and `pack.description` unchanged.
+- **Converted:** seven baby-cat `.tga` files in the export are PNG data (`persian`, `ragdoll`, `redtabby`, `siamese`, `tabby`, `tuxedo`, `white` tame babies). Choice’s copies were real TGA, so those seven were rewritten as uncompressed 32-bit TGA (RGBA, bottom-up, alpha kept) before they replaced Choice. The other tame sheets were already real TGA and were copied as bytes.
+- **Replaced tame sheets (23):** the nine cat and fourteen wolf tame / tame-baby files listed in the 2026-10-04 animal entry as still on the previous art. Each Natural sheet is exactly half the previous Choice size on both axes (same aspect) and still has an alpha channel.
+- **Replaced adults that still differed:** `dolphin.png`, `polarbear.png`, `polar_bear.png`, `sea_turtle.png`, `squid.png`. Same half-size, same aspect, alpha kept. Natural’s `polarbear.png` and `polar_bear.png` are the same bytes, so both Choice paths now share that sheet.
+- **Already identical to this Natural build, left as-is:** `glow_squid/glow_squid.tga`, all `fish/tropical_a` / `tropical_b` body and pattern sheets, `cat/allblackcat.png`, `cat/allblackcat_tame.tga`, `cat/redtabby.png`, `cat/redtabby_tame.tga`, `cat/siamesecat.png`, `cat/siamesecat_tame.tga`.
+- **Left alone:** `cat/blackcat.png`, `cat/red.png`, `cat/siamese.png`. Choice has no entity or client-entity JSON. The only mention is a preload row in `textures_list.json`, so they were not remapped onto `allblackcat` / `redtabby` / `siamesecat`. `fish/clownfish.png` and `fish/fish.png` stay, because Natural has no entity sheet for them.
+- **Odd:** Natural’s adult wolf tame sheets, including ashen, black, and chestnut from the earlier copy, are a collar only: 108 opaque pixels in a 16×14 block at the top, and the rest is fully transparent. Adult cat tame sheets (`tuxedo_tame`, `white_tame`, and the persian / ragdoll / other tame adults already in Choice) keep a body, but almost all of those pixels are alpha 1–16. About 96 collar pixels sit above alpha 16. Baby wolf tame sheets are the same idea at half size: a faint body (alpha 1–16) plus a small solid mark. That mark’s alpha mask still lines up with the previous baby (IoU about 0.96). Baby cat tame sheets are fully opaque and match the wild baby silhouette already taken from Natural. The previous Choice baby-cat tame sheets were a small mark, and `tabby_tame_baby.tga` had only 120 opaque pixels. Dolphin, polar bear, sea turtle, and squid alpha masks match the previous sheets (IoU 0.98–1.00) at half the old size. Natural’s `polarbear.png` and `polar_bear.png` are the same file.
+
 ## 2026-10-04 — Animal entities → Natural Texture Pack 1.0.89
 
 - **Branch:** `choice/natural-animals`
