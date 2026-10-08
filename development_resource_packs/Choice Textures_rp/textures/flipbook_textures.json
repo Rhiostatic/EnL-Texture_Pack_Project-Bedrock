@@ -29,11 +29,6 @@
     "ticks_per_frame": 2
   },
   {
-    "flipbook_texture": "textures/blocks/soul_torch",
-    "atlas_tile": "soul_torch",
-    "ticks_per_frame": 2
-  },
-  {
     "flipbook_texture": "textures/blocks/pumpkin_face_on",
     "atlas_tile": "pumpkin_face",
     "atlas_index": 1,
