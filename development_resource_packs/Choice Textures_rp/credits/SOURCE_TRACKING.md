@@ -12,6 +12,16 @@ Pack path: `development_resource_packs/Choice Textures_rp/`
 3. Credit licenses stay under `credits/` (do not edit Faithful `LICENSE.txt`).
 4. Skip Vibrant Visuals (`_mer` / `_mers` / `_normal` / `_heightmap` / `.texture_set.json`) and Education Edition.
 
+## 2026-10-12 — Revert Natural chicken and sea turtle sheets (#81)
+
+- **Issue:** #81. Players disliked the Natural Texture chicken and turtle sheets that landed in #76 and #78.
+- **Restored from** `a4250912` (parent of #76 / `2aaec2ad`), the Choice bytes from before that import. Every path already existed, so nothing was deleted.
+- **Chicken (changed in #76 / `2aaec2ad`):** `textures/entity/chicken.png`, `textures/entity/chicken/chicken.png`, `chicken_cold.png`, `chicken_cold_baby.png`, `chicken_temperate_baby.png`, `chicken_warm.png`, `chicken_warm_baby.png`. There is no separate `chicken_temperate.png`; the temperate adult is `chicken.png` (the folder copy is the same blob).
+- **Turtle:** `textures/entity/turtle/sea_turtle_baby.png` (changed in #76). Adult `textures/entity/sea_turtle.png` was still the old sheet after #76 and was replaced in #78 / `bd2bb102`; that file is restored from the same `a4250912` blob, which #76 did not touch.
+- **References:** this pack has no entity or client-entity JSON. `textures_list.json` already lists these paths, so the preload rows stay.
+- **Left alone:** every other Natural animal sheet from #76 and #78, plus chicken and turtle items, spawn eggs, eggs, potions, and turtle armor.
+- **Pack rev:** display `v26.10.12 Choice Textures`; manifest header+module `1.0.21` → `1.0.22`; UUIDs unchanged; `pack.description` unchanged.
+
 ## 2026-10-04 — Tame cats and wolves, leftover adults → Natural Texture Pack 1.0.89
 
 - **Branch:** `choice/natural-tame`
