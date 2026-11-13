@@ -8,10 +8,10 @@ Vanilla baseline for texture-set counts: Mojang `bedrock-samples` tag **v1.26.60
 
 | File | Role |
 |---|---|
-| `development_resource_packs/Choice Textures_rp/manifest.json` | `pbr` capability, `min_engine_version` `[1, 21, 120]`, version `[1, 0, 23]`, `product_type` `addon` |
+| `development_resource_packs/Choice Textures_rp/manifest.json` | `pbr` capability, `min_engine_version` `[1, 21, 120]`, version `[1, 0, 25]`, `product_type` `addon` |
 | `texts/en_US.lang` | `pack.name=v26.11.13 Choice Textures`. Description unchanged: "An EnL Studios blend of Texture Packs." No other lang file defines `pack.name`. |
 | `pbr/global.json` | Fallback MERS when a texture set does not supply it |
-| `textures/blocks/**/*.texture_set.json` | 1,277 generated sets |
+| `textures/blocks/**/*.texture_set.json` | 1,286 generated sets |
 | `tools/choice_vv/generate_block_texture_sets.py` | Re-runnable generator |
 | `tools/choice_vv/vanilla_block_texture_sets_v1.26.60.5.txt` | Vanilla block texture-set filenames the generator matches |
 | `tools/choice_vv/validate_vv.py` | Schema checks. Not an in-game test. |
@@ -45,12 +45,11 @@ A Choice `stone.png` with no set of its own leaves vanilla's set in charge, and 
 | Count | Meaning |
 |---|---|
 | 1,293 | Vanilla block texture sets in v1.26.60.5 |
-| 1,277 | Sets written into Choice |
-| 9 | Skipped on purpose (below) |
+| 1,286 | Sets written into Choice, including torches and suspicious gravel 0–3 |
 | 7 | Not written: Choice has no image. All seven are Education (`border`, `build_allow`, `build_deny`, `camera_back`, `camera_front`, `camera_side`, `camera_top`) |
-| 226 | Choice block colors with no vanilla set. The PNG override is enough for those. `pbr/global.json` covers missing MERS. |
+| 226 | Choice block colors with no vanilla set. The PNG override is enough for those. `pbr/global.json` covers missing MERS. `suspicious_gravel_0_v3` is one of these. |
 
-1,277 + 9 + 7 = 1,293. Eleven stems exist as both `.png` and `.tga` (`fern_carried`, `seagrass`, `tallgrass`, both lilac halves, both mangrove-leaf sheets, both mangrove-root sheets, `pale_oak_leaves`, `grass_side_snowed`). They share one set. The color name has no extension, so the game picks `.tga` over `.png`.
+1,286 + 7 = 1,293. Ten stems exist as both `.png` and `.tga` (`fern_carried`, `tallgrass`, both lilac halves, both mangrove-leaf sheets, both mangrove-root sheets, `pale_oak_leaves`, `grass_side_snowed`). They share one set. The color name has no extension, so the game picks `.tga` over `.png`. Main removed `seagrass.tga` (#80); `seagrass.png` remains, and the set still names `seagrass`. `kelp_top_leaf.tga` was removed and Choice has no replacement image and no texture set for it.
 
 `sandstone_normal`, `red_sandstone_normal`, `piston_top_normal`, and `rail_normal` are color textures. The `_normal` suffix is vanilla's name for that block face, not a normal map. They have sets.
 
@@ -67,16 +66,22 @@ Classic uses only the color layer, so Fancy and Classic should look the same as 
 
 Uniform MERS does not apply to texture *variations* (Learn caution). If a block uses variations, those need an image MERS later. Not changed here.
 
-### Skipped block textures
+### Torches, suspicious gravel, and flipbooks
 
-These Choice files have a vanilla texture set, and no Choice set was written. PRs #80 (flipbook / torch) and #83 (suspicious gravel) own the art. `flipbook_textures.json` was not edited. `torchflower` is not a torch and was not skipped.
+#80 and #83 are on main. The generator now writes sets for every Choice block color that vanilla v1.26.60.5 already locks, including:
 
-- `torch_on.png`, `soul_torch.png`, `copper_torch.png`, `redstone_torch_on.png`, `redstone_torch_off.png`
-- `suspicious_gravel_0.png` through `suspicious_gravel_3.png`
+- `torch_on`, `soul_torch` (64×64), `copper_torch` (64×64), `redstone_torch_on` (32×896 flipbook strip), `redstone_torch_off`
+- `suspicious_gravel_0` through `suspicious_gravel_3`
 
-**Untested:** under VV those nine can still show vanilla art. Suspicious sand was not excluded.
+`suspicious_gravel_0_v3` does not get a set. It is a Choice terrain variation (`terrain_texture.json`, weight 50 next to `suspicious_gravel_0`) and vanilla has no `suspicious_gravel_0_v3.texture_set.json`. Nothing in the vanilla pack can lock that name to a vanilla image. `pbr/global.json` is its MERS fallback.
 
-`textures/flame_atlas.png` is outside `textures/blocks`. Vanilla's `flame_atlas.texture_set.json` uses MERS `[0, 255, 255, 0]` (fully emissive). No Choice set was added. Fire can still show the vanilla atlas under VV. That belongs with phase 6, not this pass.
+Flipbook animation is `textures/flipbook_textures.json`, which this branch does not edit. It points `flipbook_texture` at the color image (`textures/blocks/glowstone`, `redstone_lamp_on`, `redstone_torch_on`, the seagrass strips, and the rest). Vanilla ships a texture set for those same stems. The set's `color` field is that image, and the color layer is the only one Classic uses, so Fancy still animates the strip.
+
+The Texture Sets reference does not say a texture set stops flipbook playback. Coexistence is inferred from vanilla shipping both, not from a sentence that says a higher pack's set keeps the frames moving. **Untested in-game.** Uniform MERS is one value for the whole strip, not a per-frame map. Glowstone and the lit redstone lamp therefore lose vanilla's emissive pixels until phase 6. That is the matte default, not a frozen flipbook.
+
+The same reference warns that texture variations do not pick up uniform MERS; they need an image MERS. Suspicious gravel is a variation. **Untested:** whether `suspicious_gravel_0`'s uniform MERS reaches `suspicious_gravel_0_v3`, which has no set of its own. The color PNG for `_v3` is not locked by a vanilla set.
+
+`textures/flame_atlas.png` is outside `textures/blocks`. Vanilla's `flame_atlas.texture_set.json` uses MERS `[0, 255, 255, 0]` (fully emissive). No Choice set was added. Fire can still show the vanilla atlas under VV. That belongs with phase 6.
 
 Items (850 vanilla sets) and entities (848) were not given Choice sets. A cow or a held apple can still show vanilla under VV. Phase 11.
 

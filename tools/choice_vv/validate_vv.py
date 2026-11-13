@@ -16,7 +16,6 @@ from pathlib import Path
 from constants import (
     CHOICE_NOON_SUN,
     COLOR_EXTENSIONS,
-    EXCLUDED_BLOCK_FILENAMES,
     LIGHTING_FILES,
     UNIFORM_MERS,
     VANILLA_NOON_SUN,
@@ -110,11 +109,11 @@ def check_manifest() -> None:
     header = data.get("header", {})
     if header.get("min_engine_version") != [1, 21, 120]:
         fail(f"min_engine_version is {header.get('min_engine_version')}, expected [1, 21, 120]")
-    if header.get("version") != [1, 0, 23]:
+    if header.get("version") != [1, 0, 25]:
         fail(f"header version is {header.get('version')}")
     modules = data.get("modules") or []
-    if not modules or modules[0].get("version") != [1, 0, 23]:
-        fail("module version is not [1, 0, 23]")
+    if not modules or modules[0].get("version") != [1, 0, 25]:
+        fail("module version is not [1, 0, 25]")
     if header.get("uuid") != "c7eb999a-07ec-4fc9-b41a-4bc952734511":
         fail("header uuid changed")
     if modules and modules[0].get("uuid") != "64319acf-204b-4f5c-89ef-38f8d23f2598":
@@ -263,16 +262,6 @@ def check_texture_sets() -> None:
         mers = body.get("metalness_emissive_roughness_subsurface")
         if mers != UNIFORM_MERS:
             fail(f"{path.name}: MERS is {mers}")
-        if path.name.replace(".texture_set.json", ".png") in EXCLUDED_BLOCK_FILENAMES or any(
-            (path.parent / name).with_suffix(".texture_set.json") == path and name in EXCLUDED_BLOCK_FILENAMES
-            for name in EXCLUDED_BLOCK_FILENAMES
-        ):
-            fail(f"excluded file got a texture set: {path.name}")
-    for name in EXCLUDED_BLOCK_FILENAMES:
-        for path in blocks.rglob(name):
-            sibling = path.with_suffix(".texture_set.json")
-            if sibling.exists():
-                fail(f"excluded texture has a texture set: {sibling.relative_to(PACK)}")
 
 
 def check_biomes() -> None:

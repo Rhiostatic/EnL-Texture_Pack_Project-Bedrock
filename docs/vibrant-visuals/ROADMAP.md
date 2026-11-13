@@ -1,6 +1,6 @@
 # Vibrant Visuals roadmap
 
-Status is for Choice Textures. "In this PR" means the branch that adds phases 1 and 2 (`v26.11.13`, manifest `1.0.23`). Later phases are not started. Do not start them by dropping maps into the pack without a design note and a `SOURCE_TRACKING.md` entry.
+Status is for Choice Textures. "In this PR" means the branch that adds phases 1 and 2 (`v26.11.13`, manifest `1.0.25`, after main absorbed #80 and #83 at `1.0.24`). Later phases are not started. Do not start them by dropping maps into the pack without a design note and a `SOURCE_TRACKING.md` entry.
 
 | Phase | What | Status |
 |---|---|---|
@@ -9,7 +9,7 @@ Status is for Choice Textures. "In this PR" means the branch that adds phases 1 
 | 3 | Atmosphere and biome fog | Not started. |
 | 4 | Water | Not started. |
 | 5 | Color grading | Not started. |
-| 6 | Emissive blocks | Not started. Waits on PR #80 (torch / flipbook). Torch and suspicious-gravel texture sets were left out of phase 1 for the same reason (PR #83 owns suspicious gravel). |
+| 6 | Emissive blocks | Not started. Torch, flipbook, and suspicious-gravel color art from #80 and #83 is on main, and phase 1 now has color texture sets for those vanilla names. This phase is the emissive maps. |
 | 7 | Metals and gems | Not started. Per-texture MERS, with provenance. |
 | 8 | Above-ground materials | Not started. |
 | 9 | Below-ground stone and ores | Not started. |

@@ -16,23 +16,6 @@ CHOICE_NOON_SUN = [255, 223, 204]
 # subsurface 0. Roughness 255 is fully rough (matte). Channels are 0-255.
 UNIFORM_MERS = [0, 0, 255, 0]
 
-# Block color textures that vanilla has a texture set for, but this phase must
-# not touch. PR #80 owns flipbook/torch animation. PR #83 owns suspicious gravel.
-# torchflower is a flower and is not in this set.
-EXCLUDED_BLOCK_FILENAMES = frozenset(
-    {
-        "torch_on.png",
-        "soul_torch.png",
-        "redstone_torch_on.png",
-        "redstone_torch_off.png",
-        "copper_torch.png",
-        "suspicious_gravel_0.png",
-        "suspicious_gravel_1.png",
-        "suspicious_gravel_2.png",
-        "suspicious_gravel_3.png",
-    }
-)
-
 # Vanilla lighting files whose noon sun uses VANILLA_NOON_SUN, and the Choice
 # identifier that replaces the minecraft: one. Filenames stay vanilla so a
 # diff against bedrock-samples is readable. lighting/global.json is the

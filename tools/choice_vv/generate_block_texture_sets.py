@@ -31,7 +31,7 @@ import json
 import sys
 from pathlib import Path
 
-from constants import COLOR_EXTENSIONS, EXCLUDED_BLOCK_FILENAMES, UNIFORM_MERS, VANILLA_TAG
+from constants import COLOR_EXTENSIONS, UNIFORM_MERS, VANILLA_TAG
 
 REPO = Path(__file__).resolve().parents[2]
 PACK_BLOCKS = REPO / "development_resource_packs" / "Choice Textures_rp" / "textures" / "blocks"
@@ -133,7 +133,6 @@ def main() -> int:
 
     written = []
     skipped_hand = []
-    skipped_excluded = []
     unchanged = []
     without_vanilla = []
 
@@ -142,9 +141,6 @@ def main() -> int:
             without_vanilla.append(rel_image)
             continue
         dest = args.blocks / rel_set
-        if Path(rel_image).name in EXCLUDED_BLOCK_FILENAMES:
-            skipped_excluded.append(rel_image)
-            continue
         if is_hand_authored(dest):
             skipped_hand.append(rel_set)
             continue
@@ -163,7 +159,6 @@ def main() -> int:
         "written": len(written),
         "unchanged": len(unchanged),
         "choice_colors_without_vanilla_set": len(without_vanilla),
-        "skipped_excluded": sorted(skipped_excluded),
         "skipped_hand_authored": sorted(skipped_hand),
         "uniform_mers": UNIFORM_MERS,
     }
