@@ -1185,6 +1185,25 @@
                }
             ]
          }
+      },
+      "suspicious_gravel": {
+         "textures": [
+            {
+               "variations": [
+                  {
+                     "path": "textures/blocks/suspicious_gravel_0",
+                     "weight": 50
+                  },
+                  {
+                     "path": "textures/blocks/suspicious_gravel_0_v3",
+                     "weight": 50
+                  }
+               ]
+            },
+            "textures/blocks/suspicious_gravel_1",
+            "textures/blocks/suspicious_gravel_2",
+            "textures/blocks/suspicious_gravel_3"
+         ]
       }
    }
 }
