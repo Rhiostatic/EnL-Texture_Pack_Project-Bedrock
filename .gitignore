@@ -5,6 +5,8 @@ EnL-Texture_Pack_Project-Bedrock/
 Thumbs.db
 *.bak
 *.tmp
+__pycache__/
+*.pyc
 Desktop.ini
 *.zip
 

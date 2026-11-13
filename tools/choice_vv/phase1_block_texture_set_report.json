@@ -1,0 +1,26 @@
+{
+  "vanilla_tag": "v1.26.60.5",
+  "vanilla_block_texture_sets": 1293,
+  "generated": 1277,
+  "written": 0,
+  "unchanged": 1277,
+  "choice_colors_without_vanilla_set": 226,
+  "skipped_excluded": [
+    "copper_torch.png",
+    "redstone_torch_off.png",
+    "redstone_torch_on.png",
+    "soul_torch.png",
+    "suspicious_gravel_0.png",
+    "suspicious_gravel_1.png",
+    "suspicious_gravel_2.png",
+    "suspicious_gravel_3.png",
+    "torch_on.png"
+  ],
+  "skipped_hand_authored": [],
+  "uniform_mers": [
+    0,
+    0,
+    255,
+    0
+  ]
+}
