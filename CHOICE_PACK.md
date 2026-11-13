@@ -12,7 +12,7 @@ Pack path: `development_resource_packs/Choice Textures_rp/`
 ## Product rules (do not casually change)
 
 1. **Target:** latest **stable** Bedrock only. No Preview / beta. Vanilla baseline used 2026-08-21: Mojang `bedrock-samples` tag **v1.26.40.05**.
-2. **No Vibrant Visuals.** Ignore `_mer` / `_mers` / `_normal` / `_heightmap` / `.texture_set.json` / `sun_vv.png` / PBR lighting.
+2. **Vibrant Visuals is supported, in phases.** Choice is a VV pack: manifest `capabilities` includes `pbr`, `min_engine_version` is `[1, 21, 120]`, and `metadata.product_type` stays `addon`. Lighting and per-texture PBR land in the phases under [`docs/vibrant-visuals/`](docs/vibrant-visuals/README.md). Do not drop in `_mer` / `_mers` / `_normal` / `_heightmap` images outside the phase that calls for them. When a phase adds those maps, log source and provenance in `credits/SOURCE_TRACKING.md`. Generated block `.texture_set.json` files point VV at Choice colors; do not delete them while filling holes. Classic and Fancy still use only the color layer. `sun_vv.png` is not part of phases 1–2.
 3. **No Education Edition.** Strip or skip agent, NPC, camera item/block, chalkboards, portfolio, allow/deny/border, related icons. Erik never uses that mode.
 4. **Never overwrite existing Choice art** unless Erik explicitly asks. Fill **holes** only (vanilla would otherwise peek through).
 5. **Resolution mix is intentional.** Keep it.
@@ -120,7 +120,7 @@ Skip unless Erik asks:
 | Item | Why |
 |---|---|
 | Education (NPC, agent, camera, border, allow/deny, chalkboards, portfolio) | Removed on purpose |
-| `sun_vv.png` | Vibrant Visuals |
+| `sun_vv.png` | Not in VV phases 1–2. Do not add a sun texture until a later phase asks for it. |
 | `textures/environment/clouds.png` | Not in Faithful 64; vanilla clouds still show |
 | `ominous_spawning`, `pixel`, `vault_connection` particles | Not in Faithful 64 |
 | `cloth_1` / `cloth_2` | Unused leather aliases |

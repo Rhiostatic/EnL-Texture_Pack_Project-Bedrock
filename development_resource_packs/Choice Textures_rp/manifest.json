@@ -7,12 +7,12 @@
         "version": [
             1,
             0,
-            24
+            25
         ],
         "min_engine_version": [
             1,
             21,
-            30
+            120
         ]
     },
     "modules": [
@@ -22,9 +22,12 @@
             "version": [
                 1,
                 0,
-                24
+                25
             ]
         }
+    ],
+    "capabilities": [
+        "pbr"
     ],
     "metadata": {
         "product_type": "addon"
