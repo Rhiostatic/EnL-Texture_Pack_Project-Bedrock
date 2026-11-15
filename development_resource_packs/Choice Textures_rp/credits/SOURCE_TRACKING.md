@@ -12,6 +12,13 @@ Pack path: `development_resource_packs/Choice Textures_rp/`
 3. Credit licenses stay under `credits/` (do not edit Faithful `LICENSE.txt`).
 4. Skip Vibrant Visuals (`_mer` / `_mers` / `_normal` / `_heightmap` / `.texture_set.json`) and Education Edition.
 
+## 2026-11-15 — Choice Mobs & UI derivative (issue #86)
+
+- Not a change to Choice Textures art or manifest. New pack: `development_resource_packs/Choice_Mobs_UI/` (`v26.11.15 Choice Mobs & UI`, manifest `1.0.0`, new UUIDs).
+- Copied, unchanged, from this pack: mob sheets under `textures/entity/` (animals, monsters, villagers, wandering trader, illagers, golems, bosses, babies, tames, horse/llama/nautilus tack, saddles, happy-ghast harness), the clock and compass item/atlas PNGs, all of `textures/ui/`, and `font/`.
+- Left out on purpose: spawn eggs (`spawn_egg_*` and legacy `egg_*`), blocks, other items, boats, chests, signs, banners, shields, and this pack's `terrain_texture.json` / `flipbook_textures.json` / block sheets.
+- Art sources are the Choice sheets that were copied. Most animal sheets are **Natural Texture Pack 1.0.89** (Minecraft Marketplace, private). Do not publish Choice Mobs & UI as a GitHub Release. Faithful 64x r14 mob sheets keep the unmodified license at `Choice_Mobs_UI/credits/faithful64/LICENSE.txt`. Full include/exclude list: `Choice_Mobs_UI/README.md` and `Choice_Mobs_UI/credits/SOURCES.md`.
+
 ## 2026-10-12 — Revert Natural chicken and sea turtle sheets (#81)
 
 - **Issue:** #81. Players disliked the Natural Texture chicken and turtle sheets that landed in #76 and #78.
