@@ -150,6 +150,12 @@ Blocks + items (non-Education) are **complete**. Paintings (incl. dennis) **comp
 
 Choice = bottom / base so vanilla never peeks. Overlay packs Erik may enable on top: Faithful 64, Conquest Lite, Animation Essentials, patterned glass, mob add-on. Overlays win when present; Choice must still look finished **alone**.
 
+### Choice Mobs & UI
+
+`development_resource_packs/Choice_Mobs_UI/` (issue #86) is a separate pack cut from this one: mob entity textures, the clock and compass, and the UI. It does not include blocks, other items, or spawn eggs. Stack it at the top, above a third-party pack. It does not need Choice itself enabled.
+
+Animation Essentials and Animation Extended still replace client entity files when they are on. Put Choice Mobs & UI above them to win shared mob PNGs. Extended's allay, evoker, vex, and polar bear use texture paths this pack does not have, so those four keep Extended's art until Extended is off. Details, the Vibrant Visuals texture-set limitation, and art sources are in that pack's README. The Natural animal sheets are private Marketplace art. Do not publish Choice Mobs & UI as a GitHub Release.
+
 ### Animation Essentials overlay
 
 AE replaces whole `client_entity` files (it does not merge). On 2026-08-21 we wired 1.26 **baby texture keys** so Choice baby skins + commissioned baby armor apply while AE animations stay. Details: [`AE_BABY_TEXTURES.md`](AE_BABY_TEXTURES.md).
